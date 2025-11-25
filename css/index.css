@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* tipografia de la web*/
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 2rem; /*tamaño en verticarl del navbar*/
+  height: 60px; /*altura del navbar*/
+  background-color: #fff; /*color del fondo del navbar*/
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-right: 2rem; 
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 10rem; /* separación entre los textos del navbar */
+  margin: 0 auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #aff9b2; /* color al pasar sobre el texto*/
+}
+
+.navbar .toggle-menu, /*icono menu*/
+.toggle-menu {
+  font-size: 1.5rem !important;
+  color: #333; 
+  margin-right: 1rem;
+}
+
+
+/*------------ responsividad móvil ------------*/
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none; /* Si quieres un menú hamburguesa después, lo activamos con JS */
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+/*-------------------------------------------------*/
