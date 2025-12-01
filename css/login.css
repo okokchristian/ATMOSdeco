@@ -96,3 +96,24 @@ button:hover {
 .register-text a:hover {
   border-color: #000;
 }
+
+.login-message {
+    margin-top: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    display: none; /* oculto por defecto */
+}
+
+.login-message.error {
+    background-color: #ffecec;
+    color: #c0392b;
+    display: block;
+}
+
+.login-message.success {
+    background-color: #eafaf1;
+    color: #27ae60;
+    display: block;
+}
