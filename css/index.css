@@ -119,6 +119,7 @@ body {
 }
 
 
+
 /* ----------------- BOTÓN MI CUENTA -------------- */
 .btn-sesion {
     font-family: 'Poppins', sans-serif;
@@ -362,6 +363,91 @@ body {
     border-color: #cf5300;
 }
 
+/*======================= FOOTER =======================*/
+
+.footer {
+    position: relative;
+    padding: 1rem 1rem 1rem;
+    background-color: rgba(0, 0, 0, 0.179);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 40px; /* asegura alto mínimo para que el centrado absoluto tenga referencia */
+}
+
+.footer-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: #eee7e7d5;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+    color: #ff5900;
+}
+
+.footer-socials {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3rem;
+    font-size: 1.5rem;
+}
+
+.footer-socials a {
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #cf5300;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #ffffff99;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-contact {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+}
 
 /*==================RESPONSIVIDAD==============*/
 
@@ -419,5 +505,42 @@ body {
         border: 1px solid #fff;
         border-radius: 20px;
         padding: 6px 20px;
+    }
+}
+@media (max-width: 768px) {
+    .footer {
+        padding: 2.5rem 1.5rem 1.2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        position: static;
+        transform: none;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .footer-logo {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .footer-socials {
+        gap: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
     }
 }
