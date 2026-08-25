@@ -5,25 +5,23 @@
 }
 
 html {
-    background-color: #dbdbd9; /* color del body */
     height: 100%;
-    overflow-x: hidden; /* bloquea scroll horizontal si algo se desborda */
+    overflow-x: hidden;
 }
 
 body {
-    margin: 66px; /*margen*/
-    min-height: calc(100vh - 32px); /* 16px arriba + 16px abajo */
-    background-image: url('../img/index.jpg'); /*foto del fondo*/
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: 'Poppins', sans-serif; /*tipografia de la web*/
-    border-radius: 180px;  /* bordes redondeados */
-    overflow: hidden;
-} 
+    min-height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.343), rgba(0, 0, 0, 0.6)),
+        url('../img/ChatGPT Image 23 ago 2026, 11_23_31 p.m. (2).png');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+    font-family: 'Poppins', sans-serif;
+}
+/* ================== NAVBAR y relacionados ==================*/
 
-/* -------------- NAVBAR y relacionados----------*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -31,71 +29,79 @@ body {
     padding: 0 2rem;
     height: 60px;
     position: fixed;
-    top: 80px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 1100px;
+    max-width: 1200px;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: blur(3px);
+    opacity: 0;
+    animation: fadeDown 1s ease-out forwards;
 }
 
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: 1rem; /* ajusta este valor para mover el ícono respecto al logo */
+    gap: 1rem;
 }
 
 .navbar-right {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
-/* enlaces del navbar */ 
 .nav-links {
     display: flex;
+    flex: 1;
+    justify-content: center;
     list-style: none;
-    gap: 5rem;
-    margin: 0;
+    gap: 3.5rem;
+    margin: 0 2rem;
     padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #eee7e7d5;
     font-weight: 500;
     font-size: 1.2rem;
     transition: color 0.3s;
     padding: 0.5rem 0;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
-    color: #3a903d;
+    color: #ff5900;
 }
 
-/* ícono menú hamburguesa */
 .toggle-menu {
     font-size: 2.2rem;
-    color: #333;
+    color: #ffffff;
     cursor: pointer;
 }
-
-/* logo */
+ 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
 }
 
-/* iconos */
+.logo-accent {
+    font-weight: 300;
+    opacity: 0.75;
+}
+
 .nav-icons {
     display: flex;
     gap: 2rem;
     align-items: center;
     font-size: 1.5rem;
-    color: #333;
+    color: #ffffff;
 }
+
 
 /* ----------------- BOTÓN MI CUENTA -------------- */
 .btn-sesion {
@@ -103,15 +109,16 @@ body {
     font-weight: 400;
     font-size: 14px;
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
     background-color: transparent;
     padding: 6px 16px;
-    border: 1px solid #666;
+    border: 1px solid #fcfcfc;
     border-radius: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s, color 0.2s;
+    margin-left: 50px;
 }
 
 .btn-sesion:hover { /*efecto boton mi cuenta*/
@@ -119,10 +126,46 @@ body {
     color: #000;
 }
 
+/*======================= HERO =======================*/
+
+.hero-content {  /*todo el texto*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 900px;
+    opacity: 0;
+    animation: fadeSlide 1.6s ease-out 0.3s forwards; /* +0.3s de delay */
+}
+
+.hero h1 { /* formas que...*/
+    font-size: 6rem;
+    font-weight: 700;
+    color: hsla(0, 7%, 97%, 0.791);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    line-height: 1.1;
+    /* sacar position/top/left/transform/opacity/animation de acá, ya están en .hero-content */
+}
+
+.hero-content h2 { /*diseño artesanal... */
+    font-size: 3rem;
+    font-weight: 400;
+    color: #ffffffde;
+    opacity: 0.85;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+}
+
 /*------------------ BOTÓN VER PRODUCTOS -------------------*/ 
 
 .btn-verproductos {
-    background-color: #C57A48; /* tono cálido tierra */
+    background-color: #cf5300e1; /* tono cálido tierra */
     color: #fff;
     padding: 12px 28px;
     border-radius: 10px;
@@ -132,11 +175,11 @@ body {
     display: inline-block;
     transition: background-color .3s ease, transform .2s ease;
     position: absolute;
-    top: 80%; /*posición hacia arriba*/
+    top: 120%; /*posición hacia arriba*/
     left: 50%; /*posición hacia la izquierda*/
     transform: translateY(-50%);
     opacity: 0;
-    animation: fadeSlide 1.6s ease-out forwards;
+    animation: fadeSlide 1.6s ease-out 0.6s forwards; /* +0.6s de delay */
 }
 
 /* boton hver suave (efecto) */
@@ -144,6 +187,7 @@ body {
     background-color: #B96C3A;
     transform: translateY(-2px);
 }
+
 @keyframes fadeSlide {
     0% {
         opacity: 0;
@@ -155,136 +199,149 @@ body {
     }
 }
 
-/*----------------------- TEXTO --------------------*/
+@keyframes fadeDown {
+    0%   { opacity: 0; transform: translate(-50%, -20px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
 
-.hero h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    color: #000000;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    text-align: center;
-    max-width: 900px;
-    line-height: 1.1;
+@keyframes fadeUp {
+    0%   { opacity: 0; transform: translate(-50%, 20px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/*======================= QUIÉNES SOMOS =======================*/
+
+.about {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about::before {
+    content: "";
     position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    inset: 0;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 2rem;
     opacity: 0;
-    animation: fadeSlide 1.6s ease-out forwards;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-@keyframes fadeSlide {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -60%); /* empieza un poquito más arriba */
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%); /* vuelve al centro */
-    }
+.about-content.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/*------------- RESPONSIVIDAD*------------------/
-/* ===================== */
-/*    RESPONSIVE 1024px  */
-/* ===================== */
-@media (max-width: 1024px) {
-
-    .nav-links {
-        gap: 2rem;
-    }
-
-    .hero h1 {
-        font-size: 4.5rem;
-        max-width: 700px;
-    }
-
-    .btn-verproductos {
-        top: 78%;
-    }
+.about-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffffde;
+    margin-bottom: 1.5rem;
+}
+.about-content h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: #cf5300;
+    margin: 1.5rem auto 2rem;
 }
 
-/* ===================== */
-/*    TABLET 768px       */
-/* ===================== */
-@media (max-width: 768px) {
-
-    body {
-        margin: 30px;
-        border-radius: 60px;
-    }
-
-    .navbar {
-        top: 40px;
-        width: 95%;
-    }
-
-    .nav-links {
-        display: none; /* Se ocultan menú normal */
-    }
-
-    #mobile-toggle {
-        display: block; /* hamburguesa visible */
-        font-size: 2.4rem;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        top: 50%;
-    }
-
-    .btn-verproductos {
-        font-size: 1rem;
-        top: 78%;
-        padding: 10px 22px;
-    }
+.about-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ffffffde;
+}
+.about-signature {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    opacity: 0.6;
+    letter-spacing: 1px;
 }
 
-/* ===================== */
-/*    MOBILE 480px       */
-/* ===================== */
-@media (max-width: 480px) {
+/*======================= CONTACTO =======================*/
 
-    body {
-        margin: 16px;
-        border-radius: 40px;
-    }
-
-    .navbar {
-        padding: 0 1rem;
-    }
-
-    .nav-icons {
-        gap: 1rem;
-        font-size: 1.2rem;
-    }
-
-    .hero h1 {
-        font-size: 2.4rem;
-        max-width: 90%;
-        line-height: 1.2;
-        top: 48%;
-    }
-
-    .btn-verproductos {
-        top: 76%;
-        font-size: .9rem;
-        padding: 8px 18px;
-    }
+.contact {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ===================== */
-/* SMALL MOBILE 360px    */
-/* ===================== */
-@media (max-width: 360px) {
+.contact-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 
-    .hero h1 {
-        font-size: 2rem;
-    }
+.contact-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .btn-verproductos {
-        font-size: .85rem;
-        padding: 8px 16px;
-    }
+.contact-content h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.contact-divider {
+    width: 60px;
+    height: 2px;
+    background: #cf5300;
+    margin: 1.5rem auto 2rem;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ffffffde;
+    margin-bottom: 2.5rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-item i {
+    font-size: 1.4rem;
+}
+
+.contact-item:hover {
+    background-color: rgba(207, 83, 0, 0.2);
+    border-color: #cf5300;
 }

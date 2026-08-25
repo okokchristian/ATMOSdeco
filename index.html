@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ATMOS deco</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <link rel="preload" href=".../css/index.css" as="style">
     <link rel="stylesheet" href="../css/index.css">
@@ -11,13 +11,11 @@
 
 </head>
 <body>
-    <div class="hero"></div>
     <nav class="navbar">
-    <i class="bi bi-list toggle-menu" id="mobile-toggle"></i></i> 
-    <div class="logo"></div>
+    <div class="logo">ATMOS <br><span class="logo-accent">deco</span></div>
         <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#servicios">Productos</a></li>
         <li><a href="#quienes">¿Quiénes somos?</a></li>
         <li><a href="#contacto">Contactanos</a></li>
         </ul>
@@ -27,12 +25,49 @@
     <a href="sesion" class="btn-sesion">Mi cuenta</a>
     </div>
     </nav>
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
-        <h1>Velas hechas con cera y amor</h1>
+        <h1>Formas que iluminan</h1>
+        <h2>Diseño artesanal, <br>bioplástico eco-friendly.</h2>
         <a class="btn-verproductos" href="#">Ver productos</a>
         </div>
     </section>
     
+<!-----------------SECTION QUIENES SON ------------------>
+
+<section class="about" id="quienes">
+    <div class="about-content">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos ATMOS deco, gente que cree que la luz también puede tener alma. Todo empezó en Uruguay, con la idea de que un objeto cotidiano como una lámpara podía ser también una declaración de cuidado: por el ambiente, por el diseño, por quien la recibe. <br><br>Cada pieza nace en impresión 3D con bioplástico sustentable, pensada para durar y acompañar tus espacios con calidez.<br><br> No fabricamos en serie: diseñamos, probamos y armamos cada lámpara con nuestras manos, buscando esa mezcla justa entre forma orgánica y luz cálida que ilumine no solo el espacio, sino el momento.</p>
+        <p class="about-signature">Hecho con amor. Hecho en Uruguay.</p>
+    </div>
+</section>
+
+<!------------------ CONTACTANOS -------------------->
+
+<section class="contact" id="contacto">
+    <div class="contact-content">
+        <h2>Contactanos</h2>
+        <div class="contact-divider"></div>
+        <p>¿Tenés dudas o querés hacer un pedido? Escribinos, te respondemos con onda.</p>
+        <div class="contact-links">
+            <a href="mailto:tu-email@ejemplo.com" class="contact-item">
+                <i class="bi bi-envelope"></i>
+                <span>tu-email@ejemplo.com</span>
+            </a>
+            <a href="https://wa.me/598XXXXXXXX" target="_blank" class="contact-item">
+                <i class="bi bi-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://instagram.com/atmosdecouy" target="_blank" class="contact-item">
+                <i class="bi bi-instagram"></i>
+                <span>@atmosdecouy</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="js/index.js"></script>
+
 </body>
 </html>
