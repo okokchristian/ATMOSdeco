@@ -144,22 +144,22 @@ body {
 }
 
 
-.hero h1 { /* geometria...*/
-    font-size: 4rem;
+.hero h1 {
+    font-size: clamp(2.3rem, 8vw, 4.5rem);
     font-weight: 700;
     color: hsla(0, 7%, 97%, 0.791);
     text-shadow: 0 2px 8px rgba(0,0,0,0.15);
     line-height: 1.1;
-    /* sacar position/top/left/transform/opacity/animation de acá, ya están en .hero-content */
 }
 
-.hero-content h2 { /*iluminación... */
-    font-size: 2rem;
+.hero-content h2 {
+    font-size: clamp(1.3rem, 3.5vw, 1.6rem);
     font-weight: 400;
     color: #ffffffde;
     opacity: 0.85;
     margin-top: 0.5rem;
     letter-spacing: 0.5px;
+    max-width: 600px;
 }
 
 .hero {
