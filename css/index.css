@@ -10,7 +10,8 @@ html {
 }
 
 body {
-    min-height: -webkit-fill-available;
+    background-color: #0a0a0a; /* fallback oscuro, se ve solo si hay algún hueco de renderizado */
+    min-height: 100vh;
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.343), rgba(0, 0, 0, 0.6)),
         url('../img/ChatGPT Image 23 ago 2026, 11_23_31 p.m. (2).png');
@@ -18,7 +19,12 @@ body {
     background-position: center, center;
     background-repeat: no-repeat, no-repeat;
     background-attachment: fixed, fixed;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll, scroll;
+    }
 }
 /* ================== NAVBAR y relacionados ==================*/
 
