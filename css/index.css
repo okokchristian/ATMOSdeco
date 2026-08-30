@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     height: -webkit-fill-available;
     overflow-x: hidden;
@@ -109,31 +115,6 @@ body {
     color: #ffffff;
 }
 
-
-
-/* ----------------- BOTÓN MI CUENTA -------------- */
-.btn-sesion {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    text-decoration: none;
-    color: #ffffff;
-    background-color: transparent;
-    padding: 6px 16px;
-    border: 1px solid #fcfcfc;
-    border-radius: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
-    margin-left: 50px;
-}
-
-.btn-sesion:hover { /*efecto boton mi cuenta*/
-    background-color: #f0f0f0;
-    color: #000;
-}
-
 /*======================= HERO =======================*/
 
 .hero-content {  /*todo el texto*/
@@ -175,7 +156,7 @@ body {
     min-height: 100vh;
 }
 
-/*------------------ BOTÓN VER PRODUCTOS -------------------*/ 
+/*================== BOTÓN VER PRODUCTOS =====================*/ 
 
 .btn-verproductos {
     background-color: #cf5300e1;
@@ -358,7 +339,7 @@ body {
 
 .footer {
     position: relative;
-    padding: 1rem 1rem 1rem;
+    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
     background-color: rgba(0, 0, 0, 0.179);
     backdrop-filter: blur(4px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -515,9 +496,9 @@ body {
         transform: translateY(-10px);
 
         transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease,
-            transform 0.4s cubic-bezier(.22,1,.36,1);
+            opacity 0.45s ease,
+            visibility 0.45s ease,
+            transform 0.45s ease;
 
         z-index: 1001;
     }
@@ -532,21 +513,23 @@ body {
         display: none;
     }
 
-    /* items */
+       /* items */
     #nav-links li {
         width: 100%;
         border-bottom: 1px solid rgba(255,255,255,0.10);
+        opacity: 0;
+        transform: translateY(14px);
     }
     #nav-links li:last-child {
         border-bottom: none;
     }
     #nav-links.active li {
-        animation: menuItemIn 0.5s cubic-bezier(.22,1,.36,1) forwards;
+        animation: menuItemIn 0.6s cubic-bezier(.22,1,.36,1) forwards;
     }
-    #nav-links.active li:nth-child(1) { animation-delay: 0.05s; }
-    #nav-links.active li:nth-child(2) { animation-delay: 0.11s; }
-    #nav-links.active li:nth-child(3) { animation-delay: 0.17s; }
-    #nav-links.active li:nth-child(4) { animation-delay: 0.23s; }
+    #nav-links.active li:nth-child(1) { animation-delay: 0.20s; }
+    #nav-links.active li:nth-child(2) { animation-delay: 0.28s; }
+    #nav-links.active li:nth-child(3) { animation-delay: 0.36s; }
+    #nav-links.active li:nth-child(4) { animation-delay: 0.44s; }
 
     /* ================= LINKS ================= */
     #nav-links a {
@@ -594,4 +577,7 @@ body {
 @keyframes menuItemIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+@media (min-width: 769px) {
+    .toggle-menu { display: none; }
 }
