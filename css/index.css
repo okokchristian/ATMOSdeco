@@ -43,13 +43,16 @@ body {
     padding: 0 2rem;
     height: 60px;
     position: fixed;
-    top: 10px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
     max-width: 1200px;
     z-index: 1000;
-    background-color: transparent;
+    background-color: rgba(20, 17, 15, 0);   /* antes: transparent */
+    backdrop-filter: blur(3px);                 /* nuevo */
+    -webkit-backdrop-filter: blur(3px);         /* nuevo — Safari */
+    border-radius: 20px;                          /* opcional, le da forma de "pill" */
     opacity: 0;
     animation: fadeDown 1s ease-out forwards;
 }
@@ -71,7 +74,7 @@ body {
     flex: 1;
     justify-content: center;
     list-style: none;
-    gap: 3.5rem;
+    gap: 5rem; /*espacio entre links del navbar*/
     margin: 0 2rem;
     padding: 0;
 }
@@ -84,10 +87,46 @@ body {
     transition: color 0.3s;
     padding: 0.5rem 0;
     white-space: nowrap;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #ff5900;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
     color: #ff5900;
+}
+
+@media (min-width: 769px) {
+    .nav-links {
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        height: 60px;
+        margin: 0;
+        z-index: 1000;
+        pointer-events: none;
+        align-items: center; 
+
+    }
+    .nav-links a {
+        pointer-events: auto;
+    }
 }
 
 .toggle-menu {
@@ -100,6 +139,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffffff;
+    transform: translateY(-4px);
 }
 
 .logo-accent {
@@ -118,7 +158,7 @@ body {
 /*======================= HERO =======================*/
 
 .hero-content {  /*todo el texto*/
-     position: absolute;
+    position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -202,7 +242,7 @@ body {
 
 .about {
     position: relative;
-    min-height: 100vh;
+    padding: 7rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,7 +302,7 @@ body {
 
 .contact {
     position: relative;
-    min-height: 100vh;
+    padding: 7rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,7 +380,7 @@ body {
 .footer {
     position: relative;
     padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
-    background-color: rgba(0, 0, 0, 0.179);
+    background-color: rgba(0, 0, 0, 0.105);
     backdrop-filter: blur(4px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -436,7 +476,7 @@ body {
         width: calc(100% - 2rem);
         padding: 0 1.2rem;
         height: 58px;
-        top: 10px;
+        top: 16px;
         z-index: 1002;
     }
     .logo {
