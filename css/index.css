@@ -147,6 +147,10 @@ body {
     opacity: 0.75;
 }
 
+.logo {
+    text-decoration: none;
+}
+
 .nav-icons {
     display: flex;
     gap: 2rem;
