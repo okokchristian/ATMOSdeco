@@ -200,6 +200,13 @@ body {
     width: 100%;
 }
 
+body.nav-hidden .navbar,
+body.nav-hidden .nav-links {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease;
+}
+
 /*======================= HERO =======================*/
 
 .hero-content {  /*todo el texto*/
@@ -221,7 +228,7 @@ body {
 .hero h1 {
     font-size: clamp(2.3rem, 8vw, 4.5rem);
     font-weight: 700;
-    color: hsla(0, 7%, 97%, 0.791);
+    color: hsla(0, 7%, 97%, 0.721);
     text-shadow: 0 2px 8px rgba(0,0,0,0.15);
     line-height: 1.1;
 }

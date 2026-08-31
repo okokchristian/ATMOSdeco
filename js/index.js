@@ -59,3 +59,14 @@ toggleBackToTop(); // por si carga ya scrolleado
 backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Ocultar navbar apenas empezás a scrollear (no te sigue)
+const navbarWrapper = document.body;
+
+function updateNavbarOnScroll() {
+    const hidden = window.scrollY > 10;
+    navbarWrapper.classList.toggle('nav-hidden', hidden);
+}
+
+window.addEventListener('scroll', updateNavbarOnScroll);
+updateNavbarOnScroll();
