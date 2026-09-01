@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lámparas — ATMOS deco</title>
+    <title>Producto — ATMOS deco</title>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preload" href="../css/index.css" as="style">
     <link rel="stylesheet" href="../css/index.css">
@@ -50,35 +50,19 @@
         </li>
     </ul>
 
-<!---------------- PRODUCTOS: LAMPARAS ------------------------------------>
+<!---------------- DETALLE DE PRODUCTO ------------------------------------>
 
-<section class="productos">
-    <div class="productos-header">
-        <h2>Lámparas</h2>
-    </div>
-    <div class="productos-grid">
-
-
-        <!--------------- acá van a ir las cards de producto -->
-
-   <a href="productos.html?id=lampara-ondas" class="producto-card">
-    <img src="../img/IMG_1808.JPG" alt="Lámpara Ondas" class="producto-img">
-    <div class="producto-info">
-        <h3>Lámpara Ondas</h3>
-        <div class="producto-linea"></div>
-        <p class="producto-precio">$1.000 UYU</p>
-    </div>
-</a>
-
-
-
-
-        <!------------------------------------------------------>
-    
+<section class="producto-detalle">
+    <div class="producto-detalle-grid" id="producto-detalle-contenido">
+        <!-- acá el JS va a insertar la imagen, nombre, precio, descripción y botones -->
     </div>
 </section>
 
     <!------------------------------------------------------->
+
+    <button id="back-to-top" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
 <footer class="footer">
     <div class="footer-content">
@@ -86,7 +70,7 @@
 
         <div class="footer-socials">
             <a href="https://instagram.com/atmosdecouy" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/59892980915X" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://wa.me/598XXXXXXXX" target="_blank"><i class="bi bi-whatsapp"></i></a>
             <a href="mailto:atmosdecouy@gmail.com"><i class="bi bi-envelope"></i></a>
         </div>
     </div>
@@ -96,6 +80,47 @@
     </div>
 </footer>
 
+<!-------------------MODAL TRANSFERENCIA----------------------------->
+
+<div class="modal-overlay" id="modal-transferencia">
+    <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h3>Transferencia bancaria</h3>
+        <p class="modal-subtitle">Realizá la transferencia a estos datos y envianos el comprobante</p>
+
+        <div class="datos-bancarios">
+            <div class="dato-item">
+                <span class="dato-label">Banco</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-banco">IT</span>
+                    <button class="btn-copiar" data-copiar="dato-banco"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+            <div class="dato-item">
+                <span class="dato-label">Titular</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-titular">Jonathan Rodriguez</span>
+                    <button class="btn-copiar" data-copiar="dato-titular"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+            <div class="dato-item">
+                <span class="dato-label">Número de cuenta</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-cuenta">000000000000</span>
+                    <button class="btn-copiar" data-copiar="dato-cuenta"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <p class="modal-nota">Tu pedido se reserva una vez que confirmemos el pago recibido.</p>
+
+        <a href="#" target="_blank" class="modal-btn-whatsapp" id="modal-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i> Enviar comprobante por WhatsApp
+        </a>
+    </div>
+</div>
 
 <!-------------------BUSCADOR ----------------------------->
 
@@ -112,11 +137,10 @@
     </div>
 </div>
 
-<!------------------------------------------------->
-
-<script src="../js/productos.js"></script>
-<script src="../js/search.js"></script>
-<script src="../js/index.js"></script>
-
+    <script src="../js/productos.js"></script>
+    <script src="../js/producto-detalle.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/index.js"></script>
+    
 </body>
 </html>
