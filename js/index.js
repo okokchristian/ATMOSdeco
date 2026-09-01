@@ -1,4 +1,5 @@
-// Fade-in al hacer scroll para secciones tipo "about"
+// Fade-in al hacer scroll en la web
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -46,7 +47,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Botón volver arriba
+// =====================BOTON VOLVER ARRIBA ========================/
+
 const backToTopBtn = document.getElementById('back-to-top');
 
 function toggleBackToTop() {
@@ -63,7 +65,7 @@ if (backToTopBtn) {
     });
 }
 
-// Ocultar navbar apenas empezás a scrollear (no te sigue)
+// ============ Ocultar navbar apenas empezás a scrollear (no te sigue)
 const navbarWrapper = document.body;
 
 function updateNavbarOnScroll() {
@@ -90,12 +92,12 @@ if (modalTransferencia) {
         itau: {
             banco: 'ITAÚ',
             titular: 'Jonathan Rodriguez',
-            cuenta: '000000000000'
+            cuenta: '1710596'
         },
         prex: {
             banco: 'PREX',
             titular: 'Jonathan Rodriguez',
-            cuenta: '000000000000'
+            cuenta: '1098455'
         }
     };
 
@@ -118,10 +120,11 @@ if (modalTransferencia) {
     });
 
     document.querySelectorAll('.btn-transferencia').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const producto = btn.dataset.producto;
-            const precio = btn.dataset.precio;
-            const mensaje = `Hola! Quiero comprar ${producto} (${precio}) por transferencia, ya hice el pago y adjunto el comprobante.`;
+    btn.addEventListener('click', () => {
+        const producto = btn.dataset.producto;
+        const precio = btn.dataset.precio;
+        const entrega = btn.dataset.entrega || 'Retiro';
+        const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
             modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
             bancoTabs.forEach(t => t.classList.remove('active'));

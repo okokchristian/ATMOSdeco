@@ -451,11 +451,11 @@ body.nav-hidden .nav-links {
     max-width: 1200px;
     margin: 0 auto;
     min-height: 40px;
-    gap: 2rem; /*separación entre logo y redes */
+    gap: 0.9rem; /* antes: 2rem */
 }
 
 .footer-logo {
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* antes: 1.3rem */
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 0;
@@ -482,8 +482,8 @@ body.nav-hidden .nav-links {
     left: auto;
     transform: none;
     display: flex;
-    gap: 3rem;
-    font-size: 1.5rem;
+    gap: 1.6rem; /* antes: 3rem */
+    font-size: 1.15rem; /* antes: 1.5rem */
     margin-top: 0;
 }
 
@@ -498,14 +498,14 @@ body.nav-hidden .nav-links {
 
 .footer-bottom {
     max-width: 1200px;
-    margin: 2rem auto 0;
-    padding-top: 1.5rem;
+    margin: 0.9rem auto 0; /* antes: 2rem auto 0 */
+    padding-top: 0.8rem; /* antes: 1.5rem */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
 }
 
 .footer-bottom p {
-    font-size: 0.85rem;
+    font-size: 0.78rem; /* antes: 0.85rem */
     color: #ffffff99;
 }
 

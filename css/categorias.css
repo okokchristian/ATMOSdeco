@@ -436,7 +436,7 @@
 
 .producto-detalle-descripcion {
     max-width: 480px;
-    margin: 0;
+    margin: 0 0 1.5rem;
     font-size: 0.9rem;
     font-weight: 300;
     line-height: 1.8;
@@ -742,4 +742,38 @@
 .dot.active {
     width: 32px;
     background: #ff5900;
+}
+
+.entrega-tabs {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.entrega-tab {
+    flex: 1;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    color: hsla(0, 7%, 97%, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.entrega-tab.active {
+    background: #ff5900;
+    border-color: #ff5900;
+    color: #fff;
+}
+
+.entrega-info {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: hsla(0, 7%, 97%, 0.55);
+    line-height: 1.5;
+    margin-bottom: 1.3rem;
 }
