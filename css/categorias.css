@@ -27,7 +27,7 @@
 }
 
 
-/*======================= CARD =======================*/
+/*======================= CARD DE CATEGORIAS =======================*/
 
 .categoria-card {
     display: block;
@@ -55,7 +55,7 @@
 }
 
 
-/*======================= IMAGEN =======================*/
+/*---------------- IMAGEN CARD EN CATEGRORIAS ----------------*/
 
 .categoria-img {
     width: 100%;
@@ -70,7 +70,7 @@
 }
 
 
-/*======================= INFORMACIÓN =======================*/
+/*-------------------- INFORMACIÓN -------------*/
 
 .categoria-info {
     padding: 1.5rem;
@@ -93,7 +93,7 @@
 }
 
 
-/*======================= RAYITA =======================*/
+/*----------------RAYITA ---------------------*/
 
 .categoria-linea {
     width: 35px;
@@ -108,7 +108,7 @@
 }
 
 
-/*======================= DESCRIPCIÓN =======================*/
+/*----------------DESCRIPCIÓN CATEGORIA ------------------*/
 
 .categoria-info p {
     font-size: 0.95rem;
@@ -120,7 +120,7 @@
 }
 
 
-/*======================= BOTÓN =======================*/
+/*-------------- BOTÓN VER CATEGORIA --------------*/
 
 .btn-categoria {
     display: inline-flex;
@@ -157,7 +157,7 @@
 }
 
 
-/*======================= TABLET =======================*/
+/*======================= RESPONSVIDAD TABLET =======================*/
 
 @media (max-width: 768px) {
 
@@ -208,4 +208,488 @@
         font-size: 0.88rem;
     }
 
+}
+
+
+/*======================= GRID DE PRODUCTOS =======================*/
+
+.productos {
+    position: relative;
+    padding: 7rem 2rem 3rem;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ================== CARD DE LAMPARAS ==================*/
+.producto-card {
+    display: block;
+    text-decoration: none;   /* NUEVO — esto saca el subrayado */
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    transition:
+        transform 0.45s cubic-bezier(.22,1,.36,1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff5900;
+    box-shadow:
+        0 0 0 1px rgba(255, 89, 0, 0.3),
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 60px rgba(207, 83, 0, 0.35);
+}
+
+.producto-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.07);
+}
+
+.producto-info {
+    padding: 1.5rem;
+}
+
+.producto-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: hsla(0, 7%, 97%, 0.721);
+    margin-bottom: 0.4rem;
+}
+
+
+.producto-precio {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: hsla(0, 7%, 97%, 0.721);
+
+}
+
+/* ------------------METODO DE PAGO -------------------*/
+
+.producto-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+}
+
+.btn-comprar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-mp {
+    background-color: #00b0f0;
+    color: #fff;
+}
+
+.btn-mp:hover {
+    background-color: #0086c3; 
+    transform: translateY(-2px);
+}
+
+.btn-transferencia {
+    background: transparent;
+    color: hsla(0, 7%, 97%, 0.85);
+    border: 1px solid rgba(255, 89, 0, 0.7);
+}
+
+.btn-transferencia:hover {
+    background: #ff5900;
+    border-color: #ff5900;
+    color: #fff;
+}
+
+/*------------------- DETALLE DE PRODUCTO ---------------------*/
+
+.producto-detalle {
+    padding: 11rem 2rem 4rem;
+}
+
+.producto-detalle-grid {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.producto-detalle-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    overflow: hidden;
+}
+
+.producto-detalle-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.producto-detalle-grid:hover .producto-detalle-img img {
+    transform: scale(1.035);
+}
+
+.producto-detalle-img::before {
+    content: "01";
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50px;
+    padding: 0.5rem 0.75rem;
+    backdrop-filter: blur(8px);
+}
+
+.producto-detalle-info {
+    padding: 2.2rem 2.5rem 2.5rem;
+}
+
+.producto-detalle-info::before {
+    content: "COLECCIÓN";
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: rgba(255, 89, 0, 0.9);
+}
+
+.producto-detalle-info h1 {
+    position: relative;
+    margin-bottom: 1rem;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.producto-detalle-info h1::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    margin-top: 0.9rem;
+    background: #ff5900;
+    transition: width 0.4s ease;
+}
+
+.producto-detalle-grid:hover .producto-detalle-info h1::after {
+    width: 65px;
+}
+
+.producto-detalle-precio {
+    display: block;
+    margin-bottom: 1.3rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.producto-detalle-descripcion {
+    max-width: 480px;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.52);
+}
+
+.producto-no-encontrado {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.producto-no-encontrado a {
+    margin-left: 0.5rem;
+    color: #ff5900;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .producto-detalle {
+        padding: 6rem 1rem 3rem;
+    }
+
+    .producto-detalle-grid {
+        grid-template-columns: 1fr; 
+        max-width: 500px;
+        border-radius: 20px;
+    }
+
+    .producto-detalle-img {
+        aspect-ratio: 1 / 1;
+    }
+
+    .producto-detalle-info {
+        padding: 1.8rem 1.5rem 2rem;
+    }
+
+    .producto-detalle-info h1 {
+        font-size: 2rem;
+    }
+}
+
+/*======================= MODAL TRANSFERENCIA =======================*/
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.193);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: rgba(154, 83, 35, 0.854);
+    backdrop-filter: blur(200px);
+    -webkit-backdrop-filter: blur(200px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 2rem;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: hsla(0, 7%, 97%, 0.85);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsla(0, 7%, 97%, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    font-size: 0.9rem;
+    color: hsla(0, 7%, 97%, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.datos-bancarios {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.dato-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.dato-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: hsla(0, 7%, 97%, 0.55);
+}
+
+.dato-valor-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+}
+
+.dato-valor {
+    font-size: 0.95rem;
+    color: hsla(0, 7%, 97%, 0.9);
+}
+
+.btn-copiar {
+    background: transparent;
+    border: none;
+    color: hsla(0, 7%, 97%, 0.7);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.btn-copiar:hover {
+    color: #ff5900;
+}
+
+.modal-nota {
+    font-size: 0.8rem;
+    color: hsla(0, 7%, 97%, 0.6);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.modal-btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background-color: #25D366;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-btn-whatsapp:hover {
+    background-color: #1ebe5b;
+    transform: translateY(-2px);
+}
+
+
+/*====================== SCROLL ENTRE FOTOS=========================*/
+
+.producto-detalle-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.galeria-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease;
+}
+
+.galeria-track img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.galeria-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.galeria-flecha:hover {
+    background: #ff5900;
+}
+
+.galeria-flecha-izq {
+    left: 0.8rem;
+}
+
+.galeria-flecha-der {
+    right: 0.8rem;
+}
+
+.galeria-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 16px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.2s ease, width 0.3s ease;
+}
+
+.dot.active {
+    width: 32px;
+    background: #ff5900;
 }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto — ATMOS deco</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="../css/index.css" as="style">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="preload" href="../css/categorias.css" as="style">
+    <link rel="stylesheet" href="../css/categorias.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="bg-fixed"></div>
+
+    <nav class="navbar">
+        <a href="../index.html" class="logo">
+            ATMOS <br>
+            <span class="logo-accent">deco</span>
+        </a>
+
+        <div class="nav-icons">
+            <a href="#" class="btn-buscar">
+                <i class="bi bi-search"></i>
+                <span>Buscar</span>
+            </a>
+            <i class="bi bi-list toggle-menu" id="mobile-toggle"></i>
+        </div>
+    </nav>
+
+    <ul class="nav-links" id="nav-links">
+        <li class="nav-search-item">
+            <a href="#" class="btn-buscar">
+                <i class="bi bi-search"></i>
+                <span>Buscar</span>
+            </a>
+        </li>
+        <li>
+            <a href="../index.html">Inicio</a>
+        </li>
+        <li>
+            <a href="categorias.html">Colección</a>
+        </li>
+        <li>
+            <a href="../index.html#quienes">¿Quiénes somos?</a>
+        </li>
+        <li>
+            <a href="../index.html#contacto">Contactanos</a>
+        </li>
+    </ul>
+
+<!---------------- DETALLE DE PRODUCTO ------------------------------------>
+
+<section class="producto-detalle">
+    <div class="producto-detalle-grid" id="producto-detalle-contenido">
+        <!-- acá el JS va a insertar la imagen, nombre, precio, descripción y botones -->
+    </div>
+</section>
+
+    <!------------------------------------------------------->
+
+    <button id="back-to-top" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">ATMOS <span class="logo-accent">deco</span></div>
+
+        <div class="footer-socials">
+            <a href="https://instagram.com/atmosdecouy" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/598XXXXXXXX" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:atmosdecouy@gmail.com"><i class="bi bi-envelope"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 ATMOS deco. Hecho con amor en Uruguay.</p>
+    </div>
+</footer>
+
+<!-------------------MODAL TRANSFERENCIA----------------------------->
+
+<div class="modal-overlay" id="modal-transferencia">
+    <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h3>Transferencia bancaria</h3>
+        <p class="modal-subtitle">Realizá la transferencia a estos datos y envianos el comprobante</p>
+
+        <div class="datos-bancarios">
+            <div class="dato-item">
+                <span class="dato-label">Banco</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-banco">IT</span>
+                    <button class="btn-copiar" data-copiar="dato-banco"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+            <div class="dato-item">
+                <span class="dato-label">Titular</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-titular">Jonathan Rodriguez</span>
+                    <button class="btn-copiar" data-copiar="dato-titular"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+            <div class="dato-item">
+                <span class="dato-label">Número de cuenta</span>
+                <div class="dato-valor-row">
+                    <span class="dato-valor" id="dato-cuenta">000000000000</span>
+                    <button class="btn-copiar" data-copiar="dato-cuenta"><i class="bi bi-clipboard"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <p class="modal-nota">Tu pedido se reserva una vez que confirmemos el pago recibido.</p>
+
+        <a href="#" target="_blank" class="modal-btn-whatsapp" id="modal-whatsapp-btn">
+            <i class="bi bi-whatsapp"></i> Enviar comprobante por WhatsApp
+        </a>
+    </div>
+</div>
+
+<!-------------------BUSCADOR ----------------------------->
+
+<div class="search-overlay" id="search-overlay">
+    <div class="search-box">
+        <div class="search-input-row">
+            <i class="bi bi-search"></i>
+            <input type="text" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+            <button class="search-close" id="search-close" aria-label="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+
+    <script src="../js/productos.js"></script>
+    <script src="../js/producto-detalle.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/index.js"></script>
+    
+</body>
+</html>

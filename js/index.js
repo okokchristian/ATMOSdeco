@@ -50,6 +50,7 @@ document.addEventListener('keydown', (event) => {
 const backToTopBtn = document.getElementById('back-to-top');
 
 function toggleBackToTop() {
+    if (!backToTopBtn) return;   // NUEVO — si no existe el botón en esta página, no hace nada
     backToTopBtn.classList.toggle('visible', window.scrollY > 400);
 }
 
@@ -70,3 +71,52 @@ function updateNavbarOnScroll() {
 
 window.addEventListener('scroll', updateNavbarOnScroll);
 updateNavbarOnScroll();
+
+
+// ================= MODAL TRANSFERENCIA =================
+const modalTransferencia = document.getElementById('modal-transferencia');
+const modalClose = document.getElementById('modal-close');
+const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
+
+const TU_NUMERO_WHATSAPP = '59892980915';
+
+document.querySelectorAll('.btn-transferencia').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const producto = btn.dataset.producto;
+        const precio = btn.dataset.precio;
+        const mensaje = `Hola! Quiero comprar ${producto} (${precio}) por transferencia, ya hice el pago y adjunto el comprobante.`;
+        modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+        modalTransferencia.classList.add('active');
+        document.body.classList.add('menu-open');
+    });
+});
+
+function closeModalTransferencia() {
+    modalTransferencia.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
+
+modalClose.addEventListener('click', closeModalTransferencia);
+modalTransferencia.addEventListener('click', (e) => {
+    if (e.target === modalTransferencia) closeModalTransferencia();
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModalTransferencia();
+});
+
+// ================= COPIAR DATOS BANCARIOS =================
+document.querySelectorAll('.btn-copiar').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.dataset.copiar;
+        const text = document.getElementById(targetId).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            const icon = btn.querySelector('i');
+            icon.classList.remove('bi-clipboard');
+            icon.classList.add('bi-check-lg');
+            setTimeout(() => {
+                icon.classList.remove('bi-check-lg');
+                icon.classList.add('bi-clipboard');
+            }, 1500);
+        });
+    });
+});
