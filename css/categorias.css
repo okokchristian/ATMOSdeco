@@ -777,3 +777,42 @@
     line-height: 1.5;
     margin-bottom: 1.3rem;
 }
+
+/*======================= 404 =======================*/
+
+.error-404 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.error-404-content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.error-404-numero {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #ff5900;
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+}
+
+.error-404-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: hsla(0, 7%, 97%, 0.9);
+    margin-bottom: 0.8rem;
+}
+
+.error-404-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: hsla(0, 7%, 97%, 0.65);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
