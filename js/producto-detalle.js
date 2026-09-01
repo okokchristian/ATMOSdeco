@@ -39,6 +39,9 @@ if (!producto) {
                     `).join('')}
                 </div>
             ` : ''}
+            <button class="btn-compartir-flotante" id="btn-compartir" aria-label="Compartir este producto">
+                <i class="bi bi-share"></i>
+            </button>
         </div>
         <div class="producto-detalle-info">
             <h1>${producto.nombre}</h1>
@@ -99,6 +102,36 @@ if (!producto) {
             btnTransferencia.dataset.precio = precioTexto;
             btnTransferencia.dataset.entrega = tipo === 'envio' ? 'Envío' : 'Retiro';
         });
+    });
+
+    // ================= COMPARTIR PRODUCTO =================
+    const btnCompartir = document.getElementById('btn-compartir');
+
+    btnCompartir.addEventListener('click', async () => {
+        const urlProducto = window.location.href;
+        const textoCompartir = `${producto.nombre} — ATMOS deco`;
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: textoCompartir,
+                    text: `Mirá esta lámpara de ATMOS deco: ${producto.nombre}`,
+                    url: urlProducto
+                });
+            } catch (err) {
+                // el usuario canceló el share, no hacemos nada
+            }
+        } else {
+            navigator.clipboard.writeText(urlProducto).then(() => {
+                const icon = btnCompartir.querySelector('i');
+                icon.classList.remove('bi-share');
+                icon.classList.add('bi-check-lg');
+                setTimeout(() => {
+                    icon.classList.remove('bi-check-lg');
+                    icon.classList.add('bi-share');
+                }, 1500);
+            });
+        }
     });
 
     // ================= GALERÍA DESLIZABLE =================

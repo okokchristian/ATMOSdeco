@@ -455,6 +455,32 @@
     text-decoration: none;
 }
 
+.btn-compartir-flotante {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-compartir-flotante:hover {
+    background: #ff5900;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     .producto-detalle {
         padding: 6rem 1rem 3rem;
