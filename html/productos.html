@@ -94,14 +94,25 @@
         <button class="modal-close" id="modal-close" aria-label="Cerrar">
             <i class="bi bi-x-lg"></i>
         </button>
-        <h3>Transferencia bancaria</h3>
+        <h3>Transferencia bancaria</h3> 
         <p class="modal-subtitle">Realizá la transferencia a estos datos y envianos el comprobante</p>
+
+        <div class="banco-tabs">
+            <button class="banco-tab active" data-banco="itau">
+                <img src="../img/itau.svg.png" alt="" class="banco-logo">
+                Itaú
+            </button>
+            <button class="banco-tab" data-banco="prex">
+                <img src="../img/prex.png" alt="" class="banco-logo">
+                Prex
+            </button>
+        </div>
 
         <div class="datos-bancarios">
             <div class="dato-item">
                 <span class="dato-label">Banco</span>
                 <div class="dato-valor-row">
-                    <span class="dato-valor" id="dato-banco">IT</span>
+                    <span class="dato-valor" id="dato-banco">ITAU</span>
                     <button class="btn-copiar" data-copiar="dato-banco"><i class="bi bi-clipboard"></i></button>
                 </div>
             </div>

@@ -484,7 +484,7 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.193);
+    background: rgba(0, 0, 0, 0.447);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     display: flex;
@@ -506,7 +506,7 @@
     position: relative;
     width: 100%;
     max-width: 420px;
-    background: rgba(154, 83, 35, 0.854);
+    background: rgba(125, 121, 121, 0.442);
     backdrop-filter: blur(200px);
     -webkit-backdrop-filter: blur(200px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -544,6 +544,14 @@
     margin-bottom: 1.5rem;
 }
 
+.modal-content.tema-itau {
+    background: rgba(255, 106, 0, 0.625);
+}
+
+.modal-content.tema-prex {
+    background: rgba(124, 58, 237, 0.598);
+}
+
 .datos-bancarios {
     display: flex;
     flex-direction: column;
@@ -570,7 +578,7 @@
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
+    border-radius: 30px;
     padding: 0.6rem 0.9rem;
 }
 
@@ -608,7 +616,7 @@
     background-color: #25D366;
     color: #fff;
     padding: 12px 20px;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
@@ -620,6 +628,48 @@
     transform: translateY(-2px);
 }
 
+.banco-tabs {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.3rem;
+}
+
+.banco-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    color: hsla(0, 7%, 97%, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.banco-tab.active {
+    color: hsla(0, 7%, 97%, 0.7);
+    color: hsla(0, 7%, 97%, 0.7);
+}
+
+.banco-logo {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.banco-logo-btn {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    border-radius: 3px;
+}
 
 /*====================== SCROLL ENTRE FOTOS=========================*/
 

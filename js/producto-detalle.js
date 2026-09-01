@@ -52,10 +52,12 @@ if (!producto) {
                     <i class="bi bi-credit-card"></i> Mercado Pago
                 </a>
                 <button class="btn-comprar btn-transferencia"
-                        data-producto="${producto.nombre}"
-                        data-precio="${producto.precio}">
-                    <i class="bi bi-bank"></i> Transferencia bancaria
-                </button>
+        data-producto="${producto.nombre}"
+        data-precio="${producto.precio}">
+    Transferencia bancaria
+    <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
+    <img src="../img/prex.png" alt="" class="banco-logo-btn">
+</button>
             </div>
         </div>
     `;

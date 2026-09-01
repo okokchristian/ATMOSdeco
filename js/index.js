@@ -50,16 +50,18 @@ document.addEventListener('keydown', (event) => {
 const backToTopBtn = document.getElementById('back-to-top');
 
 function toggleBackToTop() {
-    if (!backToTopBtn) return;   // NUEVO — si no existe el botón en esta página, no hace nada
+    if (!backToTopBtn) return;   // si no existe el botón en esta página, no hace nada
     backToTopBtn.classList.toggle('visible', window.scrollY > 400);
 }
 
 window.addEventListener('scroll', toggleBackToTop);
 toggleBackToTop(); // por si carga ya scrolleado
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 // Ocultar navbar apenas empezás a scrollear (no te sigue)
 const navbarWrapper = document.body;
@@ -75,48 +77,89 @@ updateNavbarOnScroll();
 
 // ================= MODAL TRANSFERENCIA =================
 const modalTransferencia = document.getElementById('modal-transferencia');
-const modalClose = document.getElementById('modal-close');
-const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
 
-const TU_NUMERO_WHATSAPP = '59892980915';
+if (modalTransferencia) {
+    const modalClose = document.getElementById('modal-close');
+    const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
+    const modalContent = document.querySelector('.modal-content');
+    const bancoTabs = document.querySelectorAll('.banco-tab');
 
-document.querySelectorAll('.btn-transferencia').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const producto = btn.dataset.producto;
-        const precio = btn.dataset.precio;
-        const mensaje = `Hola! Quiero comprar ${producto} (${precio}) por transferencia, ya hice el pago y adjunto el comprobante.`;
-        modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-        modalTransferencia.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
-});
+    const TU_NUMERO_WHATSAPP = '59892980915';
 
-function closeModalTransferencia() {
-    modalTransferencia.classList.remove('active');
-    document.body.classList.remove('menu-open');
-}
+    const BANCOS = {
+        itau: {
+            banco: 'ITAÚ',
+            titular: 'Jonathan Rodriguez',
+            cuenta: '000000000000'
+        },
+        prex: {
+            banco: 'PREX',
+            titular: 'Jonathan Rodriguez',
+            cuenta: '000000000000'
+        }
+    };
 
-modalClose.addEventListener('click', closeModalTransferencia);
-modalTransferencia.addEventListener('click', (e) => {
-    if (e.target === modalTransferencia) closeModalTransferencia();
-});
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModalTransferencia();
-});
+    function actualizarDatosBancarios(bancoKey) {
+        const datos = BANCOS[bancoKey];
+        document.getElementById('dato-banco').textContent = datos.banco;
+        document.getElementById('dato-titular').textContent = datos.titular;
+        document.getElementById('dato-cuenta').textContent = datos.cuenta;
 
-// ================= COPIAR DATOS BANCARIOS =================
-document.querySelectorAll('.btn-copiar').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const targetId = btn.dataset.copiar;
-        const text = document.getElementById(targetId).textContent;
-        navigator.clipboard.writeText(text).then(() => {
-            const icon = btn.querySelector('i');
-            icon.classList.remove('bi-clipboard');
-            icon.classList.add('bi-check-lg');
-            setTimeout(() => {
-                icon.classList.remove('bi-check-lg');
-                icon.classList.add('bi-clipboard');
-            }, 1500);
+        modalContent.classList.remove('tema-itau', 'tema-prex');
+        modalContent.classList.add(`tema-${bancoKey}`);
+    }
+
+    bancoTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            bancoTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            actualizarDatosBancarios(tab.dataset.banco);
         });
     });
-});
+
+    document.querySelectorAll('.btn-transferencia').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const producto = btn.dataset.producto;
+            const precio = btn.dataset.precio;
+            const mensaje = `Hola! Quiero comprar ${producto} (${precio}) por transferencia, ya hice el pago y adjunto el comprobante.`;
+            modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+
+            bancoTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.banco-tab[data-banco="itau"]').classList.add('active');
+            actualizarDatosBancarios('itau');
+
+            modalTransferencia.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+    });
+
+    function closeModalTransferencia() {
+        modalTransferencia.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    modalClose.addEventListener('click', closeModalTransferencia);
+    modalTransferencia.addEventListener('click', (e) => {
+        if (e.target === modalTransferencia) closeModalTransferencia();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModalTransferencia();
+    });
+
+    // ================= COPIAR DATOS BANCARIOS =================
+    document.querySelectorAll('.btn-copiar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.dataset.copiar;
+            const text = document.getElementById(targetId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.querySelector('i');
+                icon.classList.remove('bi-clipboard');
+                icon.classList.add('bi-check-lg');
+                setTimeout(() => {
+                    icon.classList.remove('bi-check-lg');
+                    icon.classList.add('bi-clipboard');
+                }, 1500);
+            });
+        });
+    });
+}
