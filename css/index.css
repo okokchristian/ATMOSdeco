@@ -12,6 +12,8 @@ html {
 body {
     min-height: 100vh;
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
@@ -326,9 +328,9 @@ body.nav-hidden .nav-links {
     transform: translateY(0);
 }
 
-.about-content h2 {
-    font-size: 3rem;
-    font-weight: 700;
+.about-content h2 { /* quienes somos*/
+    font-size: 3rem; /*tamaño*/
+    font-weight: 600;
     color: #ffffffde;
     margin-bottom: 1.5rem;
 }
@@ -341,8 +343,8 @@ body.nav-hidden .nav-links {
     margin: 1.5rem auto 2rem;
 }
 
-.about-content p {
-    font-size: 19px; /* tamaño texto quienes somos*/
+.about-content p { /*texto dentro de quienes somos*/
+    font-size: 23px; /* tamaño dentro de texto quienes somos*/
     font-weight: 300;
     line-height: 1.6;
     color: #ffffffde;
@@ -382,7 +384,7 @@ body.nav-hidden .nav-links {
 
 .contact-content h2 {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff;
     margin-bottom: 0;
 }
@@ -394,8 +396,8 @@ body.nav-hidden .nav-links {
     margin: 1.5rem auto 2rem;
 }
 
-.contact-content p {
-    font-size: 1.2rem;
+.contact-content p { /* texto dentro de contactanos*/
+    font-size: 23px;
     font-weight: 300;
     line-height: 1.6;
     color: #ffffffde;
@@ -435,6 +437,7 @@ body.nav-hidden .nav-links {
 
 .footer {
     position: relative;
+    margin-top: auto;
     padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
     background-color: rgba(0, 0, 0, 0.105);
     backdrop-filter: blur(4px);
@@ -862,4 +865,9 @@ body.nav-hidden .nav-links {
     text-align: center;
     color: rgba(0, 0, 0, 0.4);
     font-size: 0.9rem;
+}
+
+/* ======================== COLOR TODA FUENTE DEL INDEX ===============*/
+.search-box , .logo, .about , .hero h1 , .hero-content h2 , .nav-links a , .about-content h2 , .about-content p , .contact-content h2 , .contact-content p , .contact-item , .footer-logo , .footer-contact a , .footer-socials a , .footer-bottom p {
+color: #eee7e7ca;
 }
