@@ -612,6 +612,8 @@ body.nav-hidden .nav-links {
 
         margin: 0;
         padding: 7rem 2rem 2rem;
+        overflow-y: auto;       
+         -webkit-overflow-scrolling: touch; 
 
         display: flex;
         flex-direction: column;
