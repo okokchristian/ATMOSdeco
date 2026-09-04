@@ -667,6 +667,7 @@ body.nav-hidden .nav-links {
     #nav-links.active li:nth-child(3) { animation-delay: 0.36s; }
     #nav-links.active li:nth-child(4) { animation-delay: 0.44s; }
     #nav-links.active li:nth-child(5) { animation-delay: 0.52s; }
+    #nav-links.active li:nth-child(6) { animation-delay: 0.60s; }
 
     /* ================= LINKS ================= */
     #nav-links a {
@@ -870,4 +871,292 @@ body.nav-hidden .nav-links {
 /* ======================== COLOR TODA FUENTE DEL INDEX ===============*/
 .search-box , .logo, .about , .hero h1 , .hero-content h2 , .nav-links a , .about-content h2 , .about-content p , .contact-content h2 , .contact-content p , .contact-item , .footer-logo , .footer-contact a , .footer-socials a , .footer-bottom p {
 color: #eee7e7ca;
+}
+
+/* =========================================================
+   MODAL FAQ
+   ========================================================= */
+
+.faq-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.5rem;
+
+    background: rgba(0, 0, 0, 0); /* color detrasd el modal, no el modal*/
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.faq-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.faq-box {
+    position: relative;
+ 
+    width: 100%;
+    max-width: 680px;
+    max-height: 82vh;
+ 
+    overflow-y: auto;
+ 
+    padding: 2.5rem;
+ 
+    background: rgba(172, 172, 172, 0);
+    backdrop-filter: blur(44px);
+    -webkit-backdrop-filter: blur(44px);
+ 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+ 
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55);
+ 
+    transform: translateY(12px);
+ 
+    transition:
+        transform 0.3s ease;
+}
+
+.faq-overlay.active .faq-box {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.faq-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+
+    border-bottom: 1px solid #302a26;
+}
+
+.faq-header h2 {
+    margin: 0;
+
+    color: #f5f1ed;
+
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+   ========================================================= */
+
+.faq-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    margin-top: -5px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 1px solid #3a332e;
+    border-radius: 7px;
+
+    color: #9d958f;
+
+    cursor: pointer;
+
+    font-size: 1.25rem;
+    line-height: 1;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.faq-close:hover {
+    background: #ff5900;
+    border-color: #ff5900;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   PREGUNTAS
+   ========================================================= */
+
+.faq-box .faq-section-title {
+    margin: 0 0 1rem;
+    color: #f0ebe7;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.faq-box .faq-section-title:not(:first-of-type) {
+    margin-top: 2rem; /* separación entre secciones */
+}
+
+
+/* =========================================================
+   RESPUESTAS
+   ========================================================= */
+
+.faq-pair {
+    margin-bottom: 1.4rem; /* separación entre preguntas */
+}
+
+.faq-pair:last-child {
+    margin-bottom: 0;
+}
+
+.faq-pair p {
+    margin: 0 0 0.4rem; /* separación chica entre pregunta y su respuesta */
+    max-width: 620px;
+    color: #aaa19a;
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.faq-pair p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   DESTACADOS / TEXTO EN NEGRITA
+   ========================================================= */
+
+.faq-box p strong {
+    color: #ded7d1ea;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.faq-box a {
+    color: #ff6a1a;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.faq-box a:hover {
+    color: #ff8b4a;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SCROLL
+   ========================================================= */
+
+.faq-box {
+    scrollbar-width: thin;
+    scrollbar-color: #ff6a1a transparent;
+}
+
+.faq-box::-webkit-scrollbar {
+    width: 3px;
+}
+
+.faq-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.faq-box::-webkit-scrollbar-thumb {
+    background: #4a4039;
+    border-radius: 10px;
+}
+
+.faq-box::-webkit-scrollbar-thumb:hover {
+    background: #ff5900;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .faq-overlay {
+        padding: 1rem;
+    }
+
+    .faq-box {
+        max-height: 88vh;
+
+        padding: 1.75rem 1.4rem;
+
+        border-radius: 10px;
+    }
+
+    .faq-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .faq-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .faq-close {
+        width: 32px;
+        height: 32px;
+
+        font-size: 1.1rem;
+    }
+
+    .faq-box h3 {
+        font-size: 1rem;
+    }
+
+    .faq-box p {
+        font-size: 0.92rem;
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-overlay,
+    .faq-box,
+    .faq-close {
+        transition: none;
+    }
 }
