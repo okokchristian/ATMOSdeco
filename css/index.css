@@ -436,8 +436,8 @@ body.nav-hidden .nav-links {
 /*======================= FOOTER =======================*/
 
 .footer {
-    position: relative;
-    margin-top: auto;
+    margin-top: auto; /* lo empuja al final cuando el contenido es corto */
+    width: 100%;
     padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
     background-color: rgba(0, 0, 0, 0.105);
     backdrop-filter: blur(4px);
