@@ -166,3 +166,42 @@ if (modalTransferencia) {
         });
     });
 }
+
+// ================== MODAL FAQ ==================
+
+const faqOverlay = document.getElementById('faq-overlay');
+const closeFaqBtn = document.getElementById('faq-close');
+
+const openFaqTriggers = document.querySelectorAll('.open-faq-trigger');
+
+openFaqTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault(); // por si es un <a>, que no salte al "#"
+        faqOverlay.classList.add('active');
+
+        // si el menú mobile está abierto, lo cerramos al abrir el FAQ
+        document.getElementById('nav-links')?.classList.remove('active');
+    });
+});
+
+if (closeFaqBtn && faqOverlay) {
+    closeFaqBtn.addEventListener('click', () => {
+        faqOverlay.classList.remove('active');
+    });
+}
+
+// Cerrar si se hace clic afuera del box (en el fondo oscuro)
+if (faqOverlay) {
+    faqOverlay.addEventListener('click', (e) => {
+        if (e.target === faqOverlay) {
+            faqOverlay.classList.remove('active');
+        }
+    });
+}
+
+// Cerrar con la tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && faqOverlay?.classList.contains('active')) {
+        faqOverlay.classList.remove('active');
+    }
+});
