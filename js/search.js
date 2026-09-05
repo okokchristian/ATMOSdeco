@@ -9,6 +9,14 @@ const searchClose = document.getElementById('search-close');
 const enCarpetaHtml = window.location.pathname.includes('/html/');
 const rutaProductos = enCarpetaHtml ? 'productos.html' : 'html/productos.html';
 
+
+// Saca tildes/acentos para que la búsqueda funcione con o sin ellos
+function quitarTildes(texto) {
+    return texto
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+}
+
 function abrirBuscador() {
     searchOverlay.classList.add('active');
     document.body.classList.add('menu-open');
@@ -40,7 +48,7 @@ document.addEventListener('keydown', (e) => {
 
 // Filtrar productos mientras se escribe
 searchInput.addEventListener('input', () => {
-    const query = searchInput.value.trim().toLowerCase();
+    const query = quitarTildes(searchInput.value.trim().toLowerCase());
 
     if (query === '') {
         searchResults.innerHTML = '';
@@ -48,7 +56,7 @@ searchInput.addEventListener('input', () => {
     }
 
     const coincidencias = PRODUCTOS.filter(p =>
-        p.nombre.toLowerCase().includes(query)
+        quitarTildes(p.nombre.toLowerCase()).includes(query)
     );
 
     if (coincidencias.length === 0) {

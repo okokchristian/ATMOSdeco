@@ -21,7 +21,10 @@
 <body>
     <div class="bg-fixed"></div>
 
-    <nav class="navbar">
+ <!-----------------------NAVBAR----------------------->   
+
+<nav class="navbar">
+    <div class="navbar-content">
         <a href="../index.html" class="logo">
             ATMOS <br>
             <span class="logo-accent">deco</span>
@@ -34,29 +37,32 @@
             </a>
             <i class="bi bi-list toggle-menu" id="mobile-toggle"></i>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <ul class="nav-links" id="nav-links">
-        <li class="nav-search-item">
-            <a href="#" class="btn-buscar">
-                <i class="bi bi-search"></i>
-                <span>Buscar</span>
-            </a>
-        </li>
-        <li>
-            <a href="../index.html">Inicio</a>
-        </li>
-        <li>
-            <a href="lamparas.html">Colección</a>
-        </li>
-        <li>
-            <a href="../index.html#quienes">¿Quiénes somos?</a>
-        </li>
-        <li>
-            <a href="../index.html#contacto">Contactanos</a>
-        </li>
-    </ul>
-
+<ul class="nav-links" id="nav-links">
+    <li class="nav-search-item">
+        <a href="#" class="btn-buscar">
+            <i class="bi bi-search"></i>
+            <span>Buscar</span>
+        </a>
+    </li>
+    <li>
+        <a href="../index.html">Inicio</a>
+    </li>
+    <li>
+        <a href="lamparas.html">Colección</a>
+    </li>
+    <li>
+        <a href="../index.html#quienes">¿Quiénes somos?</a>
+    </li>
+    <li>
+        <a href="../index.html#contacto">Contactanos</a>
+    </li>
+    <li>
+        <a href="#" class="open-faq-trigger">Preguntas Frecuentes</a>
+    </li>
+</ul>
 <!---------------- DETALLE DE PRODUCTO ------------------------------------>
 
 <section class="producto-detalle">
@@ -137,6 +143,87 @@
         <a href="#" target="_blank" class="modal-btn-whatsapp" id="modal-whatsapp-btn">
             <i class="bi bi-whatsapp"></i> Enviar comprobante por WhatsApp
         </a>
+    </div>
+</div>
+
+<!--======================= MODAL FAQ =======================-->
+
+<div class="faq-overlay" id="faq-overlay">
+    <div class="faq-box">
+        <div class="faq-header">
+            <h2>Preguntas Frecuentes</h2>
+            <button class="faq-close" id="faq-close" aria-label="Cerrar">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <h2 class="faq-section-title">Envíos y retiro</h2>
+
+        <div class="faq-pair">
+            <p><strong>¿Cómo recibo mi compra?</strong></p>
+            <p>
+                Ofrecemos <strong>retiro gratuito</strong> en Montevideo zona Palermo (coordinamos el encuentro por WhatsApp
+                una vez confirmada la compra) o <strong>envío a domicilio</strong> con un costo adicional de $150
+                sobre el precio del producto.
+            </p>
+        </div>
+
+        <div class="faq-pair">
+            <p><strong>¿Cuánto tarda el envío?</strong></p>
+            <p>
+                Coordinamos los tiempos de entrega por WhatsApp apenas se confirma tu pago, según tu zona.
+            </p>
+        </div>
+
+        <h2 class="faq-section-title">Pagos</h2>
+
+        <div class="faq-pair">
+            <p><strong>¿Qué formas de pago aceptamos?</strong></p>
+            <p>
+                Aceptamos <strong>Mercado Pago</strong> (con el link de pago de cada producto) y
+                <strong>transferencia bancaria</strong> (Itaú o Prex). Si transferís, enviá el comprobante
+                por WhatsApp para confirmar tu compra.
+            </p>
+        </div>
+
+        <div class="faq-pair">
+            <p><strong>¿Puedo pagar en cuotas?</strong></p>
+            <p>
+                Sí, si pagás con <strong>tarjeta de crédito a través de Mercado Pago</strong> podés elegir
+                la cantidad de cuotas disponibles según tu banco y tarjeta. La opción de cuotas aparece
+                directamente en el checkout de Mercado Pago al momento de pagar.
+            </p>
+        </div>
+
+        <h2 class="faq-section-title">Cambios y devoluciones</h2>
+
+        <div class="faq-pair">
+            <p><strong>Mi producto llegó roto o con un defecto, ¿Qué hago?</strong></p>
+            <p>
+                Escribinos por WhatsApp dentro de las <strong>24 a 48 horas</strong> de recibido el producto,
+                contándonos qué pasó (una foto ayuda mucho). Vas a poder elegir entre un
+                <strong>cambio por el mismo producto</strong> o el <strong>reembolso total</strong> de tu compra.
+            </p>
+        </div>
+
+        <div class="faq-pair">
+            <p><strong>¿Puedo devolver un producto si simplemente no me gustó?</strong></p>
+            <p>
+                Como cada lámpara es una pieza artesanal hecha a pedido, <strong>no aceptamos devoluciones
+                por arrepentimiento</strong> — solo en casos de defecto de fabricación o daño en el envío,
+                según se detalla arriba.
+            </p>
+        </div>
+
+        <h2 class="faq-section-title">Sobre los productos</h2>
+
+        <div class="faq-pair">
+            <p><strong>¿De qué material están hechas las lámparas?</strong></p>
+            <p>
+                Todas nuestras piezas están hechas con impresion 3D en bioplástico, un material sustentable y amigable
+                con el medio ambiente :)
+            </p>
+        </div>
     </div>
 </div>
 
