@@ -550,7 +550,7 @@ body.nav-hidden .nav-links {
     height: 48px;
     border: none;
     border-radius: 50%;
-    background-color: rgba(20, 17, 15, 0.55);
+    background-color: rgba(160, 85, 32, 0.55);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     color: #ffffff;
@@ -941,6 +941,10 @@ color: #eee7e7ca;
     visibility: visible;
 }
 
+.faq-summary .faq-summary-text {
+    text-align: left;
+    display: inline-block; /* para que el bloque no ocupe todo el ancho centrado */
+}
 
 /* =========================================================
    MODAL
