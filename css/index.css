@@ -32,8 +32,8 @@ body {
     pointer-events: none;
 
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.343), rgba(0, 0, 0, 0.6)),
-        url('../img/hero.png');
+        linear-gradient(rgba(0, 0, 0, 0.708), /*arriba*/ rgba(255, 255, 255, 0)), /*abajo*/
+        url('../img/hero.jpg');
 
     background-size: cover;
     background-position: center;
@@ -452,8 +452,8 @@ body.nav-hidden .nav-links {
     margin-top: auto; /* lo empuja al final cuando el contenido es corto */
     width: 100%;
     padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
-    background-color: rgba(0, 0, 0, 0.105);
-    backdrop-filter: blur(4px);
+    background-color: rgba(129, 125, 125, 0);
+    backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
