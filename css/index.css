@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+:root {
+    --navbar-top: 15px;
+    --navbar-width: 90%;
+    --navbar-max-width: 1350px;
+}
+
 html {
     height: -webkit-fill-available;
     overflow-x: hidden;
@@ -38,21 +44,27 @@ body {
 /* ================== NAVBAR y relacionados ==================*/
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    height: 60px;
     position: fixed;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1350px;
+    top: var(--navbar-top);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: var(--navbar-width);
+    max-width: var(--navbar-max-width);
+    height: 60px;
     z-index: 1000;
     opacity: 0;
     animation: fadeDown 1s ease-out forwards;
 }
+
+.navbar-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .navbar-left {
     display: flex;
     align-items: center;
@@ -108,23 +120,25 @@ body {
 @media (min-width: 769px) {
     .nav-links {
         position: fixed;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 1200px;
+        top: var(--navbar-top);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: var(--navbar-width);
+        max-width: var(--navbar-max-width);
         height: 60px;
-        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
         z-index: 1000;
         pointer-events: none;
-        align-items: center;
         opacity: 0;
         animation: fadeDown 1s ease-out forwards;
-        gap: 4rem;
     }
     .nav-links a {
         pointer-events: auto;
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
     }
     .nav-icons .btn-buscar {
         font-size: 1.05rem;
@@ -285,10 +299,9 @@ body.nav-hidden .nav-links {
         transform: translate(-50%, -50%); /* vuelve al centro */
     }
 }
-
 @keyframes fadeDown {
-    0%   { opacity: 0; transform: translate(-50%, -20px); }
-    100% { opacity: 1; transform: translate(-50%, 0); }
+    0%   { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
@@ -623,43 +636,46 @@ body.nav-hidden .nav-links {
         transform: scale(0.88);
     }
 
-    #nav-links {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        max-width: none;
+   #nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;      /* antes: width: 100%; */
+    height: 100dvh;    /* antes: height: 100%; */
+    max-width: none;
 
-        margin: 0;
-        padding: 5.5rem 2rem 1.5rem;
-        overflow-y: auto;       
-         -webkit-overflow-scrolling: touch; 
+    margin: 0;
+    padding: 5.5rem 2rem 1.5rem;
+    overflow-y: auto;       
+    -webkit-overflow-scrolling: touch; 
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
 
-        background: rgba(226, 57, 57, 0.055);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+    background: rgba(53, 14, 14, 0.281);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
 
-        transition:
-            opacity 0.45s ease,
-            visibility 0.45s ease,
-            transform 0.45s ease;
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease,
+        transform 0.45s ease;
 
-        z-index: 1001;
-    }
+    z-index: 1001;
+}
 
     #nav-links.active {
         opacity: 1;
@@ -941,7 +957,7 @@ color: #eee7e7ca;
  
     padding: 2.5rem;
  
-    background: rgba(172, 172, 172, 0);
+    background: rgba(0, 0, 0, 0.459);
     backdrop-filter: blur(44px);
     -webkit-backdrop-filter: blur(44px);
  
