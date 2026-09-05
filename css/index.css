@@ -575,6 +575,22 @@ body.nav-hidden .nav-links {
     .hero h1 {
         font-size: clamp(2rem, 9vw, 2.8rem);
     }
+
+        /* ------------------- QUIÉNES SOMOS / CONTACTO ------------------- */
+    .about-content h2,
+    .contact-content h2 {
+        font-size: 2rem;     
+    }
+
+    .about-content p,
+    .contact-content p {
+        font-size: 17px;     
+    }
+
+    .faq-summary-text {
+        font-size: 16px;     
+    }
+
     .logo {
         font-size: 1.25rem;
         line-height: 0.85;
@@ -1144,13 +1160,13 @@ color: #eee7e7ca;
         font-size: 1.1rem;
     }
 
-    .faq-box h3 {
-        font-size: 1rem;
+    .faq-box .faq-section-title {
+    font-size: 1.2rem;
     }
 
-    .faq-box p {
-        font-size: 0.92rem;
-        line-height: 1.7;
+    .faq-pair p {
+    font-size: 0.88rem;
+    line-height: 1.65;
     }
 }
 
