@@ -130,7 +130,8 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 4rem;
+        gap: clamp(1.5rem, 5vw, 6rem);
+        padding: 0 clamp(120px, 12%, 180px);
         z-index: 1000;
         pointer-events: none;
         opacity: 0;
@@ -138,10 +139,28 @@ body {
     }
     .nav-links a {
         pointer-events: auto;
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 1vw + 0.55rem, 1.1rem);
+        white-space: nowrap;
     }
     .nav-icons .btn-buscar {
         font-size: 1.05rem;
+    }
+}
+
+/* Breakpoint intermedio: laptops chicas / tablets grandes */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .nav-links {
+        gap: 2.5rem;
+        padding: 0 100px;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    .btn-buscar {
+        padding: 8px 20px;
+    }
+    .btn-buscar span {
+        display: none;
     }
 }
 
@@ -941,11 +960,6 @@ color: #eee7e7ca;
     visibility: visible;
 }
 
-.faq-summary .faq-summary-text {
-    text-align: left;
-    display: inline-block; /* para que el bloque no ocupe todo el ancho centrado */
-}
-
 /* =========================================================
    MODAL
    ========================================================= */
@@ -1202,3 +1216,4 @@ color: #eee7e7ca;
         transition: none;
     }
 }
+

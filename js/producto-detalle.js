@@ -51,8 +51,8 @@ if (!producto) {
             <p class="producto-detalle-descripcion">${producto.descripcion}</p>
 
             <div class="entrega-tabs">
-                <button class="entrega-tab active" data-tipo="retiro">Retiro (Gratis)</button>
-                <button class="entrega-tab" data-tipo="envio">Envío (+$${producto.costoEnvio})</button>
+                <button class="entrega-tab active" data-tipo="retiro">Retiro</button>
+                <button class="entrega-tab" data-tipo="envio">Envío</button>
             </div>
             <p class="entrega-info" id="entrega-info">Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el punto de encuentro por WhatsApp una vez concretada la venta.</p>
 
@@ -81,7 +81,7 @@ if (!producto) {
     const btnTransferencia = document.querySelector('.btn-transferencia');
 
     const MENSAJES_ENTREGA = {
-        retiro: 'Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el punto de encuentro por WhatsApp una vez concretada la venta.',
+        retiro: 'Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el encuentro por WhatsApp una vez concretada la venta.',
         envio: 'Envío dentro del área metropolitana. Fuera de esta zona, coordinamos la entrega.'
     };
 
