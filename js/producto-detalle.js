@@ -48,29 +48,39 @@ if (!producto) {
             <div class="producto-linea"></div>
 
             <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
-            <p class="producto-detalle-descripcion">${producto.descripcion}</p>
+
+                        <div class="producto-descripcion-wrapper">
+                <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
+                <div class="producto-especificaciones" id="producto-especificaciones">
+                    <ul class="especificaciones-lista">
+                        ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
 
             <div class="entrega-tabs">
-                <button class="entrega-tab active" data-tipo="retiro">Retiro</button>
+                <button class="entrega-tab" data-tipo="retiro">Retiro</button>
                 <button class="entrega-tab" data-tipo="envio">Envío</button>
             </div>
-            <p class="entrega-info" id="entrega-info">Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el punto de encuentro por WhatsApp una vez concretada la venta.</p>
+            <p class="entrega-info" id="entrega-info">Elegí una opción de entrega para continuar con la compra.</p>
 
             <div class="producto-botones">
-                <a href="${producto.linkMercadoPago.retiro}" target="_blank" class="btn-comprar btn-mp" id="btn-mp">
+                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp">
                     <i class="bi bi-credit-card"></i> Mercado Pago
                 </a>
-                <button class="btn-comprar btn-transferencia"
+                <button class="btn-comprar btn-transferencia btn-disabled"
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
                         data-precio-numero="${producto.precioNumero}"
-                        data-costo-envio="0">
+                        data-costo-envio="0"
+                        disabled>
                     Transferencia bancaria
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
             </div>
         </div>
+
     `;
 
     // ================= SELECTOR RETIRO / ENVÍO =================
@@ -119,7 +129,7 @@ if (!producto) {
         const zonaTexto = ZONA_LABELS[zonaSeleccionada];
 
         precioFinal.textContent = formatear(precioTotal);
-        entregaInfo.textContent = `Envío a ${zonaTexto.toLowerCase()}. Coordinamos la entrega por WhatsApp una vez confirmado el pago.`;
+        entregaInfo.textContent = `Coordinamos la entrega por WhatsApp una vez confirmado el pago.`;
         btnMp.href = producto.linkMercadoPago.envio;
         btnTransferencia.dataset.precio = formatear(precioTotal);
         btnTransferencia.dataset.entrega = `Envío - ${zonaTexto}`;
@@ -167,6 +177,39 @@ if (!producto) {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModalZona();
     });
+
+    // ================= VER MÁS / VER MENOS =================
+  
+        // ================= VER MÁS / VER MENOS (inline) =================
+    const especificaciones = document.getElementById('producto-especificaciones');
+    const descripcionTexto = document.getElementById('descripcion-texto');
+    const LARGO_CORTO = 140; // cantidad de caracteres visibles antes de truncar
+
+    const textoCompleto = producto.descripcion;
+    const necesitaTruncar = textoCompleto.length > LARGO_CORTO;
+    let expandido = false;
+
+    function renderDescripcion() {
+        if (!necesitaTruncar) {
+            descripcionTexto.textContent = textoCompleto;
+            return;
+        }
+
+        if (expandido) {
+            descripcionTexto.innerHTML = `${textoCompleto} <span class="ver-mas-inline" id="toggle-ver-mas">Ver menos</span>`;
+        } else {
+            const corto = textoCompleto.slice(0, LARGO_CORTO).trim();
+            descripcionTexto.innerHTML = `${corto}... <span class="ver-mas-inline" id="toggle-ver-mas">Ver más</span>`;
+        }
+
+        document.getElementById('toggle-ver-mas').addEventListener('click', () => {
+            expandido = !expandido;
+            especificaciones.classList.toggle('activo', expandido);
+            renderDescripcion();
+        });
+    }
+
+    renderDescripcion();
 
     // ================= COMPARTIR PRODUCTO =================
     const btnCompartir = document.getElementById('btn-compartir');
