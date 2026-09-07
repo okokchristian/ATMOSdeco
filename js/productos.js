@@ -8,7 +8,16 @@ const PRODUCTOS = [
         metropolitana: 150,
         noMetropolitana: 250
 },
+
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
         descripcion: "Fabricada a pedido con impresión 3D en PLA sustentable, la Lámpara Ondas combina diseño contemporáneo con una luz cálida y difusa. Cada pieza conserva las texturas naturales del proceso, haciendo que ninguna sea exactamente igual a otra.",
+        
         imagenes: [
             "../img/IMG_1808.webp",
             "../img/IMG_1801.JPG"
@@ -28,6 +37,14 @@ const PRODUCTOS = [
         metropolitana: 150,
         noMetropolitana: 250
 },
+
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
         descripcion: "La lámpara Nami ilumina tus espacios con una calidez envolvente. Su diseño contemporáneo de columna plisada está fabricado de manera sustentable utilizando un bioplástico derivado de fuentes vegetales. Su luz cálida crea un ambiente acogedor y responsable.",
         imagenes: [
             "../img/nami.jpeg",
@@ -47,6 +64,13 @@ const PRODUCTOS = [
         metropolitana: 150,
         noMetropolitana: 250
 },
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
         descripcion: "Introduce sofisticación en tu hogar con la lámpara Brote. Su icónica forma de hongo, impresa en bioplástico sustentable, transforma la luz en textura viva, creando una atmósfera cálida e íntima. Una pieza de diseño responsable y contemporáneo que une arte y consciencia en perfecta armonía.",
         imagenes: [
             "../img/brote.jpeg",
@@ -65,6 +89,13 @@ const PRODUCTOS = [
         metropolitana: 150,
         noMetropolitana: 250
 },
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
         descripcion: "La lámpara Prisma transforma tus espacios con su luz cálida y envolvente. Fabricada exclusivamente con PLA sustentable (material amigable con el medio ambiente derivado de fuentes vegetales), es una pieza de diseño contemporáneo y responsabilidad ecológica, ideal para momentos de relajación.",
         imagenes: [
             "../img/prisma.jpeg",
