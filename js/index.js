@@ -118,36 +118,51 @@ if (modalTransferencia) {
             actualizarDatosBancarios(tab.dataset.banco);
         });
     });
-
-    document.querySelectorAll('.btn-transferencia').forEach(btn => {
+document.querySelectorAll('.btn-transferencia').forEach(btn => {
     btn.addEventListener('click', () => {
         const producto = btn.dataset.producto;
         const precio = btn.dataset.precio;
         const entrega = btn.dataset.entrega || 'Retiro';
+        const precioLampara = Number(btn.dataset.precioNumero) || 0;
+        const costoEnvio = Number(btn.dataset.costoEnvio) || 0;
+
         const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
-            modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+        modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
-            bancoTabs.forEach(t => t.classList.remove('active'));
-            document.querySelector('.banco-tab[data-banco="itau"]').classList.add('active');
-            actualizarDatosBancarios('itau');
+        // ================= DESGLOSE DE MONTOS =================
+        const esEnvio = entrega === 'Envío';
+        const total = esEnvio ? precioLampara + costoEnvio : precioLampara;
 
-            modalTransferencia.classList.add('active');
-            document.body.classList.add('menu-open');
-        });
+        const formatear = (n) => `$${n.toLocaleString('es-UY')} UYU`;
+
+        document.getElementById('desglose-lampara').textContent = formatear(precioLampara);
+        document.getElementById('desglose-envio').textContent = formatear(costoEnvio);
+        document.getElementById('desglose-total').textContent = formatear(total);
+
+        const modalDesglose = document.getElementById('modal-desglose');
+        modalDesglose.classList.toggle('solo-retiro', !esEnvio);
+
+        bancoTabs.forEach(t => t.classList.remove('active'));
+        document.querySelector('.banco-tab[data-banco="itau"]').classList.add('active');
+        actualizarDatosBancarios('itau');
+
+        modalTransferencia.classList.add('active');
+        document.body.classList.add('menu-open');
     });
+});
 
-    function closeModalTransferencia() {
-        modalTransferencia.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    }
+function closeModalTransferencia() {
+    modalTransferencia.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
 
-    modalClose.addEventListener('click', closeModalTransferencia);
-    modalTransferencia.addEventListener('click', (e) => {
-        if (e.target === modalTransferencia) closeModalTransferencia();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModalTransferencia();
-    });
+modalClose.addEventListener('click', closeModalTransferencia);
+modalTransferencia.addEventListener('click', (e) => {
+    if (e.target === modalTransferencia) closeModalTransferencia();
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModalTransferencia();
+});
 
     // ================= COPIAR DATOS BANCARIOS =================
     document.querySelectorAll('.btn-copiar').forEach(btn => {
@@ -166,7 +181,6 @@ if (modalTransferencia) {
         });
     });
 }
-
 // ================== MODAL FAQ ==================
 
 const faqOverlay = document.getElementById('faq-overlay');
