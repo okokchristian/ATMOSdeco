@@ -101,7 +101,7 @@
             <i class="bi bi-x-lg"></i>
         </button>
         <h3>Transferencia bancaria</h3> 
-        <p class="modal-subtitle">Realizá la transferencia a estos datos y envianos el comprobante</p>
+        <p class="modal-subtitle">Realizá la transferencia a estos datos y envianos el comprobante. Puede ser una captura de pantalla.</p>
 
         <div class="banco-tabs">
             <button class="banco-tab active" data-banco="itau">
@@ -145,7 +145,7 @@
                 <span id="desglose-lampara">$0 UYU</span>
             </div>
             <div class="desglose-fila" id="desglose-fila-envio">
-                <span>Envío</span>
+                <span id="desglose-envio-label">Envío</span>
                 <span id="desglose-envio">$0 UYU</span>
             </div>
             <div class="desglose-fila desglose-total">
@@ -153,12 +153,41 @@
                 <span id="desglose-total">$0 UYU</span>
             </div>
         </div>
-        
+
         <p class="modal-nota">Tu pedido se reserva una vez que confirmemos el pago recibido.</p>
 
         <a href="#" target="_blank" class="modal-btn-whatsapp" id="modal-whatsapp-btn">
             <i class="bi bi-whatsapp"></i> Enviar comprobante por WhatsApp
         </a>
+    </div>
+</div>
+
+<!-------------------MODAL ZONA DE ENVÍO----------------------------->
+
+<div class="modal-overlay" id="modal-zona-envio">
+    <div class="modal-content">
+        <button class="modal-close" id="modal-zona-close" aria-label="Cerrar">
+            <i class="bi bi-x-lg"></i>
+        </button>
+        <h3>¿A dónde enviamos?</h3>
+        <p class="modal-subtitle">Elegí la zona de entrega para calcular el costo de envío</p>
+
+        <div class="zona-opciones">
+            <button class="zona-opcion" data-zona="metropolitana">
+                <div class="zona-opcion-info">
+                    <span class="zona-opcion-nombre">Área metropolitana</span>
+                    <span class="zona-opcion-desc">Montevideo y alrededores</span>
+                </div>
+                <span class="zona-opcion-precio" id="precio-zona-metropolitana">+$0 UYU</span>
+            </button>
+            <button class="zona-opcion" data-zona="noMetropolitana">
+                <div class="zona-opcion-info">
+                    <span class="zona-opcion-nombre">Fuera del área metropolitana</span>
+                    <span class="zona-opcion-desc">Resto del país</span>
+                </div>
+                <span class="zona-opcion-precio" id="precio-zona-no-metropolitana">+$0 UYU</span>
+            </button>
+        </div>
     </div>
 </div>
 

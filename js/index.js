@@ -126,16 +126,18 @@ document.querySelectorAll('.btn-transferencia').forEach(btn => {
         const precioLampara = Number(btn.dataset.precioNumero) || 0;
         const costoEnvio = Number(btn.dataset.costoEnvio) || 0;
 
+        const zonaEnvio = btn.dataset.zonaEnvio || '';
         const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
         modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
         // ================= DESGLOSE DE MONTOS =================
-        const esEnvio = entrega === 'Envío';
+        const esEnvio = entrega.startsWith('Envío');
         const total = esEnvio ? precioLampara + costoEnvio : precioLampara;
 
         const formatear = (n) => `$${n.toLocaleString('es-UY')} UYU`;
 
         document.getElementById('desglose-lampara').textContent = formatear(precioLampara);
+        document.getElementById('desglose-envio-label').textContent = zonaEnvio ? `Envío (${zonaEnvio})` : 'Envío';
         document.getElementById('desglose-envio').textContent = formatear(costoEnvio);
         document.getElementById('desglose-total').textContent = formatear(total);
 

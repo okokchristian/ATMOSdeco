@@ -699,7 +699,7 @@
     border-radius: 3px;
 }
 
-
+/*======== MODAL DESGLOS PARA TRANSFERIR ==========*/
 .modal-desglose {
     width: 100%;
     margin: 1rem 0 1.5rem;
@@ -730,6 +730,59 @@
 /* Oculta la fila de envío cuando la entrega es retiro */
 .modal-desglose.solo-retiro #desglose-fila-envio {
     display: none;
+}
+
+/* =============MODAL ENVIO POR ZONA====================*/
+
+.zona-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.zona-opcion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(250, 234, 234, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.zona-opcion:hover {
+    background: rgba(185, 74, 14, 0.15);
+    border-color: #ff5900;
+    transform: translateY(-2px);
+}
+
+.zona-opcion-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.zona-opcion-nombre {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f5f1ed;
+}
+
+.zona-opcion-desc {
+    font-size: 0.8rem;
+    color: hsla(0, 7%, 97%, 0.55);
+}
+
+.zona-opcion-precio {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ff5900;
+    white-space: nowrap;
 }
 
 /*====================== SCROLL ENTRE FOTOS=========================*/
