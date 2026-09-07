@@ -64,7 +64,7 @@ if (!producto) {
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
                         data-precio-numero="${producto.precioNumero}"
-                        data-costo-envio="${producto.costoEnvio}">
+                        data-costo-envio="0">
                     Transferencia bancaria
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
@@ -80,28 +80,92 @@ if (!producto) {
     const btnMp = document.getElementById('btn-mp');
     const btnTransferencia = document.querySelector('.btn-transferencia');
 
-    const MENSAJES_ENTREGA = {
-        retiro: 'Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el encuentro por WhatsApp una vez concretada la venta.',
-        envio: 'Envío dentro del área metropolitana. Fuera de esta zona, coordinamos la entrega.'
+    const modalZona = document.getElementById('modal-zona-envio');
+    const modalZonaClose = document.getElementById('modal-zona-close');
+    const zonaOpciones = document.querySelectorAll('.zona-opcion');
+
+    let zonaSeleccionada = null; // 'metropolitana' o 'noMetropolitana'
+
+    const ZONA_LABELS = {
+        metropolitana: 'Área metropolitana',
+        noMetropolitana: 'Fuera del área metropolitana'
     };
+
+    const MENSAJES_ENTREGA = {
+        retiro: 'Retiro gratuito en Montevideo, barrio Palermo. Coordinamos el encuentro por WhatsApp una vez concretada la venta.'
+    };
+
+    const formatear = (n) => `$${n.toLocaleString('es-UY')} UYU`;
+
+    // Completa los precios de cada zona en el modal, según el producto actual
+    document.getElementById('precio-zona-metropolitana').textContent =
+        `+${formatear(producto.costoEnvio.metropolitana)}`;
+    document.getElementById('precio-zona-no-metropolitana').textContent =
+        `+${formatear(producto.costoEnvio.noMetropolitana)}`;
+
+    function actualizarPrecioRetiro() {
+        precioFinal.textContent = producto.precio;
+        entregaInfo.textContent = MENSAJES_ENTREGA.retiro;
+        btnMp.href = producto.linkMercadoPago.retiro;
+        btnTransferencia.dataset.precio = producto.precio;
+        btnTransferencia.dataset.entrega = 'Retiro';
+        btnTransferencia.dataset.costoEnvio = 0;
+        btnTransferencia.dataset.zonaEnvio = '';
+    }
+
+    function actualizarPrecioEnvio() {
+        const costoEnvio = producto.costoEnvio[zonaSeleccionada];
+        const precioTotal = producto.precioNumero + costoEnvio;
+        const zonaTexto = ZONA_LABELS[zonaSeleccionada];
+
+        precioFinal.textContent = formatear(precioTotal);
+        entregaInfo.textContent = `Envío a ${zonaTexto.toLowerCase()}. Coordinamos la entrega por WhatsApp una vez confirmado el pago.`;
+        btnMp.href = producto.linkMercadoPago.envio;
+        btnTransferencia.dataset.precio = formatear(precioTotal);
+        btnTransferencia.dataset.entrega = `Envío - ${zonaTexto}`;
+        btnTransferencia.dataset.costoEnvio = costoEnvio;
+        btnTransferencia.dataset.zonaEnvio = zonaTexto;
+    }
 
     entregaTabs.forEach(tab => {
         tab.addEventListener('click', () => {
+            const tipo = tab.dataset.tipo;
+
+            if (tipo === 'envio') {
+                // Abre el selector de zona; el tab solo se activa al elegir una zona
+                modalZona.classList.add('active');
+                return;
+            }
+
             entregaTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-
-            const tipo = tab.dataset.tipo;
-            const precioTotal = tipo === 'envio'
-                ? producto.precioNumero + producto.costoEnvio
-                : producto.precioNumero;
-            const precioTexto = `$${precioTotal.toLocaleString('es-UY')} UYU`;
-
-            precioFinal.textContent = precioTexto;
-            entregaInfo.textContent = MENSAJES_ENTREGA[tipo];
-            btnMp.href = producto.linkMercadoPago[tipo];
-            btnTransferencia.dataset.precio = precioTexto;
-            btnTransferencia.dataset.entrega = tipo === 'envio' ? 'Envío' : 'Retiro';
+            zonaSeleccionada = null;
+            actualizarPrecioRetiro();
         });
+    });
+
+    zonaOpciones.forEach(opcion => {
+        opcion.addEventListener('click', () => {
+            zonaSeleccionada = opcion.dataset.zona;
+            modalZona.classList.remove('active');
+
+            entregaTabs.forEach(t => t.classList.remove('active'));
+            document.querySelector('.entrega-tab[data-tipo="envio"]').classList.add('active');
+
+            actualizarPrecioEnvio();
+        });
+    });
+
+    function closeModalZona() {
+        modalZona.classList.remove('active');
+    }
+
+    modalZonaClose.addEventListener('click', closeModalZona);
+    modalZona.addEventListener('click', (e) => {
+        if (e.target === modalZona) closeModalZona();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModalZona();
     });
 
     // ================= COMPARTIR PRODUCTO =================
