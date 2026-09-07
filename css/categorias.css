@@ -532,6 +532,8 @@
     position: relative;
     width: 100%;
     max-width: 420px;
+    max-height: 88vh;
+    overflow-y: auto;
     background: rgba(125, 121, 121, 0.442);
     backdrop-filter: blur(200px);
     -webkit-backdrop-filter: blur(200px);
@@ -695,6 +697,39 @@
     height: 16px;
     object-fit: contain;
     border-radius: 3px;
+}
+
+
+.modal-desglose {
+    width: 100%;
+    margin: 1rem 0 1.5rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+}
+
+.desglose-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    color: #ded7d1ea;
+}
+
+.desglose-fila.desglose-total {
+    margin-top: 0.5rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+/* Oculta la fila de envío cuando la entrega es retiro */
+.modal-desglose.solo-retiro #desglose-fila-envio {
+    display: none;
 }
 
 /*====================== SCROLL ENTRE FOTOS=========================*/
