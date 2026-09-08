@@ -118,39 +118,41 @@ if (modalTransferencia) {
             actualizarDatosBancarios(tab.dataset.banco);
         });
     });
-document.querySelectorAll('.btn-transferencia').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const producto = btn.dataset.producto;
-        const precio = btn.dataset.precio;
-        const entrega = btn.dataset.entrega || 'Retiro';
-        const precioLampara = Number(btn.dataset.precioNumero) || 0;
-        const costoEnvio = Number(btn.dataset.costoEnvio) || 0;
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-transferencia');
+if (!btn) return;
+if (btn.classList.contains('btn-disabled')) {
+    alert('Elegí primero una opción de entrega (Retiro o Envío) antes de continuar.');
+    return;
+}
+    const producto = btn.dataset.producto;
+    const precio = btn.dataset.precio;
+    const entrega = btn.dataset.entrega || 'Retiro';
+    const precioLampara = Number(btn.dataset.precioNumero) || 0;
+    const costoEnvio = Number(btn.dataset.costoEnvio) || 0;
+    const zonaEnvio = btn.dataset.zonaEnvio || '';
 
-        const zonaEnvio = btn.dataset.zonaEnvio || '';
-        const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
-        modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+    const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
+    modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
-        // ================= DESGLOSE DE MONTOS =================
-        const esEnvio = entrega.startsWith('Envío');
-        const total = esEnvio ? precioLampara + costoEnvio : precioLampara;
+    const esEnvio = entrega.startsWith('Envío');
+    const total = esEnvio ? precioLampara + costoEnvio : precioLampara;
+    const formatear = (n) => `$${n.toLocaleString('es-UY')} UYU`;
 
-        const formatear = (n) => `$${n.toLocaleString('es-UY')} UYU`;
+    document.getElementById('desglose-lampara').textContent = formatear(precioLampara);
+    document.getElementById('desglose-envio-label').textContent = zonaEnvio ? `Envío (${zonaEnvio})` : 'Envío';
+    document.getElementById('desglose-envio').textContent = formatear(costoEnvio);
+    document.getElementById('desglose-total').textContent = formatear(total);
 
-        document.getElementById('desglose-lampara').textContent = formatear(precioLampara);
-        document.getElementById('desglose-envio-label').textContent = zonaEnvio ? `Envío (${zonaEnvio})` : 'Envío';
-        document.getElementById('desglose-envio').textContent = formatear(costoEnvio);
-        document.getElementById('desglose-total').textContent = formatear(total);
+    const modalDesglose = document.getElementById('modal-desglose');
+    modalDesglose.classList.toggle('solo-retiro', !esEnvio);
 
-        const modalDesglose = document.getElementById('modal-desglose');
-        modalDesglose.classList.toggle('solo-retiro', !esEnvio);
+    bancoTabs.forEach(t => t.classList.remove('active'));
+    document.querySelector('.banco-tab[data-banco="itau"]').classList.add('active');
+    actualizarDatosBancarios('itau');
 
-        bancoTabs.forEach(t => t.classList.remove('active'));
-        document.querySelector('.banco-tab[data-banco="itau"]').classList.add('active');
-        actualizarDatosBancarios('itau');
-
-        modalTransferencia.classList.add('active');
-        document.body.classList.add('menu-open');
-    });
+    modalTransferencia.classList.add('active');
+    document.body.classList.add('menu-open');
 });
 
 function closeModalTransferencia() {
