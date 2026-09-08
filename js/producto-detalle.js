@@ -72,8 +72,7 @@ if (!producto) {
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
                         data-precio-numero="${producto.precioNumero}"
-                        data-costo-envio="0"
-                        disabled>
+                        data-costo-envio="0">
                     Transferencia bancaria
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
@@ -113,7 +112,9 @@ if (!producto) {
     document.getElementById('precio-zona-no-metropolitana').textContent =
         `+${formatear(producto.costoEnvio.noMetropolitana)}`;
 
-    function actualizarPrecioRetiro() {
+    //===================RETIRO=========================/
+
+        function actualizarPrecioRetiro() {
         precioFinal.textContent = producto.precio;
         entregaInfo.textContent = MENSAJES_ENTREGA.retiro;
         btnMp.href = producto.linkMercadoPago.retiro;
@@ -121,9 +122,19 @@ if (!producto) {
         btnTransferencia.dataset.entrega = 'Retiro';
         btnTransferencia.dataset.costoEnvio = 0;
         btnTransferencia.dataset.zonaEnvio = '';
+        habilitarBotones();
     }
 
-    function actualizarPrecioEnvio() {
+    // ======================HABILITAR================/
+    function habilitarBotones() {
+        btnMp.classList.remove('btn-disabled');
+        btnTransferencia.classList.remove('btn-disabled');
+        btnTransferencia.removeAttribute('disabled');
+    }
+
+    //========================ENVIO===========================/
+
+        function actualizarPrecioEnvio() {
         const costoEnvio = producto.costoEnvio[zonaSeleccionada];
         const precioTotal = producto.precioNumero + costoEnvio;
         const zonaTexto = ZONA_LABELS[zonaSeleccionada];
@@ -135,7 +146,10 @@ if (!producto) {
         btnTransferencia.dataset.entrega = `Envío - ${zonaTexto}`;
         btnTransferencia.dataset.costoEnvio = costoEnvio;
         btnTransferencia.dataset.zonaEnvio = zonaTexto;
+        habilitarBotones();
     }
+
+    
 
     entregaTabs.forEach(tab => {
         tab.addEventListener('click', () => {
