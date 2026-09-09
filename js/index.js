@@ -111,6 +111,8 @@ if (modalTransferencia) {
         modalContent.classList.add(`tema-${bancoKey}`);
     }
 
+    /* ================VALIDACION TRANSFERENCIA BANCARIAS==================*/
+    
     bancoTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             bancoTabs.forEach(t => t.classList.remove('active'));

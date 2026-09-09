@@ -132,6 +132,14 @@ if (!producto) {
         btnTransferencia.removeAttribute('disabled');
     }
 
+    // ================= VALIDACIÓN MERCADO PAGO =================
+btnMp.addEventListener('click', (e) => {
+    if (btnMp.classList.contains('btn-disabled')) {
+        e.preventDefault();
+        alert('Elegí primero una opción de entrega (Retiro o Envío) antes de continuar.');
+    }
+});
+
     //========================ENVIO===========================/
 
         function actualizarPrecioEnvio() {
@@ -194,7 +202,6 @@ if (!producto) {
 
     // ================= VER MÁS / VER MENOS =================
   
-        // ================= VER MÁS / VER MENOS (inline) =================
     const especificaciones = document.getElementById('producto-especificaciones');
     const descripcionTexto = document.getElementById('descripcion-texto');
     const LARGO_CORTO = 140; // cantidad de caracteres visibles antes de truncar
