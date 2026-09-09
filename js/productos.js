@@ -5,8 +5,8 @@ const PRODUCTOS = [
         precio: "$1.000 UYU",
         precioNumero: 1000,
         costoEnvio: {
-        metropolitana: 150,
-        noMetropolitana: 250
+        metropolitana: 180,
+        noMetropolitana: 260
 },
 
 especificaciones: [
@@ -34,8 +34,8 @@ especificaciones: [
         precio: "$1.000 UYU",
         precioNumero: 1000,
         costoEnvio: {
-        metropolitana: 150,
-        noMetropolitana: 250
+        metropolitana: 180,
+        noMetropolitana: 260
 },
 
 especificaciones: [
@@ -61,8 +61,8 @@ especificaciones: [
         precio: "$1.000 UYU",
         precioNumero: 1000,
         costoEnvio: {
-        metropolitana: 150,
-        noMetropolitana: 250
+        metropolitana: 180,
+        noMetropolitana: 260
 },
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
@@ -86,8 +86,8 @@ especificaciones: [
         precio: "$1.000 UYU",
         precioNumero: 1000, 
         costoEnvio: {
-        metropolitana: 150,
-        noMetropolitana: 250
+        metropolitana: 180,
+        noMetropolitana: 260
 },
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
