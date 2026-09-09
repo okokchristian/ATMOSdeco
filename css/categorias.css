@@ -308,25 +308,26 @@
 }
 
 .btn-mp {
-    background-color: #00b0f0;
-    color: #fff;
+    background-color: transparent;
+    color: hsl(0, 7%, 97%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-mp:hover {
-    background-color: #0086c3; 
+    background-color: #00b0f0;
     transform: translateY(-2px);
 }
 
 .btn-transferencia {
-    background: transparent;
-    color: hsla(0, 7%, 97%, 0.85);
-    border: 1px solid rgba(255, 89, 0, 0.7);
+    background: #d44e00;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-transferencia:hover {
-    background: #ff5900;
-    border-color: #ff5900;
-    color: #fff;
+    background: #8a3400;
+    border-color: #8a3400;
+    transform: translateY(-2px);
 }
 
 /*------------------- DETALLE DE PRODUCTO ---------------------*/
@@ -752,8 +753,8 @@
 }
 
 .banco-logo-btn {
-    width: 16px;
-    height: 16px;
+    width: 23px;
+    height: 23px;
     object-fit: contain;
     border-radius: 3px;
 }

@@ -65,9 +65,6 @@ if (!producto) {
             <p class="entrega-info" id="entrega-info">Elegí una opción de entrega para continuar con la compra.</p>
 
             <div class="producto-botones">
-                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp">
-                    <i class="bi bi-credit-card"></i> Mercado Pago
-                </a>
                 <button class="btn-comprar btn-transferencia btn-disabled"
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
@@ -77,6 +74,9 @@ if (!producto) {
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
+                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp">
+                    <i class="bi bi-credit-card"></i> Mercado Pago
+                </a>
             </div>
         </div>
 
