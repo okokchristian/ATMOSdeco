@@ -1,253 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATMOS deco</title>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preload" href="css/index.css" as="style">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <meta property="og:title" content="ATMOS deco — Iluminación artesanal en bioplástico">
-    <meta property="og:description" content="Lámparas hechas a pedido con impresión 3D en PLA sustentable. Diseño contemporáneo, hecho en Uruguay.">
-    <meta property="og:image" content="https://atmosdeco.netlify.app/img/atmos-preview.png">
-    <meta property="og:url" content="https://atmosdeco.netlify.app/index.html">
-    <meta property="og:type" content="website">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATMOS deco — Ya volvemos</title>
+<style>
+  :root {
+    --bg: #0b0b10;
+    --red: #c23b2e;
+    --blue: #2f3fb0;
+    --cream: #f2ede4;
+    --muted: #9a97a3;
+  }
 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .waves {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.55;
+  }
+
+  .waves svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .wordmark {
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 3.5rem;
+  }
+
+  .wordmark span {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+
+  p.lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .contact {
+    display: flex;
+    gap: 1.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact a:hover {
+    border-color: var(--cream);
+  }
+
+  @media (max-width: 480px) {
+    .contact { gap: 1.25rem; }
+  }
+</style>
 </head>
 <body>
-    <div class="bg-fixed"></div>
 
-<!-----------------------NAVBAR----------------------->
+  <div class="waves">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c23b2e"/>
+          <stop offset="100%" stop-color="#0b0b10"/>
+        </linearGradient>
+        <linearGradient id="blueGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2f3fb0"/>
+          <stop offset="100%" stop-color="#0b0b10"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,0 C 250,150 250,750 0,900 L0,0 Z" fill="url(#redGrad)"/>
+      <path d="M1600,0 C 1350,150 1350,750 1600,900 L1600,0 Z" fill="url(#blueGrad)"/>
+    </svg>
+  </div>
 
-<nav class="navbar">
-    <div class="navbar-content">
-        <a href="index.html" class="logo">
-            ATMOS <br>
-            <span class="logo-accent">deco</span>
-        </a>
-
-        <div class="nav-icons">
-            <a href="#" class="btn-buscar">
-                <i class="bi bi-search"></i>
-                <span>Buscar</span>
-            </a>
-            <i class="bi bi-list toggle-menu" id="mobile-toggle"></i>
-        </div>
+  <div class="content">
+    <div class="wordmark">ATMOS<span>deco</span></div>
+    <h1>Estamos dándole forma a algo nuevo.</h1>
+    <p class="lead">
+      Estamos trabajando en nuestra web y colección. Falta poco para que puedas conocer nuestras piezas
+      nuevas de iluminación en bioplástico sustentable.
+    </p>
+    <div class="contact">
+      <a href="https://instagram.com/atmosdecouy" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:atmosdecouy@gmail.com">Escribinos</a>
     </div>
-</nav>
-
-<ul class="nav-links" id="nav-links">
-    <li class="nav-search-item">
-        <a href="#" class="btn-buscar">
-            <i class="bi bi-search"></i>
-            <span>Buscar</span>
-        </a>
-    </li>
-    <li>
-        <a href="#inicio">Inicio</a>
-    </li>
-    <li>
-        <a href="html/lamparas.html">Colección</a>
-    </li>
-    <li>
-        <a href="#quienes">¿Quiénes somos?</a>
-    </li>
-    <li>
-        <a href="#contacto">Contactanos</a>
-    </li>
-    <li>
-        <a href="#" class="open-faq-trigger">Preguntas Frecuentes</a>
-    </li>
-</ul>
-
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-        <h1>Geometría y calidez en perfecta sintonía.</h1>
-        <h2>Iluminación moderna para el hogar. Piezas de alto valor estético, amigables con el medio ambiente.</h2>
-        <a class="btn-verproductos" href="html/lamparas.html">Ver colección</a>
-        </div>
-    </section>
-
-<!-----------------SECTION QUIENES SON ------------------>
-
-<section class="about" id="quienes">
-    <div class="about-content">
-        <h2>¿Quiénes somos?</h2>
-        <p>Somos ATMOS, un equipo emprendedor radicado en Montevideo, apasionados por crear atmósferas cálidas y piezas únicas para el hogar moderno. 
-        <br><br>Cuidamos cada detalle de nuestro proceso, desde el diseño contemporáneo y la fabricación a pedido de cada pieza, hasta el empaque final.
-        Para materializar estas ideas elegimos utilizar exclusivamente el PLA, un bioplástico sustentable de origen vegetal.
-         <br><br> Creemos que el buen diseño debe ser responsable con el entorno, por eso nuestra meta es entregarte mucho más que una lámpara: una experiencia que llena tus espacios de textura, consciencia y calidez.</p>
-        <p class="about-signature">Hecho con amor. Hecho en Uruguay.</p>
-    </div>
-</section>
-
-<!------------------ CONTACTANOS -------------------->
-
-<section class="contact" id="contacto">
-    <div class="contact-content">
-        <h2>Contactanos</h2>
-        <div class="contact-divider"></div>
-        <p>¿Tenés dudas o querés hacer un pedido? <br> Escribinos, te respondemos con onda.</p>
-        <div class="contact-links">
-            <a href="mailto:atmosdecouy@gmail.com" class="contact-item">
-                <i class="bi bi-envelope"></i>
-                <span>atmosdecouy@gmail.com</span>
-            </a>
-            <a href="https://wa.me/59892980915" target="_blank" class="contact-item">
-                <i class="bi bi-whatsapp"></i>
-                <span>092 980 915</span>
-            </a>
-            <a href="https://instagram.com/atmosdecouy" target="_blank" class="contact-item">
-                <i class="bi bi-instagram"></i>
-                <span>@atmosdecouy</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!--======================= FAQ RESUMEN =======================-->
-
-<section class="about">
-    <div class="about-content visible">
-        <h2>¿Dudas antes de comprar?</h2>
-        <p class="faq-summary-text">
-       ¿Cómo recibo mi compra? <br> ¿Qué formas de pago aceptamos? <br> Cambios y devoluciones
-        </p>
-       <button id="open-faq" class="open-faq-trigger btn-verproductos" style="margin-top: 1.5rem; border: none; cursor: pointer;">
-    Ver todas las preguntas frecuentes
-</button>
-    </div>
-</section> 
-
-
-<!--======================= MODAL FAQ =======================-->
-
-<div class="faq-overlay" id="faq-overlay">
-    <div class="faq-box">
-        <div class="faq-header">
-            <h2>Preguntas Frecuentes</h2>
-            <button class="faq-close" id="faq-close" aria-label="Cerrar">
-                <i class="bi bi-x-lg"></i>
-            </button>
-        </div>
-
-        <h2 class="faq-section-title">Envíos y retiro</h2>
-
-        <div class="faq-pair">
-            <p><strong>¿Cómo recibo mi compra?</strong></p>
-            <p>
-                Ofrecemos <strong>retiro gratuito</strong> en Montevideo zona Palermo (coordinamos el encuentro por WhatsApp
-                una vez confirmada la compra) o <strong>envío a domicilio</strong> con un costo adicional de $150
-                sobre el precio del producto.
-            </p>
-        </div>
-
-        <div class="faq-pair">
-            <p><strong>¿Cuánto tarda el envío?</strong></p>
-            <p>
-                Coordinamos los tiempos de entrega por WhatsApp apenas se confirma tu pago, según tu zona.
-            </p>
-        </div>
-
-        <h2 class="faq-section-title">Pagos</h2>
-
-        <div class="faq-pair">
-            <p><strong>¿Qué formas de pago aceptamos?</strong></p>
-            <p>
-                Aceptamos <strong>Mercado Pago</strong> (con el link de pago de cada producto) y
-                <strong>transferencia bancaria</strong> (Itaú o Prex). Si transferís, enviá el comprobante
-                por WhatsApp para confirmar tu compra.
-            </p>
-        </div>
-
-        <div class="faq-pair">
-            <p><strong>¿Puedo pagar en cuotas?</strong></p>
-            <p>
-                Sí, si pagás con <strong>tarjeta de crédito a través de Mercado Pago</strong> podés elegir
-                la cantidad de cuotas disponibles según tu banco y tarjeta. La opción de cuotas aparece
-                directamente en el checkout de Mercado Pago al momento de pagar.
-            </p>
-        </div>
-
-        <h2 class="faq-section-title">Cambios y devoluciones</h2>
-
-        <div class="faq-pair">
-            <p><strong>Mi producto llegó roto o con un defecto, ¿Qué hago?</strong></p>
-            <p>
-                Escribinos por WhatsApp dentro de las <strong>24 a 48 horas</strong> de recibido el producto,
-                contándonos qué pasó (una foto ayuda mucho). Vas a poder elegir entre un
-                <strong>cambio por el mismo producto</strong> o el <strong>reembolso total</strong> de tu compra.
-            </p>
-        </div>
-
-        <div class="faq-pair">
-            <p><strong>¿Puedo devolver un producto si simplemente no me gustó?</strong></p>
-            <p>
-                Como cada lámpara es una pieza artesanal hecha a pedido, <strong>no aceptamos devoluciones
-                por arrepentimiento</strong> — solo en casos de defecto de fabricación o daño en el envío,
-                según se detalla arriba.
-            </p>
-        </div>
-
-        <h2 class="faq-section-title">Sobre los productos</h2>
-
-        <div class="faq-pair">
-            <p><strong>¿De qué material están hechas las lámparas?</strong></p>
-            <p>
-                Todas nuestras piezas están hechas con impresion 3D en bioplástico, un material sustentable y amigable
-                con el medio ambiente :)
-            </p>
-        </div>
-    </div>
-</div>
-<!----------------BOTON VOLVER ARRIBA --------------->
-
-<button id="back-to-top" aria-label="Volver arriba">
-    <i class="bi bi-arrow-up"></i>
-</button>
-
-
-<!-------------------FOOTER ----------------------------->
-
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo">ATMOS <span class="logo-accent">deco</span></div>
-
-        <div class="footer-socials">
-            <a href="https://instagram.com/atmosdecouy" target="_blank"><i class="bi bi-instagram"></i></a>
-            <a href="https://wa.me/59892980915" target="_blank"><i class="bi bi-whatsapp"></i></a>
-            <a href="mailto:atmosdecouy@gmail.com"><i class="bi bi-envelope"></i></a>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 ATMOS deco. Hecho con amor en Uruguay.</p>
-    </div>
-</footer>
-
-<!-------------------BUSCADOR ----------------------------->
-
-<div class="search-overlay" id="search-overlay">
-    <div class="search-box">
-        <div class="search-input-row">
-            <i class="bi bi-search"></i>
-            <input type="text" id="search-input" placeholder="Buscar productos..." autocomplete="off">
-            <button class="search-close" id="search-close" aria-label="Cerrar">
-                <i class="bi bi-x-lg"></i>
-            </button>
-        </div>
-        <div class="search-results" id="search-results"></div>
-    </div>
-</div>
-
-<!------------------------------------------------->
-
-<script src="js/index.js"></script>
-<script src="js/productos.js"></script>
-<script src="js/search.js"></script>
-
+  </div>
 
 </body>
 </html>
