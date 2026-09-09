@@ -23,9 +23,10 @@ especificaciones: [
             "../img/IMG_1801.JPG"
         ],
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
-        }
+        retiro: "https://mpago.la/27FoEo5",
+        metropolitana: "https://mpago.la/1U1Nfc1",
+        noMetropolitana: "https://mpago.la/2XFSZge"
+}
     },
     
      {
