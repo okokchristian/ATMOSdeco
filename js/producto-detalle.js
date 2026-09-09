@@ -149,8 +149,7 @@ btnMp.addEventListener('click', (e) => {
 
         precioFinal.textContent = formatear(precioTotal);
         entregaInfo.textContent = `Coordinamos la entrega por WhatsApp una vez confirmado el pago.`;
-        btnMp.href = producto.linkMercadoPago.envio;
-        btnTransferencia.dataset.precio = formatear(precioTotal);
+        btnMp.href = producto.linkMercadoPago[zonaSeleccionada];        btnTransferencia.dataset.precio = formatear(precioTotal);
         btnTransferencia.dataset.entrega = `Envío - ${zonaTexto}`;
         btnTransferencia.dataset.costoEnvio = costoEnvio;
         btnTransferencia.dataset.zonaEnvio = zonaTexto;
