@@ -21,12 +21,12 @@ if (!producto) {
 
     contenedor.innerHTML = `
         <div class="producto-detalle-img">
-            <div class="galeria-track" id="galeria-track">
-                ${producto.imagenes.map(img => `
-                    <img src="${img}" alt="${producto.nombre}">
-                `).join('')}
-            </div>
-            ${producto.imagenes.length > 1 ? `
+    <div class="galeria-track" id="galeria-track">
+        ${producto.colores[0].imagenes.map(img => `
+            <img src="${img}" alt="${producto.nombre}">
+        `).join('')}
+    </div>
+    ${producto.colores[0].imagenes.length > 1 ? `
                 <button class="galeria-flecha galeria-flecha-izq" id="flecha-izq" aria-label="Anterior">
                     <i class="bi bi-chevron-left"></i>
                 </button>
@@ -34,24 +34,48 @@ if (!producto) {
                     <i class="bi bi-chevron-right"></i>
                 </button>
                 <div class="galeria-dots" id="galeria-dots">
-                    ${producto.imagenes.map((_, i) => `
-                        <span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
-                    `).join('')}
-                </div>
+    ${producto.colores[0].imagenes.map((_, i) => `
+        <span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+    `).join('')}
+</div>
             ` : ''}
-            <button class="btn-compartir-flotante" id="btn-compartir" aria-label="Compartir este producto">
+                                    <button class="btn-compartir-flotante" id="btn-compartir" aria-label="Compartir este producto">
                 <i class="bi bi-share"></i>
             </button>
         </div>
+
+        <div class="color-selector">
+                <span class="color-selector-label">
+                    Color: <strong id="color-elegido">${producto.colores[0].nombre}</strong>
+                </span>
+
+                <div class="color-opciones">
+                    ${producto.colores.map((color, i) => `
+                        <button class="color-dot ${i === 0 ? 'active' : ''}"
+                                style="background-color: ${color.hex};"
+                                data-index="${i}"
+                                aria-label="Color ${color.nombre}"
+                                title="${color.nombre}">
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+
         <div class="producto-detalle-info">
             <h1>${producto.nombre}</h1>
             <div class="producto-linea"></div>
 
             <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
 
-                                    <div class="producto-descripcion-wrapper">
+
+
+            <div class="producto-descripcion-wrapper">
                 <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
-                <button class="ver-mas-inline" id="toggle-caracteristicas">Ver características del diseño</button>
+
+                <button class="ver-mas-inline" id="toggle-caracteristicas">
+                    Ver características del diseño
+                </button>
+
                 <div class="producto-especificaciones" id="producto-especificaciones">
                     <ul class="especificaciones-lista">
                         ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
@@ -63,7 +87,10 @@ if (!producto) {
                 <button class="entrega-tab" data-tipo="retiro">Retiro</button>
                 <button class="entrega-tab" data-tipo="envio">Envío</button>
             </div>
-            <p class="entrega-info" id="entrega-info">Elegí una opción de entrega para continuar con la compra.</p>
+
+            <p class="entrega-info" id="entrega-info">
+                Elegí una opción de entrega para continuar con la compra.
+            </p>
 
             <div class="producto-botones">
                 <button class="btn-comprar btn-transferencia btn-disabled"
@@ -75,13 +102,13 @@ if (!producto) {
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
+
                 <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp">
                     <i class="bi bi-credit-card"></i> Mercado Pago
                 </a>
             </div>
         </div>
-
-    `;
+ `;
 
     // ================= SELECTOR RETIRO / ENVÍO =================
     const entregaTabs = document.querySelectorAll('.entrega-tab');
@@ -199,8 +226,6 @@ btnMp.addEventListener('click', (e) => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModalZona();
     });
-
-    // ================= VER MÁS / VER MENOS =================
   
     // ================= DESCRIPCIÓN Y ESPECIFICACIONES =================
 document.getElementById('descripcion-texto').textContent = producto.descripcion;
@@ -212,8 +237,6 @@ toggleCaracteristicas.addEventListener('click', () => {
     const abierto = especificaciones.classList.toggle('activo');
     toggleCaracteristicas.textContent = abierto ? 'Ocultar características del diseño' : 'Ver características del diseño';
 });
-
-    renderDescripcion();
 
     // ================= COMPARTIR PRODUCTO =================
     const btnCompartir = document.getElementById('btn-compartir');
@@ -245,38 +268,72 @@ toggleCaracteristicas.addEventListener('click', () => {
         }
     });
 
-    // ================= GALERÍA DESLIZABLE =================
-    if (producto.imagenes.length > 1) {
-        const track = document.getElementById('galeria-track');
-        const dots = document.querySelectorAll('.dot');
-        const flechaIzq = document.getElementById('flecha-izq');
-        const flechaDer = document.getElementById('flecha-der');
-        const totalFotos = producto.imagenes.length;
-        let indiceActual = 0;
+    // ================= GALERÍA + SELECTOR DE COLOR =================
+const track = document.getElementById('galeria-track');
+const flechaIzq = document.getElementById('flecha-izq');
+const flechaDer = document.getElementById('flecha-der');
+const colorDots = document.querySelectorAll('.color-dot');
+const colorElegidoTexto = document.getElementById('color-elegido');
 
-        function irAFoto(index) {
-            indiceActual = (index + totalFotos) % totalFotos;
-            track.style.transform = `translateX(-${indiceActual * 100}%)`;
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === indiceActual));
-        }
+let colorActual = 0;
+let indiceActual = 0;
 
-        flechaDer.addEventListener('click', () => irAFoto(indiceActual + 1));
-        flechaIzq.addEventListener('click', () => irAFoto(indiceActual - 1));
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => irAFoto(Number(dot.dataset.index)));
-        });
+function renderGaleria() {
+    const imagenes = producto.colores[colorActual].imagenes;
 
-        let touchStartX = 0;
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        });
-        track.addEventListener('touchend', (e) => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const diferencia = touchStartX - touchEndX;
-            if (Math.abs(diferencia) > 40) {
-                if (diferencia > 0) irAFoto(indiceActual + 1);
-                else irAFoto(indiceActual - 1);
-            }
-        });
+    track.innerHTML = imagenes.map(img => `<img src="${img}" alt="${producto.nombre}">`).join('');
+    track.style.transform = 'translateX(0%)';
+    indiceActual = 0;
+
+    const dotsContainer = document.getElementById('galeria-dots');
+    const mostrarControles = imagenes.length > 1;
+
+    if (flechaIzq) flechaIzq.style.display = mostrarControles ? 'flex' : 'none';
+    if (flechaDer) flechaDer.style.display = mostrarControles ? 'flex' : 'none';
+
+    if (dotsContainer) {
+        dotsContainer.innerHTML = mostrarControles
+            ? imagenes.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')
+            : '';
     }
+}
+
+function irAFoto(index) {
+    const totalFotos = producto.colores[colorActual].imagenes.length;
+    indiceActual = (index + totalFotos) % totalFotos;
+    track.style.transform = `translateX(-${indiceActual * 100}%)`;
+    document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === indiceActual));
+}
+
+if (flechaIzq) flechaIzq.addEventListener('click', () => irAFoto(indiceActual - 1));
+if (flechaDer) flechaDer.addEventListener('click', () => irAFoto(indiceActual + 1));
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('dot')) {
+        irAFoto(Number(e.target.dataset.index));
+    }
+});
+
+let touchStartX = 0;
+track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+track.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diferencia = touchStartX - touchEndX;
+    if (Math.abs(diferencia) > 40) {
+        if (diferencia > 0) irAFoto(indiceActual + 1);
+        else irAFoto(indiceActual - 1);
+    }
+});
+
+colorDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        colorActual = Number(dot.dataset.index);
+        colorElegidoTexto.textContent = producto.colores[colorActual].nombre;
+        colorDots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        renderGaleria();
+    });
+});
 }
