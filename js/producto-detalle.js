@@ -44,7 +44,13 @@ if (!producto) {
             </button>
         </div>
 
-        <div class="color-selector">
+        <div class="producto-detalle-info">
+            <h1>${producto.nombre}</h1>
+            <div class="producto-linea"></div>
+
+            <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
+
+            <div class="color-selector">
                 <span class="color-selector-label">
                     Color: <strong id="color-elegido">${producto.colores[0].nombre}</strong>
                 </span>
@@ -60,14 +66,6 @@ if (!producto) {
                     `).join('')}
                 </div>
             </div>
-
-        <div class="producto-detalle-info">
-            <h1>${producto.nombre}</h1>
-            <div class="producto-linea"></div>
-
-            <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
-
-
 
             <div class="producto-descripcion-wrapper">
                 <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
