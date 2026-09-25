@@ -49,8 +49,9 @@ if (!producto) {
 
             <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
 
-                        <div class="producto-descripcion-wrapper">
+                                    <div class="producto-descripcion-wrapper">
                 <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
+                <button class="ver-mas-inline" id="toggle-caracteristicas">Ver características del diseño</button>
                 <div class="producto-especificaciones" id="producto-especificaciones">
                     <ul class="especificaciones-lista">
                         ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
@@ -201,33 +202,16 @@ btnMp.addEventListener('click', (e) => {
 
     // ================= VER MÁS / VER MENOS =================
   
-    const especificaciones = document.getElementById('producto-especificaciones');
-    const descripcionTexto = document.getElementById('descripcion-texto');
-    const LARGO_CORTO = 140; // cantidad de caracteres visibles antes de truncar
+    // ================= DESCRIPCIÓN Y ESPECIFICACIONES =================
+document.getElementById('descripcion-texto').textContent = producto.descripcion;
 
-    const textoCompleto = producto.descripcion;
-    const necesitaTruncar = textoCompleto.length > LARGO_CORTO;
-    let expandido = false;
+const especificaciones = document.getElementById('producto-especificaciones');
+const toggleCaracteristicas = document.getElementById('toggle-caracteristicas');
 
-    function renderDescripcion() {
-        if (!necesitaTruncar) {
-            descripcionTexto.textContent = textoCompleto;
-            return;
-        }
-
-        if (expandido) {
-            descripcionTexto.innerHTML = `${textoCompleto} <span class="ver-mas-inline" id="toggle-ver-mas">Ver menos</span>`;
-        } else {
-            const corto = textoCompleto.slice(0, LARGO_CORTO).trim();
-            descripcionTexto.innerHTML = `${corto}... <span class="ver-mas-inline" id="toggle-ver-mas">Ver más</span>`;
-        }
-
-        document.getElementById('toggle-ver-mas').addEventListener('click', () => {
-            expandido = !expandido;
-            especificaciones.classList.toggle('activo', expandido);
-            renderDescripcion();
-        });
-    }
+toggleCaracteristicas.addEventListener('click', () => {
+    const abierto = especificaciones.classList.toggle('activo');
+    toggleCaracteristicas.textContent = abierto ? 'Ocultar características del diseño' : 'Ver características del diseño';
+});
 
     renderDescripcion();
 

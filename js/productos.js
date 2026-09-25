@@ -1,9 +1,11 @@
 const PRODUCTOS = [
+    // ================= ONDA =================
+
     {
-        id: "lampara-ondas",
-        nombre: "Lámpara Ondas",
-        precio: "$1.000 UYU",
-        precioNumero: 1000,
+        id: "lampara-onda",
+        nombre: "Lámpara Onda",
+        precio: "$1.400 UYU",
+        precioNumero: 1400,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -12,15 +14,17 @@ const PRODUCTOS = [
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
     "Incluye bombilla LED de luz cálida de bajo consumo.",
-    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Dimensiones: 13cm ancho x 13cm de largo y 22cm de alto",
     "Cable de 1.5 metros con interruptor incorporado.",
     "Base impresa en el mismo bioplástico sustentable."
 ],
-        descripcion: "Fabricada a pedido con impresión 3D en PLA sustentable, la Lámpara Ondas combina diseño contemporáneo con una luz cálida y difusa. Cada pieza conserva las texturas naturales del proceso, haciendo que ninguna sea exactamente igual a otra.",
+        descripcion: "Curvas suaves que suman calma al espacio.",
         
         imagenes: [
-            "../img/IMG_1808.webp",
-            "../img/IMG_1801.JPG"
+            "../img/onda.jpeg",
+            "../img/onda2.png",
+            "../img/onda3.png"
+
         ],
         linkMercadoPago: {
         retiro: "https://mpago.la/27FoEo5",
@@ -29,11 +33,13 @@ especificaciones: [
 }
     },
     
+    // ================= DUO GRANDE =================
+
      {
-        id: "lampara-nami",
-        nombre: "Lámpara Nami",
-        precio: "$1.000 UYU",
-        precioNumero: 1000,
+        id: "lampara-duo-grande",
+        nombre: "Lámpara Duo Grande",
+        precio: "$1.700 UYU",
+        precioNumero: 1700,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -42,13 +48,13 @@ especificaciones: [
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
     "Incluye bombilla LED de luz cálida de bajo consumo.",
-    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Dimensiones: 23cm ancho, 23cm largo y 26m alto",
     "Cable de 1.5 metros con interruptor incorporado.",
     "Base impresa en el mismo bioplástico sustentable."
 ],
-        descripcion: "La lámpara Nami ilumina tus espacios con una calidez envolvente. Su diseño contemporáneo de columna plisada está fabricado de manera sustentable utilizando un bioplástico derivado de fuentes vegetales. Su luz cálida crea un ambiente acogedor y responsable.",
+        descripcion: "La lámpara Duo Grande brinda estructura y calidez en un mismo diseño.",
         imagenes: [
-            "../img/nami.jpeg",
+            "../img/duo.jpeg",
         ],
         linkMercadoPago: {
             retiro: "https://mpago.la/xxxxx",
@@ -56,11 +62,42 @@ especificaciones: [
         }
     }, 
 
+    // ================= DUO CHICA=================
+
+     {
+        id: "lampara-duo-chica",
+        nombre: "Lámpara Duo Chica",
+        precio: "$1.300 UYU",
+        precioNumero: 1300,
+        costoEnvio: {
+        metropolitana: 180,
+        noMetropolitana: 260
+},
+
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 17cm ancho, 17cm largo y 20cm alto",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
+        descripcion: "Estructura y calidez en un mismo diseño.",
+        imagenes: [
+            "../img/duo.jpeg",
+        ],
+        linkMercadoPago: {
+            retiro: "https://mpago.la/xxxxx",
+            envio: "https://mpago.la/yyyyy"
+        }
+    }, 
+
+    // ================= BLOOM =================
+
     {
-        id: "lampara-brote",
-        nombre: "Lámpara Brote",
-        precio: "$1.000 UYU",
-        precioNumero: 1000,
+        id: "lampara-bloom",
+        nombre: "Lámpara Bloom",
+        precio: "$1.300 UYU",
+        precioNumero: 1300,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -68,24 +105,27 @@ especificaciones: [
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
     "Incluye bombilla LED de luz cálida de bajo consumo.",
-    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Dimensiones: 18cm ancho, 18cm largo, 22cm alto",
     "Cable de 1.5 metros con interruptor incorporado.",
     "Base impresa en el mismo bioplástico sustentable."
 ],
-        descripcion: "Introduce sofisticación en tu hogar con la lámpara Brote. Su icónica forma de hongo, impresa en bioplástico sustentable, transforma la luz en textura viva, creando una atmósfera cálida e íntima. Una pieza de diseño responsable y contemporáneo que une arte y consciencia en perfecta armonía.",
+        descripcion: "Luz suave con un aire natural y cálido.",
         imagenes: [
-            "../img/brote.jpeg",
+            "../img/bloom.jpeg",
         ],
         linkMercadoPago: {
             retiro: "https://mpago.la/xxxxx",
             envio: "https://mpago.la/yyyyy"
         }
     },
+
+    // ================= DUNA GRANDE =================
+
          {
-        id: "lampara-prisma",
-        nombre: "Lámpara Prisma",
-        precio: "$1.000 UYU",
-        precioNumero: 1000, 
+        id: "lampara-duna-grande",
+        nombre: "Lámpara Duna Grande",
+        precio: "$1.700 UYU",
+        precioNumero: 1700, 
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -93,13 +133,71 @@ especificaciones: [
 especificaciones: [
     "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
     "Incluye bombilla LED de luz cálida de bajo consumo.",
-    "Dimensiones: 10 cm x 20 cm (a confirmar).",
+    "Dimensiones: 24cm ancho, 24cm largo, 27cm alto",
     "Cable de 1.5 metros con interruptor incorporado.",
     "Base impresa en el mismo bioplástico sustentable."
 ],
-        descripcion: "La lámpara Prisma transforma tus espacios con su luz cálida y envolvente. Fabricada exclusivamente con PLA sustentable (material amigable con el medio ambiente derivado de fuentes vegetales), es una pieza de diseño contemporáneo y responsabilidad ecológica, ideal para momentos de relajación.",
+        descripcion: "La lámpara Duna Grande Calidez es envolvente, la sensación de un atardecer dentro de casa.",
         imagenes: [
-            "../img/prisma.jpeg",
+            "../img/duna.jpeg",
+        ],
+        linkMercadoPago: {
+            retiro: "https://mpago.la/xxxxx",
+            envio: "https://mpago.la/yyyyy"
+        }
+    }, 
+
+
+    // ================= DUNA CHICA =================
+
+         {
+        id: "lampara-duna-chica",
+        nombre: "Lámpara Duna Chica",
+        precio: "$1.300 UYU",
+        precioNumero: 1300, 
+        costoEnvio: {
+        metropolitana: 180,
+        noMetropolitana: 260
+},
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 18cm ancho, 18cm largo, 19cm alto",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
+        descripcion: "Calidez envolvente, la sensación de un atardecer dentro de casa.",
+        imagenes: [
+            "../img/duna.jpeg",
+        ],
+        linkMercadoPago: {
+            retiro: "https://mpago.la/xxxxx",
+            envio: "https://mpago.la/yyyyy"
+        }
+    }, 
+    
+    
+    // ================= CORE =================
+
+    {
+        id: "lampara-core",
+        nombre: "Lámpara Core",
+        precio: "$1.300 UYU",
+        precioNumero: 1300, 
+        costoEnvio: {
+        metropolitana: 180,
+        noMetropolitana: 260
+},
+especificaciones: [
+    "Luz fría al tacto: no quema ni derrite el material, aunque esté encendida por horas.",
+    "Incluye bombilla LED de luz cálida de bajo consumo.",
+    "Dimensiones: 17cm ancho, 17cm largo, 20cm alto",
+    "Cable de 1.5 metros con interruptor incorporado.",
+    "Base impresa en el mismo bioplástico sustentable."
+],
+        descripcion: "Simple, cálida y versátil.",
+        imagenes: [
+            "../img/core.jpeg",
         ],
         linkMercadoPago: {
             retiro: "https://mpago.la/xxxxx",
