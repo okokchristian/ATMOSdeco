@@ -4,8 +4,8 @@ const PRODUCTOS = [
     {
     id: "lampara-onda",
     nombre: "Lámpara Onda",
-    precio: "$1.400 UYU",
-    precioNumero: 1400,
+    precio: "$1.300 UYU",
+    precioNumero: 1300,
     costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -50,8 +50,8 @@ const PRODUCTOS = [
      {
         id: "lampara-duo-grande",
         nombre: "Lámpara Duo Grande",
-        precio: "$1.700 UYU",
-        precioNumero: 1700,
+        precio: "$1.600 UYU",
+        precioNumero: 1600,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -85,8 +85,8 @@ especificaciones: [
      {
         id: "lampara-mini-duo",
         nombre: "Lámpara Mini Duo",
-        precio: "$1.300 UYU",
-        precioNumero: 1300,
+        precio: "$1.150 UYU",
+        precioNumero: 1150,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -119,8 +119,8 @@ especificaciones: [
     {
         id: "lampara-bloom",
         nombre: "Lámpara Bloom",
-        precio: "$1.300 UYU",
-        precioNumero: 1300,
+        precio: "$1.150 UYU",
+        precioNumero: 1150,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -151,8 +151,8 @@ especificaciones: [
          {
         id: "lampara-duna-grande",
         nombre: "Lámpara Duna Grande",
-        precio: "$1.700 UYU",
-        precioNumero: 1700, 
+        precio: "$1.600 UYU",
+        precioNumero: 1600, 
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -184,8 +184,8 @@ especificaciones: [
          {
         id: "lampara-mini-duna",
         nombre: "Lámpara Mini Duna",
-        precio: "$1.300 UYU",
-        precioNumero: 1300, 
+        precio: "$1.150 UYU",
+        precioNumero: 1150, 
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -216,8 +216,8 @@ especificaciones: [
     {
         id: "lampara-core",
         nombre: "Lámpara Core",
-        precio: "$1.300 UYU",
-        precioNumero: 1300, 
+        precio: "$1.150 UYU",
+        precioNumero: 1150, 
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
