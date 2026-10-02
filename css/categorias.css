@@ -47,7 +47,7 @@
 
 .categoria-card:hover {
     transform: translateY(-8px);
-    border-color: #ff5900;
+    border-color: #cf9a5c;
     box-shadow:
         0 0 0 1px rgba(255, 89, 0, 0.3),
         0 20px 40px rgba(0, 0, 0, 0.4),
@@ -89,7 +89,7 @@
 }
 
 .categoria-card:hover .categoria-info h3 {
-    color: #ff5900;
+    color: #cf9a5c;
 }
 
 
@@ -98,7 +98,7 @@
 .categoria-linea {
     width: 35px;
     height: 2px;
-    background: #ff5900;
+    background: #cf9a5c;
     margin-bottom: 1rem;
     transition: width 0.4s cubic-bezier(.22,1,.36,1);
 }
@@ -147,8 +147,8 @@
 }
 
 .categoria-card:hover .btn-categoria {
-    background: #ff5900;
-    border-color: #ff5900;
+    background: #cf9a5c;
+    border-color: #cf9a5c;
     gap: 0.9rem;
 }
 
@@ -245,7 +245,7 @@
 
 .producto-card:hover {
     transform: translateY(-8px);
-    border-color: #ff5900;
+    border-color: #cf9a5c;
     box-shadow:
         0 0 0 1px rgba(255, 89, 0, 0.3),
         0 20px 40px rgba(0, 0, 0, 0.4),
@@ -400,7 +400,7 @@
     font-size: 0.58rem;
     font-weight: 500;
     letter-spacing: 0.3em;
-    color: rgba(255, 89, 0, 0.9);
+    color: #cf9a5c;
 }
 
 .producto-detalle-info h1 {
@@ -419,7 +419,7 @@
     width: 30px;
     height: 1px;
     margin-top: 0.9rem;
-    background: #ff5900;
+    background: #cf9a5c;
     transition: width 0.4s ease;
 }
 
@@ -452,7 +452,7 @@
 
 .producto-no-encontrado a {
     margin-left: 0.5rem;
-    color: #ff5900;
+    color: #cf9a5c;
     text-decoration: none;
 }
 
@@ -478,7 +478,7 @@
 }
 
 .btn-compartir-flotante:hover {
-    background: #ff5900;
+    background: #cf9a5c;
     transform: translateY(-2px);
 }
 
@@ -491,9 +491,8 @@
     background: none;
     border: none;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
-    color: #ff5900;
+    color: #cf9a5c;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
@@ -547,7 +546,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #ff5900;
+    background: #cf9a5c;
 }
 
 @media (max-width: 768px) {
@@ -694,7 +693,7 @@
 }
 
 .btn-copiar:hover {
-    color: #ff5900;
+    color: #cf9a5c;
 }
 
 .modal-nota {
@@ -742,7 +741,6 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     color: hsla(0, 7%, 97%, 0.7);
-    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
@@ -826,7 +824,7 @@
 
 .zona-opcion:hover {
     background: rgba(185, 74, 14, 0.15);
-    border-color: #ff5900;
+    border-color: #cf9a5c;
     transform: translateY(-2px);
 }
 
@@ -850,7 +848,7 @@
 .zona-opcion-precio {
     font-size: 1rem;
     font-weight: 700;
-    color: #ff5900;
+    color: #cf9a5c;
     white-space: nowrap;
 }
 
@@ -893,7 +891,7 @@
 }
 
 .galeria-flecha:hover {
-    background: #ff5900;
+    background: #cf9a5c;
 }
 
 .galeria-flecha-izq {
@@ -924,7 +922,7 @@
 
 .dot.active {
     width: 32px;
-    background: #ff5900;
+    background: #cf9a5c;
 }
 
 .entrega-tabs {
@@ -940,7 +938,6 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     color: hsla(0, 7%, 97%, 0.7);
-    font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
@@ -948,8 +945,8 @@
 }
 
 .entrega-tab.active {
-    background: #ff5900;
-    border-color: #ff5900;
+    background: #cf9a5c;
+    border-color: #cf9a5c;
     color: #fff;
 }
 
@@ -974,7 +971,7 @@
 }
 
 .color-selector-label strong {
-    color: #ff5900;
+    color: #cf9a5c;
     font-weight: 600;
 }
 
@@ -999,7 +996,7 @@
 }
 
 .color-dot.active {
-    border-color: #ff5900;
+    border-color: #cf9a5c;
     box-shadow: 0 0 0 2px rgba(255, 89, 0, 0.3);
 }
 /*======================= 404 =======================*/
@@ -1020,7 +1017,7 @@
 .error-404-numero {
     font-size: 6rem;
     font-weight: 700;
-    color: #ff5900;
+    color: #cf9a5c;
     line-height: 1;
     margin-bottom: 1rem;
     opacity: 0.85;
@@ -1075,7 +1072,7 @@
 
 .estado-icono-pendiente {
     background: rgba(255, 89, 0, 0.342);
-    color: #ff5900;
+    color: #cf9a5c;
     border: 2px solid rgba(255, 89, 0, 0.4);
 }
 
@@ -1119,8 +1116,8 @@
 }
 
 .btn-verproductos-outline:hover {
-    border-color: #ff5900;
-    color: #ff5900;
+    border-color: #cf9a5c;
+    color: #cf9a5c;
 }
 
 .btn-whatsapp {
