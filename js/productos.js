@@ -24,7 +24,7 @@ const PRODUCTOS = [
         {
             nombre: "Blanco",
             hex: "#f5f0e8",
-            imagenes: ["../img/onda/onda.jpeg",]
+            imagenes: ["../img/onda/onda.jpeg"], 
         },
         {
             nombre: "Rojo",
@@ -32,10 +32,10 @@ const PRODUCTOS = [
             imagenes: ["../img/onda/rojo.png"]
         },
         {
-            nombre: "Naranja",
-            hex: "#fa7034",
-            imagenes: ["../img/onda/naranja.png"]
-        }
+            nombre: "Verde",
+            hex: "#67b77e",
+            imagenes: ["../img/onda/verde.jpg"]
+        },
     ],
 
     linkMercadoPago: {

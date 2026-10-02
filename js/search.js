@@ -64,13 +64,17 @@ searchInput.addEventListener('input', () => {
         return;
     }
 
-    searchResults.innerHTML = coincidencias.map(p => `
-        <a href="${rutaProductos}?id=${p.id}" class="search-result-item">
-            <img src="${enCarpetaHtml ? p.imagenes[0] : p.imagenes[0].replace('../', '')}" alt="${p.nombre}">
-            <div class="search-result-info">
-                <h4>${p.nombre}</h4>
-                <span>${p.precio}</span>
-            </div>
-        </a>
-    `).join('');
+    searchResults.innerHTML = coincidencias.map(p => {
+        const primeraImagen = p.colores[0].imagenes[0];
+        const rutaImagen = enCarpetaHtml ? primeraImagen : primeraImagen.replace('../', '');
+        return `
+            <a href="${rutaProductos}?id=${p.id}" class="search-result-item">
+                <img src="${rutaImagen}" alt="${p.nombre}">
+                <div class="search-result-info">
+                    <h4>${p.nombre}</h4>
+                    <span>${p.precio}</span>
+                </div>
+            </a>
+        `;
+    }).join('');
 });

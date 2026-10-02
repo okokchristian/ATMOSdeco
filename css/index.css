@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+button, input, select, textarea {
+    font-family: inherit;
+}
+
 :root {
     --navbar-top: 15px;
     --navbar-width: 90%;
@@ -20,7 +24,7 @@ body {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
 .bg-fixed {
@@ -32,13 +36,12 @@ body {
     pointer-events: none;
 
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.708), /*arriba*/ rgba(255, 255, 255, 0)), /*abajo*/
-        url('../img/hero.jpg');
+        linear-gradient(rgba(255, 255, 255, 0), /*arriba*/ rgba(0, 0, 0, 0.64)), /*abajo*/
+        url('../img/hero2.jpg');
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
 }
 
 /* ================== NAVBAR y relacionados ==================*/
@@ -105,7 +108,7 @@ body {
     bottom: -2px;
     width: 0;
     height: 2px;
-    background: #ff5900;
+    background: #cf9a5c;
     transition: width 0.3s ease;
 }
 
@@ -114,7 +117,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ff5900;
+    color: #cf9a5c;
 }
 
 @media (min-width: 769px) {
@@ -145,6 +148,7 @@ body {
     .nav-icons .btn-buscar {
         font-size: 1.05rem;
     }
+    
 }
 
 /* Breakpoint intermedio: laptops chicas / tablets grandes */
@@ -178,8 +182,10 @@ body {
 }
 
 .logo-accent {
+    font-size: 1rem;
     font-weight: 300;
     opacity: 0.75;
+    margin-left: 1rem;
 }
 
 .logo {
@@ -195,7 +201,6 @@ body {
 }
 
 .btn-buscar {
-    font-family: 'Poppins', 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     text-decoration: none;
@@ -226,13 +231,13 @@ body {
     bottom: -3px;
     width: 0;
     height: 1.5px;
-    background: #ff5900;
+    background: #cf9a5c;
     transition: width 0.3s ease;
 }
 
 .btn-buscar:hover {
-    color: #ff5900;
-    border-color: #cf5300;
+    color: #cf9a5c;
+    border-color: #cf9a5c;
 }
 
 .btn-buscar:hover span::after {
@@ -290,7 +295,7 @@ body.nav-hidden .nav-links {
 /*================== BOTÓN VER PRODUCTOS =====================*/ 
 
 .btn-verproductos {
-    background-color: #cf5300e1;
+    background-color: #cf9a5c;
     color: #fff;
     padding: 12px 28px;
     margin-top: 100px;
@@ -304,7 +309,7 @@ body.nav-hidden .nav-links {
 
 /* boton hver suave (efecto) */
 .btn-verproductos:hover {
-    background-color: #B96C3A;
+    background-color: #093a09d2;
     transform: translateY(-2px);
 }
 
@@ -371,7 +376,7 @@ body.nav-hidden .nav-links {
     display: block;
     width: 60px;
     height: 2px;
-    background: #cf5300;
+    background: #cf9a5c;
     margin: 1.5rem auto 2rem;
 }
 
@@ -424,7 +429,7 @@ body.nav-hidden .nav-links {
 .contact-divider {
     width: 60px;
     height: 2px;
-    background: #cf5300;
+    background: #cf9a5c;
     margin: 1.5rem auto 2rem;
 }
 
@@ -462,7 +467,7 @@ body.nav-hidden .nav-links {
 
 .contact-item:hover {
     background-color: rgba(207, 83, 0, 0.2);
-    border-color: #cf5300;
+    border-color: #cf9a5c;
 }
 
 /*======================= FOOTER =======================*/
@@ -509,7 +514,7 @@ body.nav-hidden .nav-links {
 }
 
 .footer-contact a:hover {
-    color: #ff5900;
+    color: #cf9a5c;
 }
 
 .footer-socials {
@@ -528,7 +533,7 @@ body.nav-hidden .nav-links {
 }
 
 .footer-socials a:hover {
-    color: #cf5300;
+    color: #cf9a5c;
 }
 
 .footer-bottom {
@@ -587,7 +592,7 @@ body.nav-hidden .nav-links {
 }
 
 #back-to-top:hover {
-    background-color: #cf5300;
+    background-color: #cf9a5c;
 }
 
 /*==================RESPONSIVIDAD==============*/
@@ -624,10 +629,18 @@ body.nav-hidden .nav-links {
     }
 
     .logo {
-        font-size: 1.25rem;
-        line-height: 0.85;
-        z-index: 1002;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    transform: translateY(2px);
     }
+
+    .logo-accent {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.75;
+    }
+    
     .nav-icons {
         gap: 1.3rem;
         z-index: 1002;
@@ -657,41 +670,50 @@ body.nav-hidden .nav-links {
 
    #nav-links {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;      /* antes: width: 100%; */
-    height: 100dvh;    /* antes: height: 100%; */
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
     max-width: none;
 
     margin: 0;
     padding: 5.5rem 2rem 1.5rem;
-    overflow-y: auto;       
-    -webkit-overflow-scrolling: touch; 
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
     list-style: none;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77, 91, 78, 0.90),
+            rgba(35, 44, 37, 0.95)
+        );
 
-    background: rgba(53, 14, 14, 0.281);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(25px) saturate(72%);
+    -webkit-backdrop-filter: blur(25px) saturate(72%);
 
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+        0 25px 80px rgba(0, 0, 0, 0.30);
 
     opacity: 0;
     visibility: hidden;
+
     transform: translateY(-10px);
 
     transition:
         opacity 0.45s ease,
         visibility 0.45s ease,
-        transform 0.45s ease;
+        transform 0.45s cubic-bezier(.22, 1, .36, 1);
 
     z-index: 1001;
 }
@@ -734,7 +756,6 @@ body.nav-hidden .nav-links {
     }
 
     #nav-links .btn-buscar {
-        font-family: 'Poppins', 'Montserrat', sans-serif;
         font-size: 18px;
         font-weight: 500;
         padding: 10px 0;
@@ -800,20 +821,33 @@ body.nav-hidden .nav-links {
 
 /*======================= BUSCADOR =======================*/
 
+/* =========================================
+   SEARCH — ULTRA GLASS
+   ========================================= */
+
 .search-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0); /* color fondo*/
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+
+    background: rgba(8, 15, 11, 0.16);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
     padding: 6rem 1.5rem 1.5rem;
+
     z-index: 2000;
+
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
 }
 
 .search-overlay.active {
@@ -821,108 +855,346 @@ body.nav-hidden .nav-links {
     visibility: visible;
 }
 
+
+/* =========================================
+   SEARCH BOX
+   ========================================= */
+
 .search-box {
+    position: relative;
+
     width: 100%;
-    max-width: 520px;
-    background: rgba(255, 255, 255, 0.367); /*color box buscar*/
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
+    max-width: 540px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(112, 128, 115, 0.72),
+            rgba(38, 51, 42, 0.94)
+        );
+
+    backdrop-filter: blur(40px) saturate(130%);
+    -webkit-backdrop-filter: blur(40px) saturate(130%);
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 28px;
+
     overflow: hidden;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-    transform: translateY(-15px);
-    transition: transform 0.3s ease;
+
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.55),
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+    transform:
+        translateY(-20px)
+        scale(0.96);
+
+    transition:
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
 }
+
+
+/* brillo superior del vidrio */
+
+.search-box::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    filter: blur(1px);
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+
+/* halo exterior */
+
+.search-box::after {
+    content: "";
+
+    position: absolute;
+    inset: -1px;
+
+    border-radius: inherit;
+
+    box-shadow:
+        0 0 45px rgba(150, 180, 158, 0.08);
+
+    pointer-events: none;
+}
+
 
 .search-overlay.active .search-box {
-    transform: translateY(0);
+    transform:
+        translateY(0)
+        scale(1);
 }
+
+
+/* =========================================
+   INPUT
+   ========================================= */
 
 .search-input-row {
+    position: relative;
+
     display: flex;
     align-items: center;
-    gap: 0.9rem;
-    padding: 1.2rem 1.6rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    gap: 1rem;
+
+    padding: 1.3rem 1.5rem;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
+
+
+/* icono */
 
 .search-input-row i.bi-search {
-    color: #ff5900;
-    font-size: 1.1rem;
-}
+    color: #e0a35e;
 
-#search-input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #1a1a1a;
-    font-size: 1.05rem;
-    font-family: 'Montserrat', sans-serif;
-}
+    font-size: 1.2rem;
 
-#search-input::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-}
+    filter:
+        drop-shadow(0 0 8px rgba(224, 163, 94, 0.25));
 
-.search-close {
-    background: transparent;
-    border: none;
-    color: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-}
-
-.search-close:hover {
-    color: #ff5900;
-}
-
-.search-results {
-    max-height: 320px;
-    overflow-y: auto;
-}
-
-.search-result-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.9rem 1.6rem;
-    text-decoration: none;
-    transition: background 0.2s ease;
-}
-
-.search-result-item:hover {
-    background: rgba(255, 89, 0, 0.08);
-}
-
-.search-result-item img {
-    width: 44px;
-    height: 44px;
-    object-fit: cover;
-    border-radius: 10px;
     flex-shrink: 0;
 }
 
+
+/* input */
+
+#search-input {
+    flex: 1;
+
+    min-width: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: #ffffff;
+
+    font-size: 1.05rem;
+    font-weight: 400;
+
+    letter-spacing: 0.01em;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* botón cerrar */
+
+.search-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-close:hover {
+    background: rgba(255, 255, 255, 0.13);
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   RESULTADOS
+   ========================================= */
+
+.search-results {
+    max-height: 340px;
+
+    overflow-y: auto;
+
+    padding: 0.45rem 0;
+}
+
+
+/* cada resultado */
+
+.search-result-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    margin: 0.15rem 0.5rem;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-result-item:hover {
+    background: rgba(255, 255, 255, 0.09);
+
+    transform: translateX(3px);
+}
+
+
+/* imagen */
+
+.search-result-item img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* información */
+
+.search-result-info {
+    min-width: 0;
+}
+
 .search-result-info h4 {
+    margin: 0 0 0.18rem;
+
     font-size: 0.95rem;
     font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 0.15rem;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .search-result-info span {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #ff5900;
+
+    color: #e0a35e;
+
+    text-shadow:
+        0 0 12px rgba(224, 163, 94, 0.12);
 }
 
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+
 .search-empty {
-    padding: 1.8rem;
+    padding: 2rem 1.5rem;
+
     text-align: center;
-    color: rgba(0, 0, 0, 0.4);
+
+    color: rgba(255, 255, 255, 0.55);
+
     font-size: 0.9rem;
+}
+
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+.search-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 10px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .search-overlay {
+        padding: 5rem 1rem 1rem;
+    }
+
+    .search-box {
+        max-width: 100%;
+
+        border-radius: 24px;
+    }
+
+    .search-input-row {
+        padding: 1.15rem 1.2rem;
+    }
+
+    .search-result-item {
+        margin: 0.15rem 0.35rem;
+        padding: 0.7rem 0.8rem;
+    }
+
 }
 
 /* ======================== COLOR TODA FUENTE DEL INDEX ===============*/
@@ -975,7 +1247,7 @@ color: #eee7e7ca;
  
     padding: 2.5rem;
  
-    background: rgba(0, 0, 0, 0.459);
+    background: rgba(143, 140, 140, 0.009);
     backdrop-filter: blur(44px);
     -webkit-backdrop-filter: blur(44px);
  
@@ -1057,8 +1329,8 @@ color: #eee7e7ca;
 }
 
 .faq-close:hover {
-    background: #ff5900;
-    border-color: #ff5900;
+    background: #cf9a5c;
+    border-color: #cf9a5c;
 
     color: #fff;
 }
@@ -1120,7 +1392,7 @@ color: #eee7e7ca;
    ========================================================= */
 
 .faq-box a {
-    color: #ff6a1a;
+    color: #cf9a5c;
 
     text-decoration: none;
 
@@ -1128,7 +1400,7 @@ color: #eee7e7ca;
 }
 
 .faq-box a:hover {
-    color: #ff8b4a;
+    color: #cf9a5c;
     text-decoration: underline;
 }
 
@@ -1139,7 +1411,7 @@ color: #eee7e7ca;
 
 .faq-box {
     scrollbar-width: thin;
-    scrollbar-color: #ff6a1a transparent;
+    scrollbar-color: #cf9a5c transparent;
 }
 
 .faq-box::-webkit-scrollbar {
@@ -1156,7 +1428,7 @@ color: #eee7e7ca;
 }
 
 .faq-box::-webkit-scrollbar-thumb:hover {
-    background: #ff5900;
+    background: #cf9a5c;
 }
 
 
