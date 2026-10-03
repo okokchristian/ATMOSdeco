@@ -1633,7 +1633,7 @@ color: #eee7e7ca;
 
     /* Firma abajo de las redes */
     #nav-links::after {
-        content: "Hecho a mano en Uruguay";
+        content: "Hecho en Uruguay – ATMOS DECO";
         padding-top: 1.2rem;
         font-size: 0.72rem;
         letter-spacing: 0.25em;
