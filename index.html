@@ -5,16 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 <title>ATMOS deco — Ya volvemos</title>
 <style>
   :root {
-    --bg: #0b0b10;
-    --red: #c23b2e;
-    --blue: #2f3fb0;
-    --cream: #f2ede4;
-    --muted: #9a97a3;
+    --cream: #eee7e7e0;
+    --muted: rgba(238, 231, 231, 0.7);
+    --dorado: #cf9a5c;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,9 +22,8 @@
   }
 
   body {
-    background: var(--bg);
     color: var(--cream);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,16 +31,24 @@
     position: relative;
   }
 
-  .waves {
-    position: absolute;
-    inset: 0;
+  /* Foto de fondo muy desenfocada */
+  .bg {
+    position: fixed;
+    inset: -60px; /* se agranda para que el blur no deje bordes claros */
     z-index: 0;
-    opacity: 0.55;
+    background-image: url('img/hero2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(40px) saturate(110%);
   }
 
-  .waves svg {
-    width: 100%;
-    height: 100%;
+  /* Degradado oscuro encima, sin blur */
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.6));
   }
 
   .content {
@@ -52,22 +57,21 @@
     max-width: 640px;
     text-align: center;
     padding: 2rem;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   }
 
   .wordmark {
-    font-size: 1.05rem;
-    letter-spacing: 0.14em;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--cream);
     margin-bottom: 3.5rem;
   }
 
   .wordmark span {
     display: block;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.75;
+    margin-top: 0.2rem;
   }
 
   h1 {
@@ -77,17 +81,27 @@
     margin-bottom: 1.4rem;
   }
 
+  h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--dorado);
+    margin: 1.5rem auto 0;
+  }
+
   p.lead {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    font-weight: 300;
     color: var(--muted);
     line-height: 1.6;
-    max-width: 420px;
+    max-width: 440px;
     margin: 0 auto 2.5rem;
   }
 
   .contact {
     display: flex;
-    gap: 1.75rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -96,37 +110,30 @@
     color: var(--cream);
     text-decoration: none;
     font-size: 0.95rem;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
   }
 
   .contact a:hover {
-    border-color: var(--cream);
+    border-color: var(--dorado);
+    color: var(--dorado);
+    background: rgba(255, 255, 255, 0.09);
   }
 
   @media (max-width: 480px) {
-    .contact { gap: 1.25rem; }
+    .content { padding: 1.5rem; }
+    .contact { gap: 0.75rem; }
   }
 </style>
 </head>
 <body>
 
-  <div class="waves">
-    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#c23b2e"/>
-          <stop offset="100%" stop-color="#0b0b10"/>
-        </linearGradient>
-        <linearGradient id="blueGrad" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#2f3fb0"/>
-          <stop offset="100%" stop-color="#0b0b10"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,0 C 250,150 250,750 0,900 L0,0 Z" fill="url(#redGrad)"/>
-      <path d="M1600,0 C 1350,150 1350,750 1600,900 L1600,0 Z" fill="url(#blueGrad)"/>
-    </svg>
-  </div>
+  <div class="bg"></div>
 
   <div class="content">
     <div class="wordmark">ATMOS<span>D E C O</span></div>
