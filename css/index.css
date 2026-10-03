@@ -771,12 +771,7 @@ body.nav-hidden .nav-links {
         justify-content: flex-start;
         padding: 1.4rem 0;
     }
-    
-    /* ================= TOUCH / HOVER ================= */
-    #nav-links li:active a {
-        color: #ffffff;
-        padding-left: 6px;
-    }
+
 
     /* ================= MI CUENTA ================= */
     .btn-sesion-mobile {
@@ -815,14 +810,15 @@ body.nav-hidden .nav-links {
 
 @media (min-width: 769px) {
     .toggle-menu { display: none; }
-    .nav-search-item { display: none; }
+    .nav-search-item,
+    .nav-socials-item { display: none; }
 }
 
 
 /*======================= BUSCADOR =======================*/
 
 /* =========================================
-   SEARCH — ULTRA GLASS
+   OVERLAY
    ========================================= */
 
 .search-overlay {
@@ -857,7 +853,7 @@ body.nav-hidden .nav-links {
 
 
 /* =========================================
-   SEARCH BOX
+   SEARCH BOX (contenedor invisible)
    ========================================= */
 
 .search-box {
@@ -866,76 +862,12 @@ body.nav-hidden .nav-links {
     width: 100%;
     max-width: 540px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(112, 128, 115, 0.72),
-            rgba(38, 51, 42, 0.94)
-        );
-
-    backdrop-filter: blur(40px) saturate(130%);
-    -webkit-backdrop-filter: blur(40px) saturate(130%);
-
-    border: 1px solid rgba(255, 255, 255, 0.24);
-
-    border-radius: 28px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 40px 100px rgba(0, 0, 0, 0.55),
-        0 15px 35px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.18),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.12);
-
     transform:
         translateY(-20px)
         scale(0.96);
 
-    transition:
-        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-
-/* brillo superior del vidrio */
-
-.search-box::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 8%;
-    right: 8%;
-
-    height: 1px;
-
-    background: rgba(255, 255, 255, 0.55);
-
-    filter: blur(1px);
-
-    opacity: 0.7;
-
-    pointer-events: none;
-}
-
-
-/* halo exterior */
-
-.search-box::after {
-    content: "";
-
-    position: absolute;
-    inset: -1px;
-
-    border-radius: inherit;
-
-    box-shadow:
-        0 0 45px rgba(150, 180, 158, 0.08);
-
-    pointer-events: none;
-}
-
 
 .search-overlay.active .search-box {
     transform:
@@ -945,7 +877,7 @@ body.nav-hidden .nav-links {
 
 
 /* =========================================
-   INPUT
+   INPUT (pill)
    ========================================= */
 
 .search-input-row {
@@ -954,25 +886,39 @@ body.nav-hidden .nav-links {
     display: flex;
     align-items: center;
 
-    gap: 1rem;
+    gap: 0.75rem;
 
-    padding: 1.3rem 1.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 1.3rem;
 
-    background: rgba(255, 255, 255, 0.035);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77, 91, 78, 0.92),
+            rgba(35, 44, 37, 0.96)
+        );
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(25px) saturate(72%);
+    -webkit-backdrop-filter: blur(25px) saturate(72%);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    transition: border-color 0.3s;
+}
+
+.search-input-row:focus-within {
+    border-color: #cf9a5c;
 }
 
 
 /* icono */
 
 .search-input-row i.bi-search {
-    color: #e0a35e;
+    color: #cf9a5c;
 
-    font-size: 1.2rem;
-
-    filter:
-        drop-shadow(0 0 8px rgba(224, 163, 94, 0.25));
+    font-size: 1.05rem;
 
     flex-shrink: 0;
 }
@@ -990,16 +936,16 @@ body.nav-hidden .nav-links {
     border: none;
     outline: none;
 
-    color: #ffffff;
+    color: #eee7e7e0;
 
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 400;
 
     letter-spacing: 0.01em;
 }
 
 #search-input::placeholder {
-    color: rgba(255, 255, 255, 0.58);
+    color: rgba(238, 231, 231, 0.5);
 }
 
 
@@ -1010,12 +956,14 @@ body.nav-hidden .nav-links {
     align-items: center;
     justify-content: center;
 
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
 
     background: rgba(255, 255, 255, 0.06);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
 
     border-radius: 50%;
 
@@ -1041,7 +989,7 @@ body.nav-hidden .nav-links {
 
 
 /* =========================================
-   RESULTADOS
+   RESULTADOS (tarjeta aparte)
    ========================================= */
 
 .search-results {
@@ -1049,7 +997,28 @@ body.nav-hidden .nav-links {
 
     overflow-y: auto;
 
-    padding: 0.45rem 0;
+    margin-top: 0.75rem;
+
+    padding: 0.4rem 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77, 91, 78, 0.92),
+            rgba(35, 44, 37, 0.96)
+        );
+
+    backdrop-filter: blur(25px) saturate(72%);
+    -webkit-backdrop-filter: blur(25px) saturate(72%);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.search-results:empty {
+    display: none;
 }
 
 
@@ -1067,7 +1036,7 @@ body.nav-hidden .nav-links {
 
     padding: 0.75rem 1rem;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     text-decoration: none;
 
@@ -1114,7 +1083,7 @@ body.nav-hidden .nav-links {
     font-size: 0.95rem;
     font-weight: 600;
 
-    color: #ffffff;
+    color: #eee7e7e0;
 
     white-space: nowrap;
     overflow: hidden;
@@ -1125,10 +1094,7 @@ body.nav-hidden .nav-links {
     font-size: 0.85rem;
     font-weight: 600;
 
-    color: #e0a35e;
-
-    text-shadow:
-        0 0 12px rgba(224, 163, 94, 0.12);
+    color: #cf9a5c;
 }
 
 
@@ -1182,12 +1148,14 @@ body.nav-hidden .nav-links {
 
     .search-box {
         max-width: 100%;
-
-        border-radius: 24px;
     }
 
     .search-input-row {
-        padding: 1.15rem 1.2rem;
+        padding: 0.5rem 0.5rem 0.5rem 1.1rem;
+    }
+
+    .search-results {
+        border-radius: 20px;
     }
 
     .search-result-item {
@@ -1196,6 +1164,8 @@ body.nav-hidden .nav-links {
     }
 
 }
+
+
 
 /* ======================== COLOR TODA FUENTE DEL INDEX ===============*/
 .search-box , .logo, .about , .hero h1 , .hero-content h2 , .nav-links a , .about-content h2 , .about-content p , .contact-content h2 , .contact-content p , .contact-item , .footer-logo , .footer-contact a , .footer-socials a , .footer-bottom p {
@@ -1527,6 +1497,161 @@ color: #eee7e7ca;
     .faq-box,
     .faq-close {
         transition: none;
+    }
+}
+
+
+
+/* ================== MENÚ MOBILE — NUEVO REDISEÑO ================== */
+@media (max-width: 768px) {
+
+    #nav-links {
+        gap: 0;
+        padding: 6.5rem 2rem 2rem;
+    }
+
+    /* Buscar como "pill" */
+    #nav-links .nav-search-item {
+        padding: 0 0 2rem;
+        border-bottom: none;
+    }
+    #nav-links .nav-search-item .btn-buscar {
+        width: 100%;
+        padding: 0.85rem 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(238, 231, 231, 0.65);
+        transition: border-color 0.3s, background 0.3s;
+    }
+    #nav-links .nav-search-item .btn-buscar i {
+        color: #cf9a5c;
+    }
+    #nav-links .nav-search-item .btn-buscar::after,
+    #nav-links .nav-search-item .btn-buscar span::after {
+        display: none;
+    }
+    #nav-links .nav-search-item .btn-buscar:active {
+        border-color: #cf9a5c;
+        background: rgba(255, 255, 255, 0.09);
+    }
+
+    /* Línea arriba del primer link */
+    #nav-links .nav-search-item + li {
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    /* Links (todos menos Buscar y redes) */
+    #nav-links li:not(.nav-search-item, .nav-socials-item) > a {
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        padding: 1.1rem 0;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: #eee7e7e0;
+        transition: color 0.3s, padding-left 0.3s;
+    }
+
+    /* Flecha a la derecha */
+    #nav-links li:not(.nav-search-item, .nav-socials-item) > a::after {
+        content: "→";
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        margin-left: auto;
+        font-size: 1.2rem;
+        color: #cf9a5c;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: opacity 0.3s, transform 0.3s;
+    }
+
+    #nav-links li:not(.nav-search-item, .nav-socials-item):active > a {
+        color: #ffffff;
+        padding-left: 0.4rem;
+    }
+    #nav-links li:not(.nav-search-item, .nav-socials-item):active > a::after {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    @media (hover: hover) {
+        #nav-links li:not(.nav-search-item, .nav-socials-item) > a:hover {
+            color: #ffffff;
+            padding-left: 0.4rem;
+        }
+        #nav-links li:not(.nav-search-item, .nav-socials-item) > a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Redes sociales */
+    #nav-links .nav-socials-item {
+        display: flex;
+        gap: 0.9rem;
+        margin-top: auto;
+        padding-top: 2.5rem;
+        border-bottom: none;
+    }
+    #nav-links .nav-socials-item a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 1.15rem;
+        color: #eee7e7e0;
+        transition: color 0.3s, border-color 0.3s, background 0.3s;
+    }
+    #nav-links .nav-socials-item a::after {
+        display: none;
+    }
+    #nav-links .nav-socials-item a:active {
+        color: #cf9a5c;
+        border-color: #cf9a5c;
+    }
+    @media (hover: hover) {
+        #nav-links .nav-socials-item a:hover {
+            color: #cf9a5c;
+            border-color: #cf9a5c;
+            background: rgba(255, 255, 255, 0.09);
+        }
+    }
+    #nav-links.active li:nth-child(7) {
+        animation-delay: 0.68s;
+    }
+
+    /* Firma abajo de las redes */
+    #nav-links::after {
+        content: "Hecho a mano en Uruguay";
+        padding-top: 1.2rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: rgba(238, 231, 231, 0.4);
+        opacity: 0;
+        transition: opacity 0.6s ease 0.6s;
+    }
+    #nav-links.active::after {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #nav-links li {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
     }
 }
 
