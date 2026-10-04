@@ -1130,3 +1130,264 @@
     transform: translateY(-2px);
 }
 
+/* ================== COLORES A PEDIDO ================== */
+
+/* Botón "+6 colores a pedido" */
+.btn-colores-pedido {
+    margin-top: 0.9rem;
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-size: 0.85rem;
+    color: #cf9a5c;
+    background: transparent;
+    border: 1px dashed rgba(207, 154, 92, 0.6);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+.btn-colores-pedido:hover {
+    background: rgba(207, 154, 92, 0.1);
+    border-color: #cf9a5c;
+}
+.btn-colores-pedido.active {
+    border-style: solid;
+    border-color: #cf9a5c;
+    background: rgba(207, 154, 92, 0.15);
+}
+
+/* "(a pedido)" al lado del nombre del color */
+.color-a-pedido-tag {
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* Etiqueta sobre la foto: "Referencia del color · ..." */
+.producto-detalle-img {
+    position: relative;
+}
+.galeria-referencia {
+    position: absolute;
+    left: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 2;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    color: #eee7e7;
+    background: rgba(20, 26, 21, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+.galeria-referencia.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Recuadro de color cuando todavía no hay foto */
+.galeria-placeholder {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.galeria-placeholder span {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ================== MODAL ================== */
+
+.modal-colores {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(8, 15, 11, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.modal-colores.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-colores-box {
+    width: 100%;
+    max-width: 760px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    color: #eee7e7e0;
+    background: linear-gradient(145deg, rgb(77, 91, 78), rgb(35, 44, 37));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    transform: translateY(12px) scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    scrollbar-width: thin;
+    scrollbar-color: #cf9a5c transparent;
+}
+.modal-colores.active .modal-colores-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-colores-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.modal-colores-header h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.modal-colores-header p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(238, 231, 231, 0.65);
+    max-width: 480px;
+}
+
+.modal-colores-close {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+.modal-colores-close:hover {
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Grilla de colores */
+.modal-colores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.color-pedido-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.6rem;
+    font: inherit;
+    text-align: left;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+.color-pedido-card:hover {
+    border-color: #cf9a5c;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+}
+
+.color-pedido-foto {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color-pedido-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.color-pedido-foto span {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.color-pedido-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.2rem;
+}
+.color-pedido-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+.color-pedido-info strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.color-pedido-card small {
+    padding: 0 0.2rem 0.2rem;
+    font-size: 0.75rem;
+    color: rgba(238, 231, 231, 0.55);
+}
+
+/* Celular: 2 columnas */
+@media (max-width: 600px) {
+    .modal-colores {
+        padding: 1rem;
+    }
+    .modal-colores-box {
+        padding: 1.4rem;
+        border-radius: 20px;
+        max-height: 88vh;
+    }
+    .modal-colores-header h2 {
+        font-size: 1.3rem;
+    }
+    .modal-colores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+/* Círculos y botón "a pedido" en la misma fila */
+.color-selector {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+.color-selector-label {
+    flex-basis: 100%;
+}
+.btn-colores-pedido {
+    margin-top: 0;
+}
