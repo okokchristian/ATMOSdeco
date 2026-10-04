@@ -19,14 +19,24 @@ if (!producto) {
 } else {
     document.title = `${producto.nombre} — ATMOS deco`;
 
+    // ================= COLORES A PEDIDO =================
+    // Colores de filamento que este modelo NO tiene con foto propia
+    const nombresConFoto = producto.colores.map(c => c.nombre);
+    const coloresAPedido = producto.aPedido
+        ? COLORES_FILAMENTO.filter(c => !nombresConFoto.includes(c.nombre))
+        : [];
+
     contenedor.innerHTML = `
         <div class="producto-detalle-img">
-    <div class="galeria-track" id="galeria-track">
-        ${producto.colores[0].imagenes.map(img => `
-            <img src="${img}" alt="${producto.nombre}">
-        `).join('')}
-    </div>
-    ${producto.colores[0].imagenes.length > 1 ? `
+            <div class="galeria-track" id="galeria-track">
+                ${producto.colores[0].imagenes.map(img => `
+                    <img src="${img}" alt="${producto.nombre}">
+                `).join('')}
+            </div>
+
+            <div class="galeria-referencia" id="galeria-referencia"></div>
+
+            ${producto.colores[0].imagenes.length > 1 ? `
                 <button class="galeria-flecha galeria-flecha-izq" id="flecha-izq" aria-label="Anterior">
                     <i class="bi bi-chevron-left"></i>
                 </button>
@@ -34,12 +44,13 @@ if (!producto) {
                     <i class="bi bi-chevron-right"></i>
                 </button>
                 <div class="galeria-dots" id="galeria-dots">
-    ${producto.colores[0].imagenes.map((_, i) => `
-        <span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
-    `).join('')}
-</div>
+                    ${producto.colores[0].imagenes.map((_, i) => `
+                        <span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+                    `).join('')}
+                </div>
             ` : ''}
-                                    <button class="btn-compartir-flotante" id="btn-compartir" aria-label="Compartir este producto">
+
+            <button class="btn-compartir-flotante" id="btn-compartir" aria-label="Compartir este producto">
                 <i class="bi bi-share"></i>
             </button>
         </div>
@@ -65,6 +76,12 @@ if (!producto) {
                         </button>
                     `).join('')}
                 </div>
+
+                ${coloresAPedido.length ? `
+                    <button class="btn-colores-pedido" id="btn-colores-pedido">
+                        +${coloresAPedido.length} colores a pedido
+                    </button>
+                ` : ''}
             </div>
 
             <div class="producto-descripcion-wrapper">
@@ -95,6 +112,7 @@ if (!producto) {
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
                         data-precio-numero="${producto.precioNumero}"
+                        data-color="${producto.colores[0].nombre}"
                         data-costo-envio="0">
                     Transferencia bancaria
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
@@ -106,7 +124,43 @@ if (!producto) {
                 </a>
             </div>
         </div>
- `;
+    `;
+
+    // ================= MODAL COLORES A PEDIDO (estructura) =================
+    if (coloresAPedido.length) {
+        document.body.insertAdjacentHTML('beforeend', `
+            <div class="modal-colores" id="modal-colores">
+                <div class="modal-colores-box">
+                    <div class="modal-colores-header">
+                        <div>
+                            <h2>Colores a pedido</h2>
+                            <p>${producto.nombre} se imprime en estos colores a pedido. Las fotos son de otros diseños, para que veas cómo queda cada color.</p>
+                        </div>
+                        <button class="modal-colores-close" id="modal-colores-close" aria-label="Cerrar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="modal-colores-grid">
+                        ${coloresAPedido.map((c, i) => `
+                            <button class="color-pedido-card" data-index="${i}">
+                                <div class="color-pedido-foto" style="background-color: ${c.hex};">
+                                    ${c.referencia && c.referencia.imagen
+                                        ? `<img src="${c.referencia.imagen}" alt="Referencia color ${c.nombre}">`
+                                        : `<span>Foto próximamente</span>`}
+                                </div>
+                                <div class="color-pedido-info">
+                                    <span class="color-pedido-dot" style="background-color: ${c.hex};"></span>
+                                    <strong>${c.nombre}</strong>
+                                </div>
+                                ${c.referencia ? `<small>Referencia: ${c.referencia.modelo}</small>` : ''}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `);
+    }
 
     // ================= SELECTOR RETIRO / ENVÍO =================
     const entregaTabs = document.querySelectorAll('.entrega-tab');
@@ -138,9 +192,8 @@ if (!producto) {
     document.getElementById('precio-zona-no-metropolitana').textContent =
         `+${formatear(producto.costoEnvio.noMetropolitana)}`;
 
-    //===================RETIRO=========================/
-
-        function actualizarPrecioRetiro() {
+    // =================== RETIRO ===================
+    function actualizarPrecioRetiro() {
         precioFinal.textContent = producto.precio;
         entregaInfo.textContent = MENSAJES_ENTREGA.retiro;
         btnMp.href = producto.linkMercadoPago.retiro;
@@ -151,38 +204,50 @@ if (!producto) {
         habilitarBotones();
     }
 
-    // ======================HABILITAR================/
+    // =================== HABILITAR ===================
     function habilitarBotones() {
         btnMp.classList.remove('btn-disabled');
         btnTransferencia.classList.remove('btn-disabled');
         btnTransferencia.removeAttribute('disabled');
     }
 
-    // ================= VALIDACIÓN MERCADO PAGO =================
-btnMp.addEventListener('click', (e) => {
-    if (btnMp.classList.contains('btn-disabled')) {
-        e.preventDefault();
-        alert('Elegí primero una opción de entrega (Retiro o Envío) antes de continuar.');
-    }
-});
+        // ================= VALIDACIÓN MERCADO PAGO + GUARDAR PEDIDO =================
+    btnMp.addEventListener('click', (e) => {
+        if (btnMp.classList.contains('btn-disabled')) {
+            e.preventDefault();
+            alert('Elegí primero una opción de entrega (Retiro o Envío) antes de continuar.');
+            return;
+        }
 
-    //========================ENVIO===========================/
+        // Guardamos el pedido para mostrarlo en la página de gracias
+        try {
+            localStorage.setItem('atmosPedido', JSON.stringify({
+                producto: producto.nombre,
+                color: btnTransferencia.dataset.color,
+                entrega: btnTransferencia.dataset.entrega,
+                precio: btnTransferencia.dataset.precio,
+                fecha: Date.now()
+            }));
+        } catch (err) {
+            // si el navegador no deja guardar, seguimos igual al pago
+        }
+    });
 
-        function actualizarPrecioEnvio() {
+    // =================== ENVÍO ===================
+    function actualizarPrecioEnvio() {
         const costoEnvio = producto.costoEnvio[zonaSeleccionada];
         const precioTotal = producto.precioNumero + costoEnvio;
         const zonaTexto = ZONA_LABELS[zonaSeleccionada];
 
         precioFinal.textContent = formatear(precioTotal);
         entregaInfo.textContent = `Coordinamos la entrega por WhatsApp una vez confirmado el pago.`;
-        btnMp.href = producto.linkMercadoPago[zonaSeleccionada];        btnTransferencia.dataset.precio = formatear(precioTotal);
+        btnMp.href = producto.linkMercadoPago[zonaSeleccionada];
+        btnTransferencia.dataset.precio = formatear(precioTotal);
         btnTransferencia.dataset.entrega = `Envío - ${zonaTexto}`;
         btnTransferencia.dataset.costoEnvio = costoEnvio;
         btnTransferencia.dataset.zonaEnvio = zonaTexto;
         habilitarBotones();
     }
-
-    
 
     entregaTabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -224,17 +289,17 @@ btnMp.addEventListener('click', (e) => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModalZona();
     });
-  
+
     // ================= DESCRIPCIÓN Y ESPECIFICACIONES =================
-document.getElementById('descripcion-texto').textContent = producto.descripcion;
+    document.getElementById('descripcion-texto').textContent = producto.descripcion;
 
-const especificaciones = document.getElementById('producto-especificaciones');
-const toggleCaracteristicas = document.getElementById('toggle-caracteristicas');
+    const especificaciones = document.getElementById('producto-especificaciones');
+    const toggleCaracteristicas = document.getElementById('toggle-caracteristicas');
 
-toggleCaracteristicas.addEventListener('click', () => {
-    const abierto = especificaciones.classList.toggle('activo');
-    toggleCaracteristicas.textContent = abierto ? 'Ocultar características del diseño' : 'Ver características del diseño';
-});
+    toggleCaracteristicas.addEventListener('click', () => {
+        const abierto = especificaciones.classList.toggle('activo');
+        toggleCaracteristicas.textContent = abierto ? 'Ocultar características del diseño' : 'Ver características del diseño';
+    });
 
     // ================= COMPARTIR PRODUCTO =================
     const btnCompartir = document.getElementById('btn-compartir');
@@ -267,71 +332,149 @@ toggleCaracteristicas.addEventListener('click', () => {
     });
 
     // ================= GALERÍA + SELECTOR DE COLOR =================
-const track = document.getElementById('galeria-track');
-const flechaIzq = document.getElementById('flecha-izq');
-const flechaDer = document.getElementById('flecha-der');
-const colorDots = document.querySelectorAll('.color-dot');
-const colorElegidoTexto = document.getElementById('color-elegido');
+    const track = document.getElementById('galeria-track');
+    const flechaIzq = document.getElementById('flecha-izq');
+    const flechaDer = document.getElementById('flecha-der');
+    const colorDots = document.querySelectorAll('.color-dot');
+    const colorElegidoTexto = document.getElementById('color-elegido');
+    const badgeReferencia = document.getElementById('galeria-referencia');
+    const btnColoresPedido = document.getElementById('btn-colores-pedido');
 
-let colorActual = 0;
-let indiceActual = 0;
+    let colorActual = 0;     // índice del color con foto propia
+    let colorPedido = null;  // color elegido en el modal (null = se eligió uno con foto propia)
+    let indiceActual = 0;
 
-function renderGaleria() {
-    const imagenes = producto.colores[colorActual].imagenes;
-
-    track.innerHTML = imagenes.map(img => `<img src="${img}" alt="${producto.nombre}">`).join('');
-    track.style.transform = 'translateX(0%)';
-    indiceActual = 0;
-
-    const dotsContainer = document.getElementById('galeria-dots');
-    const mostrarControles = imagenes.length > 1;
-
-    if (flechaIzq) flechaIzq.style.display = mostrarControles ? 'flex' : 'none';
-    if (flechaDer) flechaDer.style.display = mostrarControles ? 'flex' : 'none';
-
-    if (dotsContainer) {
-        dotsContainer.innerHTML = mostrarControles
-            ? imagenes.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')
-            : '';
+    // Devuelve las fotos que hay que mostrar según el color elegido
+    function imagenesActuales() {
+        if (colorPedido) {
+            return colorPedido.referencia && colorPedido.referencia.imagen
+                ? [colorPedido.referencia.imagen]
+                : [];
+        }
+        return producto.colores[colorActual].imagenes;
     }
-}
 
-function irAFoto(index) {
-    const totalFotos = producto.colores[colorActual].imagenes.length;
-    indiceActual = (index + totalFotos) % totalFotos;
-    track.style.transform = `translateX(-${indiceActual * 100}%)`;
-    document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === indiceActual));
-}
+    function renderGaleria() {
+        const imagenes = imagenesActuales();
 
-if (flechaIzq) flechaIzq.addEventListener('click', () => irAFoto(indiceActual - 1));
-if (flechaDer) flechaDer.addEventListener('click', () => irAFoto(indiceActual + 1));
+        if (imagenes.length) {
+            track.innerHTML = imagenes.map(img => `<img src="${img}" alt="${producto.nombre}">`).join('');
+        } else {
+            // Color sin foto todavía: mostramos un recuadro del color
+            track.innerHTML = `
+                <div class="galeria-placeholder" style="background-color: ${colorPedido.hex};">
+                    <span>Foto próximamente</span>
+                </div>
+            `;
+        }
 
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('dot')) {
-        irAFoto(Number(e.target.dataset.index));
+        track.style.transform = 'translateX(0%)';
+        indiceActual = 0;
+
+        const dotsContainer = document.getElementById('galeria-dots');
+        const mostrarControles = imagenes.length > 1;
+
+        if (flechaIzq) flechaIzq.style.display = mostrarControles ? 'flex' : 'none';
+        if (flechaDer) flechaDer.style.display = mostrarControles ? 'flex' : 'none';
+
+        if (dotsContainer) {
+            dotsContainer.innerHTML = mostrarControles
+                ? imagenes.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')
+                : '';
+        }
+
+        // Etiqueta sobre la foto cuando es un color a pedido
+        if (colorPedido) {
+            badgeReferencia.textContent = colorPedido.referencia
+                ? `Referencia del color · ${colorPedido.referencia.modelo}`
+                : 'Muestra del color';
+            badgeReferencia.classList.add('visible');
+        } else {
+            badgeReferencia.classList.remove('visible');
+        }
     }
-});
 
-let touchStartX = 0;
-track.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-});
-track.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const diferencia = touchStartX - touchEndX;
-    if (Math.abs(diferencia) > 40) {
-        if (diferencia > 0) irAFoto(indiceActual + 1);
-        else irAFoto(indiceActual - 1);
+    // Actualiza el texto "Color: ..." y el color que viaja con la compra
+    function actualizarColorElegido() {
+        const nombre = colorPedido ? colorPedido.nombre : producto.colores[colorActual].nombre;
+
+        colorElegidoTexto.innerHTML = colorPedido
+            ? `${nombre} <span class="color-a-pedido-tag">(a pedido)</span>`
+            : nombre;
+
+        btnTransferencia.dataset.color = colorPedido ? `${nombre} (a pedido)` : nombre;
+
+        if (btnColoresPedido) btnColoresPedido.classList.toggle('active', !!colorPedido);
     }
-});
 
-colorDots.forEach(dot => {
-    dot.addEventListener('click', () => {
-        colorActual = Number(dot.dataset.index);
-        colorElegidoTexto.textContent = producto.colores[colorActual].nombre;
-        colorDots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-        renderGaleria();
+    function irAFoto(index) {
+        const totalFotos = imagenesActuales().length;
+        if (totalFotos < 2) return;
+        indiceActual = (index + totalFotos) % totalFotos;
+        track.style.transform = `translateX(-${indiceActual * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === indiceActual));
+    }
+
+    if (flechaIzq) flechaIzq.addEventListener('click', () => irAFoto(indiceActual - 1));
+    if (flechaDer) flechaDer.addEventListener('click', () => irAFoto(indiceActual + 1));
+
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dot')) {
+            irAFoto(Number(e.target.dataset.index));
+        }
     });
-});
+
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    track.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diferencia = touchStartX - touchEndX;
+        if (Math.abs(diferencia) > 40) {
+            if (diferencia > 0) irAFoto(indiceActual + 1);
+            else irAFoto(indiceActual - 1);
+        }
+    });
+
+    // Círculos de colores con foto propia
+    colorDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            colorActual = Number(dot.dataset.index);
+            colorPedido = null;
+            colorDots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+            actualizarColorElegido();
+            renderGaleria();
+        });
+    });
+
+    // ================= MODAL COLORES A PEDIDO (funcionamiento) =================
+    const modalColores = document.getElementById('modal-colores');
+
+    if (modalColores) {
+        const abrirModalColores = () => modalColores.classList.add('active');
+        const cerrarModalColores = () => modalColores.classList.remove('active');
+
+        btnColoresPedido.addEventListener('click', abrirModalColores);
+        document.getElementById('modal-colores-close').addEventListener('click', cerrarModalColores);
+
+        modalColores.addEventListener('click', (e) => {
+            if (e.target === modalColores) cerrarModalColores();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') cerrarModalColores();
+        });
+
+        // Elegir un color dentro del modal
+        modalColores.querySelectorAll('.color-pedido-card').forEach(card => {
+            card.addEventListener('click', () => {
+                colorPedido = coloresAPedido[Number(card.dataset.index)];
+                colorDots.forEach(d => d.classList.remove('active'));
+                actualizarColorElegido();
+                renderGaleria();
+                cerrarModalColores();
+            });
+        });
+    }
 }

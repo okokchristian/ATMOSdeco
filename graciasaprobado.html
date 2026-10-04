@@ -18,16 +18,36 @@
             <div class="estado-icono estado-icono-exito">
                 <i class="bi bi-check-lg"></i>
             </div>
-            <h1>¡Gracias por tu compra!</h1>
-            <p>Tu pago fue aprobado con éxito. En breve nos vamos a poner en contacto por WhatsApp para coordinar la entrega o el retiro de tu producto.</p>
+            <h1>¡Pago aprobado!</h1>
+            <p><strong>Último paso: enviános tu pedido por WhatsApp para confirmar el color y coordinar la entrega o el retiro.</strong></p>
             <div class="estado-pago-botones">
-                <a href="https://wa.me/59892980915?text=Hola!%20Acabo%20de%20realizar%20una%20compra%20por%20Mercado%20Pago" target="_blank" class="btn-comprar btn-whatsapp">
-                    <i class="bi bi-whatsapp"></i> Escribinos por WhatsApp
+                <a href="https://wa.me/59892980915?text=Hola!%20Acabo%20de%20realizar%20una%20compra%20por%20Mercado%20Pago" target="_blank" class="btn-comprar btn-whatsapp" id="btn-whatsapp-pedido">
+                    <i class="bi bi-whatsapp"></i> Enviar mi pedido por WhatsApp
                 </a>
-                <a href="html/lamparas.html" class="btn-verproductos-outline">Seguir viendo el catálogo</a>
             </div>
         </div>
     </section>
+
+    <script>
+    try {
+        const pedido = JSON.parse(localStorage.getItem('atmosPedido'));
+
+        // Solo si el pedido se guardó hace menos de 24 horas
+        if (pedido && Date.now() - pedido.fecha < 24 * 60 * 60 * 1000) {
+            const mensaje =
+                `¡Hola! Acabo de pagar por Mercado Pago:\n` +
+                `• ${pedido.producto}\n` +
+                `• Color: ${pedido.color}\n` +
+                `• Entrega: ${pedido.entrega}\n` +
+                `• Total: ${pedido.precio}`;
+
+            document.getElementById('btn-whatsapp-pedido').href =
+                `https://wa.me/59892980915?text=${encodeURIComponent(mensaje)}`;
+        }
+    } catch (err) {
+        // si algo falla, queda el mensaje genérico
+    }
+</script>
 
 </body>
 </html>

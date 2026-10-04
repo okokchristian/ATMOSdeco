@@ -1,3 +1,20 @@
+// ================= COLORES DE FILAMENTO =================
+// Los 10 colores que imprimimos.
+// "referencia.imagen" es la foto de una lámpara ya impresa en ese color.
+// imagen: null → todavía falta sacar la foto (el modelo indica cuál fotografiar).
+// referencia: null → todavía no hay ninguna lámpara impresa en ese color.
+const COLORES_FILAMENTO = [
+    { nombre: "Arena",    hex: "#ae9684", referencia: { imagen: null,                  modelo: "Lámpara Duna Grande" } },
+    { nombre: "Azul",     hex: "#1c2aad", referencia: { imagen: null,                  modelo: "Lámpara Mini Duna" } },
+    { nombre: "Blanco",   hex: "#f5f0e8", referencia: { imagen: "../img/onda/onda.jpeg", modelo: "Lámpara Onda" } },
+    { nombre: "Rojo",     hex: "#de2323", referencia: { imagen: "../img/onda/rojo.png",  modelo: "Lámpara Onda" } },
+    { nombre: "Rosa",     hex: "#f74b95", referencia: null },
+    { nombre: "Lavanda",  hex: "#98889e", referencia: { imagen: null,                  modelo: "Lámpara Onda" } },
+    { nombre: "Turquesa", hex: "#2596be", referencia: null },
+    { nombre: "Marrón",   hex: "#6f4d44", referencia: { imagen: null,                  modelo: "Lámpara Mini Duo" } },
+    { nombre: "Verde",    hex: "#67b77e", referencia: { imagen: "../img/onda/verde.jpg", modelo: "Lámpara Onda" } },
+];
+
 const PRODUCTOS = [
     // ================= ONDA =================
 
@@ -6,6 +23,7 @@ const PRODUCTOS = [
     nombre: "Lámpara Onda",
     precio: "$1.300 UYU",
     precioNumero: 1300,
+        aPedido: true,
     costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
