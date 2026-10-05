@@ -10,8 +10,6 @@ const COLORES_FILAMENTO = [
     { nombre: "Rojo",     hex: "#de2323", referencia: { imagen: "../img/onda/rojo.png",  modelo: "Lámpara Onda" } },
     { nombre: "Rosa",     hex: "#f74b95", referencia: null },
     { nombre: "Lavanda",  hex: "#98889e", referencia: { imagen: null,                  modelo: "Lámpara Onda" } },
-    { nombre: "Turquesa", hex: "#2596be", referencia: null },
-    { nombre: "Marrón",   hex: "#6f4d44", referencia: { imagen: null,                  modelo: "Lámpara Mini Duo" } },
     { nombre: "Verde",    hex: "#67b77e", referencia: { imagen: "../img/onda/verde.jpg", modelo: "Lámpara Onda" } },
 ];
 
@@ -23,7 +21,7 @@ const PRODUCTOS = [
     nombre: "Lámpara Onda",
     precio: "$1.300 UYU",
     precioNumero: 1300,
-        aPedido: true,
+    aPedido: true,
     costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -70,6 +68,7 @@ const PRODUCTOS = [
         nombre: "Lámpara Duo",
         precio: "$1.600 UYU",
         precioNumero: 1600,
+        aPedido: true,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -86,10 +85,21 @@ especificaciones: [
 
         colores: [
             {
-                nombre: "Único",
-                hex: "#f5f0e8",
+                nombre: "Lavanda",
+                hex: "#98889e",
                 imagenes: ["../img/duo/duo.jpeg"]
-            }
+            },
+        {
+            nombre: "Rojo",
+            hex: "#de2323",
+            imagenes: ["../img/onda/rojo.png"]
+        },
+        {
+            nombre: "Verde",
+            hex: "#67b77e",
+            imagenes: ["../img/onda/verde.jpg"]
+        },
+            
         ],
         
         linkMercadoPago: {
@@ -106,6 +116,7 @@ especificaciones: [
         nombre: "Lámpara Mini Duo",
         precio: "$1.150 UYU",
         precioNumero: 1150,
+        aPedido: true,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -122,10 +133,21 @@ especificaciones: [
        
         colores: [
             {
-                nombre: "Único",
-                hex: "#f5f0e8",
+                nombre: "Lavanda",
+                hex: "#98889e",
                 imagenes: ["../img/duo/duo.jpeg"]
-            }
+            },
+        {
+            nombre: "Rojo",
+            hex: "#de2323",
+            imagenes: ["../img/onda/rojo.png"]
+        },
+        {
+            nombre: "Verde",
+            hex: "#67b77e",
+            imagenes: ["../img/onda/verde.jpg"]
+        },
+            
         ],
          linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
@@ -155,8 +177,8 @@ especificaciones: [
         descripcion: "Luz suave con un aire natural y cálido.",
         colores: [
             {
-                nombre: "Único",
-                hex: "#f5f0e8",
+                nombre: "Verde con base Marrón",
+                hex: "#67b77e",
                 imagenes: ["../img/bloom/bloom.jpeg"]
             }
         ],
@@ -174,6 +196,7 @@ especificaciones: [
         nombre: "Lámpara Duna",
         precio: "$1.600 UYU",
         precioNumero: 1600, 
+        aPedido: true,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -186,13 +209,26 @@ especificaciones: [
     "Base impresa en el mismo bioplástico sustentable."
 ],
         descripcion: "La lámpara Duna Calidez es envolvente, la sensación de un atardecer dentro de casa.",
+        
         colores: [
             {
-                nombre: "Único",
-                hex: "#f5f0e8",
-                imagenes: ["../img/duna/duna.jpeg"]
-            }
+                nombre: "Arena",
+                hex: "#ae9684",
+                imagenes: ["../img/duo/duo.jpeg"]
+            },
+        {
+            nombre: "Verde",
+            hex: "#67b77e",
+            imagenes: ["../img/onda/rojo.png"]
+        },
+        {
+            nombre: "Lavanda",
+            hex: "#98889e",
+            imagenes: ["../img/onda/verde.jpg"]
+        },
+            
         ],
+        
         linkMercadoPago: {
             retiro: "https://mpago.la/29pZf3t",
         metropolitana: "https://mpago.la/1z2h1fG",
@@ -208,6 +244,7 @@ especificaciones: [
         nombre: "Lámpara Mini Duna",
         precio: "$1.150 UYU",
         precioNumero: 1150, 
+        aPedido: true,
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -219,13 +256,26 @@ especificaciones: [
     "Base impresa en el mismo bioplástico sustentable."
 ],
         descripcion: "Calidez envolvente, la sensación de un atardecer dentro de casa.",
-        colores: [
+        
+         colores: [
             {
-                nombre: "Único",
-                hex: "#f5f0e8",
-                imagenes: ["../img/duna/duna.jpeg"]
-            }
+                nombre: "Arena",
+                hex: "#ae9684",
+                imagenes: ["../img/duo/duo.jpeg"]
+            },
+        {
+            nombre: "Verde",
+            hex: "#67b77e",
+            imagenes: ["../img/onda/rojo.png"]
+        },
+        {
+            nombre: "Lavanda",
+            hex: "#98889e",
+            imagenes: ["../img/onda/verde.jpg"]
+        },
+            
         ],
+
         linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
         metropolitana: "https://mpago.la/2xXh4La",
@@ -241,6 +291,8 @@ especificaciones: [
         nombre: "Lámpara Core",
         precio: "$1.150 UYU",
         precioNumero: 1150, 
+        aPedido: true,
+        pantalla: "Blanco",
         costoEnvio: {
         metropolitana: 180,
         noMetropolitana: 260
@@ -255,12 +307,10 @@ especificaciones: [
         descripcion: "Simple, cálida y versátil.",
        
         colores: [
-            {
-                nombre: "Único",
-                hex: "#f5f0e8",
-                imagenes: ["../img/core/core.jpeg"]
-            }
-        ],
+            {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/core/core.jpeg"]},
+            {nombre: "Lavanda", hex: "#98889e",imagenes: ["../img/core/core.jpeg"]},
+            {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/core/core.jpeg"]}
+               ],
 
         linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",

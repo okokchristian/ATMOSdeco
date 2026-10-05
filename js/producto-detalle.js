@@ -26,6 +26,10 @@ if (!producto) {
         ? COLORES_FILAMENTO.filter(c => !nombresConFoto.includes(c.nombre))
         : [];
 
+    // Texto del color: en lámparas con base intercambiable dice "Blanco + base Verde"
+    const textoColor = (nombre) =>
+        producto.pantalla ? `${producto.pantalla} + base ${nombre}` : nombre;
+
     contenedor.innerHTML = `
         <div class="producto-detalle-img">
             <div class="galeria-track" id="galeria-track">
@@ -63,7 +67,7 @@ if (!producto) {
 
             <div class="color-selector">
                 <span class="color-selector-label">
-                    Color: <strong id="color-elegido">${producto.colores[0].nombre}</strong>
+                    Color: <strong id="color-elegido">${textoColor(producto.colores[0].nombre)}</strong>
                 </span>
 
                 <div class="color-opciones">
@@ -71,15 +75,15 @@ if (!producto) {
                         <button class="color-dot ${i === 0 ? 'active' : ''}"
                                 style="background-color: ${color.hex};"
                                 data-index="${i}"
-                                aria-label="Color ${color.nombre}"
-                                title="${color.nombre}">
+                                aria-label="Color ${textoColor(color.nombre)}"
+                                title="${textoColor(color.nombre)}">
                         </button>
                     `).join('')}
                 </div>
 
                 ${coloresAPedido.length ? `
                     <button class="btn-colores-pedido" id="btn-colores-pedido">
-                        +${coloresAPedido.length} colores a pedido
+                        +${coloresAPedido.length} ${producto.pantalla ? 'colores de base' : 'colores'} a pedido
                     </button>
                 ` : ''}
             </div>
@@ -112,14 +116,15 @@ if (!producto) {
                         data-producto="${producto.nombre}"
                         data-precio="${producto.precio}"
                         data-precio-numero="${producto.precioNumero}"
-                        data-color="${producto.colores[0].nombre}"
+                        data-color="${textoColor(producto.colores[0].nombre)}"
                         data-costo-envio="0">
                     Transferencia bancaria
                     <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
 
-                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener">                    <i class="bi bi-credit-card"></i> Mercado Pago
+                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener" aria-label="Pagar con Mercado Pago">
+                    <img src="../img/mercadopago.png" alt="Mercado Pago" class="banco-logo-btn">
                 </a>
             </div>
         </div>
@@ -127,13 +132,18 @@ if (!producto) {
 
     // ================= MODAL COLORES A PEDIDO (estructura) =================
     if (coloresAPedido.length) {
+        const tituloModal = producto.pantalla ? 'Colores de base a pedido' : 'Colores a pedido';
+        const textoModal = producto.pantalla
+            ? `La base de ${producto.nombre} se imprime en estos colores a pedido; la pantalla es siempre ${producto.pantalla.toLowerCase()}. Las fotos son de otros diseños, para que veas cómo queda cada color.`
+            : `${producto.nombre} se imprime en estos colores a pedido. Las fotos son de otros diseños, para que veas cómo queda cada color.`;
+
         document.body.insertAdjacentHTML('beforeend', `
             <div class="modal-colores" id="modal-colores">
                 <div class="modal-colores-box">
                     <div class="modal-colores-header">
                         <div>
-                            <h2>Colores a pedido</h2>
-                            <p>${producto.nombre} se imprime en estos colores a pedido. Las fotos son de otros diseños, para que veas cómo queda cada color.</p>
+                            <h2>${tituloModal}</h2>
+                            <p>${textoModal}</p>
                         </div>
                         <button class="modal-colores-close" id="modal-colores-close" aria-label="Cerrar">
                             <i class="bi bi-x-lg"></i>
@@ -210,7 +220,7 @@ if (!producto) {
         btnTransferencia.removeAttribute('disabled');
     }
 
-        // ================= VALIDACIÓN MERCADO PAGO + GUARDAR PEDIDO =================
+    // ================= VALIDACIÓN MERCADO PAGO + GUARDAR PEDIDO =================
     btnMp.addEventListener('click', (e) => {
         if (btnMp.classList.contains('btn-disabled')) {
             e.preventDefault();
@@ -395,7 +405,7 @@ if (!producto) {
 
     // Actualiza el texto "Color: ..." y el color que viaja con la compra
     function actualizarColorElegido() {
-        const nombre = colorPedido ? colorPedido.nombre : producto.colores[colorActual].nombre;
+        const nombre = textoColor(colorPedido ? colorPedido.nombre : producto.colores[colorActual].nombre);
 
         colorElegidoTexto.innerHTML = colorPedido
             ? `${nombre} <span class="color-a-pedido-tag">(a pedido)</span>`
