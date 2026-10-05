@@ -308,13 +308,13 @@
 }
 
 .btn-mp {
-    background-color: transparent;
+    background-color: #00b0f0;
     color: hsl(0, 7%, 97%);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-mp:hover {
-    background-color: #00b0f0;
+    background-color: #0076a0;
     transform: translateY(-2px);
 }
 

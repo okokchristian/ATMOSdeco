@@ -57,9 +57,9 @@ const PRODUCTOS = [
     ],
 
     linkMercadoPago: {
-        retiro: "https://mpago.la/27FoEo5",
-        metropolitana: "https://mpago.la/1U1Nfc1",
-        noMetropolitana: "https://mpago.la/2XFSZge"
+        retiro: "https://mpago.la/1q55z6i",
+        metropolitana: "https://mpago.la/2fDYqdh",
+        noMetropolitana: "https://mpago.la/1iWGMg9 "
     }
 },
     
@@ -93,8 +93,9 @@ especificaciones: [
         ],
         
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
+            retiro: "https://mpago.la/29pZf3t",
+        metropolitana: "https://mpago.la/1z2h1fG",
+        noMetropolitana: "https://mpago.la/1EygjpN"
         }
     }, 
 
@@ -126,10 +127,11 @@ especificaciones: [
                 imagenes: ["../img/duo/duo.jpeg"]
             }
         ],
-        linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
-        }
+         linkMercadoPago: {
+        retiro: "https://mpago.la/2Xm82LA",
+        metropolitana: "https://mpago.la/2xXh4La",
+        noMetropolitana: "https://mpago.la/1PjWbdD"
+    }
     }, 
 
     // ================= BLOOM =================
@@ -159,9 +161,10 @@ especificaciones: [
             }
         ],
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
-        }
+        retiro: "https://mpago.la/2Xm82LA",
+        metropolitana: "https://mpago.la/2xXh4La",
+        noMetropolitana: "https://mpago.la/1PjWbdD"
+    }
     },
 
     // ================= DUNA GRANDE =================
@@ -191,8 +194,9 @@ especificaciones: [
             }
         ],
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
+            retiro: "https://mpago.la/29pZf3t",
+        metropolitana: "https://mpago.la/1z2h1fG",
+        noMetropolitana: "https://mpago.la/1EygjpN"
         }
     }, 
 
@@ -223,9 +227,10 @@ especificaciones: [
             }
         ],
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
-        }
+        retiro: "https://mpago.la/2Xm82LA",
+        metropolitana: "https://mpago.la/2xXh4La",
+        noMetropolitana: "https://mpago.la/1PjWbdD"
+    }
     }, 
     
     
@@ -258,8 +263,9 @@ especificaciones: [
         ],
 
         linkMercadoPago: {
-            retiro: "https://mpago.la/xxxxx",
-            envio: "https://mpago.la/yyyyy"
-        }
+        retiro: "https://mpago.la/2Xm82LA",
+        metropolitana: "https://mpago.la/2xXh4La",
+        noMetropolitana: "https://mpago.la/1PjWbdD"
+    }
     }
 ];

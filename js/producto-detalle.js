@@ -119,8 +119,7 @@ if (!producto) {
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
 
-                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp">
-                    <i class="bi bi-credit-card"></i> Mercado Pago
+                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener">                    <i class="bi bi-credit-card"></i> Mercado Pago
                 </a>
             </div>
         </div>
