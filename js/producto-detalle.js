@@ -221,16 +221,19 @@ if (!producto) {
     }
 
     // ================= VALIDACIÓN MERCADO PAGO + GUARDAR PEDIDO =================
-    btnMp.addEventListener('click', (e) => {
+       // ================= MERCADO PAGO: CREAR PAGO CON LA FUNCIÓN =================
+    btnMp.addEventListener('click', async (e) => {
+        e.preventDefault();
+
         if (btnMp.classList.contains('btn-disabled')) {
-            e.preventDefault();
             alert('Elegí primero una opción de entrega (Retiro o Envío) antes de continuar.');
             return;
         }
 
-        // Guardamos el pedido para mostrarlo en la página de gracias
+        // Guardamos el pedido para las páginas de aprobado / pendiente / rechazado
         try {
             localStorage.setItem('atmosPedido', JSON.stringify({
+                id: producto.id,
                 producto: producto.nombre,
                 color: btnTransferencia.dataset.color,
                 entrega: btnTransferencia.dataset.entrega,
@@ -238,7 +241,37 @@ if (!producto) {
                 fecha: Date.now()
             }));
         } catch (err) {
-            // si el navegador no deja guardar, seguimos igual al pago
+            // si el navegador no deja guardar, seguimos igual
+        }
+
+        // Abrimos la pestaña ya: si esperamos la respuesta, el navegador la bloquea
+        const pestana = window.open('', '_blank');
+        if (pestana) {
+            pestana.document.write('<p style="font-family: sans-serif; padding: 2rem;">Abriendo Mercado Pago…</p>');
+        }
+
+        try {
+            // Le pedimos a la función que cree el pago
+            const respuesta = await fetch('/.netlify/functions/crear-pago', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: producto.id,
+                    color: btnTransferencia.dataset.color,
+                    entrega: zonaSeleccionada || 'retiro'
+                })
+            });
+
+            const data = await respuesta.json();
+            if (!respuesta.ok || !data.url) throw new Error(data.error || 'Sin link de pago');
+
+            // Mandamos la pestaña nueva al link de pago
+            if (pestana) pestana.location.href = data.url;
+            else window.location.href = data.url; // si el navegador bloqueó la pestaña
+        } catch (err) {
+            console.error(err);
+            if (pestana) pestana.close();
+            alert('No pudimos iniciar el pago. Probá de nuevo en un momento o escribinos por WhatsApp.');
         }
     });
 
