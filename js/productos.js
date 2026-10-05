@@ -66,8 +66,8 @@ const PRODUCTOS = [
     // ================= DUO GRANDE =================
 
      {
-        id: "lampara-duo-grande",
-        nombre: "Lámpara Duo Grande",
+        id: "lampara-duo",
+        nombre: "Lámpara Duo",
         precio: "$1.600 UYU",
         precioNumero: 1600,
         costoEnvio: {
@@ -170,8 +170,8 @@ especificaciones: [
     // ================= DUNA GRANDE =================
 
          {
-        id: "lampara-duna-grande",
-        nombre: "Lámpara Duna Grande",
+        id: "lampara-duna",
+        nombre: "Lámpara Duna",
         precio: "$1.600 UYU",
         precioNumero: 1600, 
         costoEnvio: {
@@ -185,7 +185,7 @@ especificaciones: [
     "Cable de 1.5 metros con interruptor incorporado.",
     "Base impresa en el mismo bioplástico sustentable."
 ],
-        descripcion: "La lámpara Duna Grande Calidez es envolvente, la sensación de un atardecer dentro de casa.",
+        descripcion: "La lámpara Duna Calidez es envolvente, la sensación de un atardecer dentro de casa.",
         colores: [
             {
                 nombre: "Único",

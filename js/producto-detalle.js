@@ -175,8 +175,8 @@ if (!producto) {
     let zonaSeleccionada = null; // 'metropolitana' o 'noMetropolitana'
 
     const ZONA_LABELS = {
-        metropolitana: 'Área metropolitana',
-        noMetropolitana: 'Fuera del área metropolitana'
+        metropolitana: 'Dentro de Montevideo',
+        noMetropolitana: 'Fuera de Montevideo'
     };
 
     const MENSAJES_ENTREGA = {
