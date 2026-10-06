@@ -19,16 +19,50 @@
             <div class="estado-icono estado-icono-error">
                 <i class="bi bi-x-lg"></i>
             </div>
-            <h1>No pudimos procesar tu pago</h1>
-            <p>Algo salió mal con la transacción. No te preocupes, no se realizó ningún cobro. Podés intentar de nuevo o escribirnos si el problema persiste.</p>
+                        <h1>No pudimos procesar tu pago</h1>
+            <p>Mercado Pago no aprobó el pago y <strong>no se realizó ningún cobro</strong>. Podés intentar de nuevo con otro medio de pago, o escribirnos por WhatsApp y te ayudamos a completar tu compra (también aceptamos transferencia bancaria).</p>
             <div class="estado-pago-botones">
-                <a href="https://wa.me/59892980915?text=Hola!%20Tuve%20un%20problema%20con%20un%20pago%20por%20Mercado%20Pago" target="_blank" class="btn-comprar btn-whatsapp">
-                    <i class="bi bi-whatsapp"></i> Escribinos por WhatsApp
+                <a href="https://wa.me/59892980915?text=Hola!%20Tuve%20un%20problema%20con%20un%20pago%20por%20Mercado%20Pago" target="_blank" class="btn-comprar btn-whatsapp" id="btn-whatsapp-pedido">
+                    <i class="bi bi-whatsapp"></i> Pedir ayuda por WhatsApp
                 </a>
-                <a href="html/lamparas.html" class="btn-verproductos-outline">Volver a intentar</a>
+                <a href="html/lamparas.html" class="btn-verproductos-outline" id="btn-reintentar">Volver a intentar</a>
             </div>
         </div>
     </section>
+
+    <script>
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const idPago = params.get('payment_id');
+        const pedido = JSON.parse(localStorage.getItem('atmosPedido'));
+        const reciente = pedido && Date.now() - pedido.fecha < 24 * 60 * 60 * 1000;
+
+        // "Volver a intentar" lleva a la lámpara que estaba comprando
+        if (reciente && pedido.id) {
+            document.getElementById('btn-reintentar').href =
+                `html/productos.html?id=${encodeURIComponent(pedido.id)}`;
+        }
+
+        let mensaje = '¡Hola! Intenté pagar por Mercado Pago pero el pago fue rechazado. ¿Me ayudan a completar la compra?';
+
+        if (reciente) {
+            mensaje +=
+                `\n• ${pedido.producto}` +
+                `\n• Color: ${pedido.color}` +
+                `\n• Entrega: ${pedido.entrega}` +
+                `\n• Total: ${pedido.precio}`;
+        }
+
+        if (idPago) {
+            mensaje += `\n• N.º de operación: ${idPago}`;
+        }
+
+        document.getElementById('btn-whatsapp-pedido').href =
+            `https://wa.me/59892980915?text=${encodeURIComponent(mensaje)}`;
+    } catch (err) {
+        // si algo falla, quedan los links genéricos
+    }
+</script>
 
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d962f11ed3794a5a9cfd09e269e80913"}'></script><!-- End Cloudflare Web Analytics -->
      

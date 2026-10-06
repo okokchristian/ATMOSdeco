@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias por tu compra! — ATMOS deco</title>
+    <title>¡Pago aprobado! — ATMOS deco</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="css/index.css">
@@ -28,22 +28,29 @@
         </div>
     </section>
 
-    <script>
+   <script>
     try {
+        const params = new URLSearchParams(window.location.search);
+        const idPago = params.get('payment_id');
         const pedido = JSON.parse(localStorage.getItem('atmosPedido'));
+
+        let mensaje = '¡Hola! Acabo de pagar por Mercado Pago:';
 
         // Solo si el pedido se guardó hace menos de 24 horas
         if (pedido && Date.now() - pedido.fecha < 24 * 60 * 60 * 1000) {
-            const mensaje =
-                `¡Hola! Acabo de pagar por Mercado Pago:\n` +
-                `• ${pedido.producto}\n` +
-                `• Color: ${pedido.color}\n` +
-                `• Entrega: ${pedido.entrega}\n` +
-                `• Total: ${pedido.precio}`;
-
-            document.getElementById('btn-whatsapp-pedido').href =
-                `https://wa.me/59892980915?text=${encodeURIComponent(mensaje)}`;
+            mensaje +=
+                `\n• ${pedido.producto}` +
+                `\n• Color: ${pedido.color}` +
+                `\n• Entrega: ${pedido.entrega}` +
+                `\n• Total: ${pedido.precio}`;
         }
+
+        if (idPago) {
+            mensaje += `\n• N.º de operación: ${idPago}`;
+        }
+
+        document.getElementById('btn-whatsapp-pedido').href =
+            `https://wa.me/59892980915?text=${encodeURIComponent(mensaje)}`;
     } catch (err) {
         // si algo falla, queda el mensaje genérico
     }
