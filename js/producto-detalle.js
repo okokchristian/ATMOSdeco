@@ -123,10 +123,32 @@ if (!producto) {
                     <img src="../img/prex.png" alt="" class="banco-logo-btn">
                 </button>
 
-                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener" aria-label="Pagar con Mercado Pago">
+                                <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener" aria-label="Pagar con Mercado Pago">
                     <img src="../img/mercadopago.png" alt="Mercado Pago" class="banco-logo-btn">
                 </a>
             </div>
+
+            <details class="info-seguridad">
+                <summary>Información y seguridad</summary>
+                <div class="info-seguridad-contenido">
+                    <h4>Especificaciones eléctricas</h4>
+                    <dl class="info-electrica">
+                        ${INFO_ELECTRICA.map(([dato, valor]) => `
+                            <dt>${dato}</dt>
+                            <dd>${valor}</dd>
+                        `).join('')}
+                    </dl>
+
+                    <h4>Uso seguro</h4>
+                    <ul>
+                        ${INFO_SEGURIDAD.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+
+                    <p class="info-seguridad-mas">
+                        Más información en nuestros <a href="../terminos.html" target="_blank">Términos y condiciones</a>.
+                    </p>
+                </div>
+            </details>
         </div>
     `;
 
