@@ -1482,6 +1482,12 @@
     text-decoration: underline;
 }
 
+.legal h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f5f0e8;
+    margin: 1.4rem 0 0.5rem;
+}
 @media (max-width: 600px) {
     .legal {
         margin: 1.5rem auto;
@@ -1490,5 +1496,122 @@
     }
     .legal h1 {
         font-size: 1.6rem;
+    }
+}
+
+/* ================== INFORMACIÓN Y SEGURIDAD (acordeón) ================== */
+
+.info-seguridad {
+    margin-top: 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Título que se toca */
+.info-seguridad summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #eee7e7e0;
+    cursor: pointer;
+    list-style: none;          /* saca el triangulito del navegador */
+    transition: color 0.3s;
+}
+
+.info-seguridad summary::-webkit-details-marker {
+    display: none;             /* lo mismo para Safari */
+}
+
+/* Chevron a la derecha que gira al abrir */
+.info-seguridad summary::after {
+    content: "›";
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 0;
+    color: #cf9a5c;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+}
+
+.info-seguridad[open] summary::after {
+    transform: rotate(-90deg);
+}
+
+.info-seguridad summary:hover {
+    color: #cf9a5c;
+}
+
+/* Contenido */
+.info-seguridad-contenido {
+    padding: 0 0 1.2rem;
+    font-size: 0.88rem;
+    color: rgba(238, 231, 231, 0.8);
+}
+
+.info-seguridad-contenido h4 {
+    margin: 0.6rem 0 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #cf9a5c;
+}
+
+/* Tabla de datos: dato a la izquierda, valor a la derecha */
+.info-electrica {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.45rem 1.2rem;
+    margin: 0 0 1.2rem;
+}
+
+.info-electrica dt {
+    font-weight: 600;
+    color: #eee7e7e0;
+}
+
+.info-electrica dd {
+    margin: 0;
+}
+
+.info-seguridad-contenido ul {
+    padding-left: 1.1rem;
+    margin: 0 0 1rem;
+}
+
+.info-seguridad-contenido li {
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+}
+
+.info-seguridad-contenido li::marker {
+    color: #cf9a5c;
+}
+
+.info-seguridad-mas {
+    font-size: 0.8rem;
+    color: rgba(238, 231, 231, 0.6);
+}
+
+.info-seguridad-mas a {
+    color: #cf9a5c;
+    text-decoration: none;
+}
+
+.info-seguridad-mas a:hover {
+    text-decoration: underline;
+}
+
+/* Celular: datos uno debajo del otro */
+@media (max-width: 600px) {
+    .info-electrica {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+    .info-electrica dd {
+        margin-bottom: 0.5rem;
     }
 }

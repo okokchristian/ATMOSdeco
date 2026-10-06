@@ -1,3 +1,22 @@
+// ================= INFORMACIÓN ELÉCTRICA Y SEGURIDAD =================
+// Todas las lámparas usan el mismo kit eléctrico.
+const INFO_ELECTRICA = [
+    ['Portalámparas',     'E27'],
+    ['Bombilla incluida', 'LED 4,9 W, luz cálida (3000 K), no dimerizable'],
+    ['Potencia máxima',   'Solo bombillas LED de hasta 7 W'],
+    ['Tensión',           '220-240 V · 50-60 Hz'],
+    ['Cable',             '1,5 m, con interruptor de tecla y enchufe de 2 patas'],
+];
+
+const INFO_SEGURIDAD = [
+    'No uses bombillas incandescentes ni halógenas: calientan y pueden deformar la pantalla.',
+    'Desconectá la lámpara antes de cambiar la bombilla.',
+    'No la uses si el cable, el enchufe o el portalámparas presentan daños.',
+    'Mantenela alejada del agua, la humedad y fuentes de calor.',
+    'No la cubras mientras esté encendida.',
+    'No modifiques ni repares los componentes eléctricos.',
+];
+
 // ================= COLORES DE FILAMENTO =================
 // Los 10 colores que imprimimos.
 // "referencia.imagen" es la foto de una lámpara ya impresa en ese color.
@@ -57,7 +76,7 @@ const PRODUCTOS = [
     linkMercadoPago: {
         retiro: "https://mpago.la/1q55z6i",
         metropolitana: "https://mpago.la/2fDYqdh",
-        noMetropolitana: "https://mpago.la/1iWGMg9 "
+        noMetropolitana: "https://mpago.la/1iWGMg9"
     }
 },
     
