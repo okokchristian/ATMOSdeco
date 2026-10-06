@@ -560,6 +560,12 @@ body.nav-hidden .nav-links {
     color: #cf9a5c;
 }
 
+.footer-credito {
+    margin-top: 0.4rem;
+    font-size: 0.7rem !important;
+    opacity: 0.7;
+}
+
 .faq-legal {
     margin-top: 2rem;
     padding-top: 1.2rem;
