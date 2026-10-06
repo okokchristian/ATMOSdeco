@@ -19,18 +19,46 @@
             <div class="estado-icono estado-icono-pendiente">
                 <i class="bi bi-hourglass-split"></i>
             </div>
-            <h1>Tu pago está pendiente</h1>
-            <p>Estamos esperando la confirmación de Mercado Pago. Esto puede tardar unos minutos según el medio de pago que hayas elegido. Te avisamos por WhatsApp apenas se confirme.</p>
+                        <h1>Tu pago está pendiente</h1>
+            <p>Mercado Pago todavía está procesando tu pago. <strong>Envianos tu pedido por WhatsApp</strong> para que lo tengamos registrado: empezamos a fabricar tu lámpara apenas se acredite el pago.</p>
             <div class="estado-pago-botones">
-                <a href="https://wa.me/59892980915?text=Hola!%20Mi%20pago%20por%20Mercado%20Pago%20qued%C3%B3%20pendiente" target="_blank" class="btn-comprar btn-whatsapp">
-                    <i class="bi bi-whatsapp"></i> Consultar por WhatsApp
+                <a href="https://wa.me/59892980915?text=Hola!%20Mi%20pago%20por%20Mercado%20Pago%20qued%C3%B3%20pendiente" target="_blank" class="btn-comprar btn-whatsapp" id="btn-whatsapp-pedido">
+                    <i class="bi bi-whatsapp"></i> Enviar mi pedido por WhatsApp
                 </a>
                 <a href="index.html" class="btn-verproductos-outline">Volver al inicio</a>
             </div>
         </div>
     </section>
 
+    <script>
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const idPago = params.get('payment_id');
+        const pedido = JSON.parse(localStorage.getItem('atmosPedido'));
+
+        let mensaje = '¡Hola! Hice un pago por Mercado Pago que quedó pendiente:';
+
+        if (pedido && Date.now() - pedido.fecha < 24 * 60 * 60 * 1000) {
+            mensaje +=
+                `\n• ${pedido.producto}` +
+                `\n• Color: ${pedido.color}` +
+                `\n• Entrega: ${pedido.entrega}` +
+                `\n• Total: ${pedido.precio}`;
+        }
+
+        if (idPago) {
+            mensaje += `\n• N.º de operación: ${idPago}`;
+        }
+
+        document.getElementById('btn-whatsapp-pedido').href =
+            `https://wa.me/59892980915?text=${encodeURIComponent(mensaje)}`;
+    } catch (err) {
+        // si algo falla, queda el mensaje genérico
+    }
+</script>
+
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d962f11ed3794a5a9cfd09e269e80913"}'></script><!-- End Cloudflare Web Analytics -->
      
+    
 </body>
 </html>
