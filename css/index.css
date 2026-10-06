@@ -1521,20 +1521,6 @@ color: #eee7e7ca;
         transition: color 0.3s, padding-left 0.3s;
     }
 
-    /* Flecha a la derecha */
-    #nav-links li:not(.nav-search-item, .nav-socials-item) > a::after {
-        content: "→";
-        position: static;
-        width: auto;
-        height: auto;
-        background: none;
-        margin-left: auto;
-        font-size: 1.2rem;
-        color: #cf9a5c;
-        opacity: 0;
-        transform: translateX(-8px);
-        transition: opacity 0.3s, transform 0.3s;
-    }
 
     #nav-links li:not(.nav-search-item, .nav-socials-item):active > a {
         color: #ffffff;
