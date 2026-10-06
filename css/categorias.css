@@ -1396,3 +1396,99 @@
 .btn-colores-pedido {
     margin-top: 0;
 }
+
+/* ================== PÁGINA LEGAL (términos y condiciones) ================== */
+
+.legal {
+    width: calc(100% - 2rem);
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    color: #eee7e7e0;
+    background: linear-gradient(145deg, rgba(77, 91, 78, 0.92), rgba(35, 44, 37, 0.96));
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.legal-volver {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #cf9a5c;
+    text-decoration: none;
+}
+.legal-volver:hover {
+    text-decoration: underline;
+}
+
+.legal h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.legal-fecha {
+    font-size: 0.85rem;
+    color: rgba(238, 231, 231, 0.55);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.legal h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #cf9a5c;
+    margin: 2rem 0 0.7rem;
+}
+
+.legal p,
+.legal li {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.legal p {
+    margin-bottom: 0.7rem;
+}
+
+.legal ul {
+    padding-left: 1.2rem;
+    margin-bottom: 0.7rem;
+}
+
+.legal li {
+    margin-bottom: 0.4rem;
+}
+
+.legal li::marker {
+    color: #cf9a5c;
+}
+
+.legal strong {
+    font-weight: 700;
+    color: #f5f0e8;
+}
+
+.legal a:not(.legal-volver) {
+    color: #cf9a5c;
+    text-decoration: none;
+}
+.legal a:not(.legal-volver):hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .legal {
+        margin: 1.5rem auto;
+        padding: 1.6rem 1.3rem;
+        border-radius: 20px;
+    }
+    .legal h1 {
+        font-size: 1.6rem;
+    }
+}
