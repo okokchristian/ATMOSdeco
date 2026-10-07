@@ -338,7 +338,7 @@
 /*------------------- DETALLE DE PRODUCTO ---------------------*/
 
 .producto-detalle {
-    padding: 8rem 2rem 4rem;
+    padding: 6rem 2rem 4rem; /*altura card de cada lampara*/
 }
 
 .producto-detalle-grid {
