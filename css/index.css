@@ -563,7 +563,7 @@ body.nav-hidden .nav-links {
 .footer-credito {
     margin-top: 0.4rem;
     font-size: 0.7rem !important;
-    opacity: 0.7;
+    color: #cfc9c3;
 }
 
 .faq-legal {
@@ -662,7 +662,7 @@ body.nav-hidden .nav-links {
     .logo-accent {
     font-size: 1rem;
     font-weight: 300;
-    opacity: 0.75;
+    color: #cfc9c3;
     }
     
     .nav-icons {
@@ -1193,7 +1193,7 @@ body.nav-hidden .nav-links {
 
 /* ======================== COLOR TODA FUENTE DEL INDEX ===============*/
 .search-box , .logo, .about , .hero h1 , .hero-content h2 , .nav-links a , .about-content h2 , .about-content p , .contact-content h2 , .contact-content p , .contact-item , .footer-logo , .footer-contact a , .footer-socials a , .footer-bottom p {
-color: #eee7e7ca;
+color: #eee7e7;
 }
 
 /* =========================================================
