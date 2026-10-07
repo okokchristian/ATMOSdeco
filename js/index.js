@@ -133,8 +133,15 @@ if (btn.classList.contains('btn-disabled')) {
     const precioLampara = Number(btn.dataset.precioNumero) || 0;
     const costoEnvio = Number(btn.dataset.costoEnvio) || 0;
     const zonaEnvio = btn.dataset.zonaEnvio || '';
+    const color = btn.dataset.color || '';
 
-    const mensaje = `Hola! Quiero comprar ${producto} (${precio}) - ${entrega} - por transferencia, ya hice el pago y adjunto el comprobante.`;
+    const mensaje =
+        `¡Hola! Quiero comprar por transferencia:` +
+        `\n• ${producto}` +
+        (color ? `\n• Color: ${color}` : '') +
+        `\n• Entrega: ${entrega}` +
+        `\n• Total: ${precio}` +
+        `\n\nYa hice el pago y adjunto el comprobante.`;
     modalWhatsappBtn.href = `https://wa.me/${TU_NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
 
     const esEnvio = entrega.startsWith('Envío');
