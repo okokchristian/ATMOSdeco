@@ -74,7 +74,7 @@ const PRODUCTOS = [
     ],
 
     linkMercadoPago: {
-        retiro: "https://mpago.la/1q55z6i",
+        retiro: "https://mpago.la/2VCb6Mp",
         metropolitana: "https://mpago.la/2fDYqdh",
         noMetropolitana: "https://mpago.la/1iWGMg9"
     }
