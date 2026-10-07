@@ -56,6 +56,12 @@ export default async (req) => {
             headers: { Authorization: `Bearer ${process.env.MP_ACCESS_TOKEN}` },
         });
 
+                // El pago no existe (por ejemplo, una simulación del panel): no reintentar
+        if (respuesta.status === 404) {
+            console.log('Pago no encontrado, se ignora:', idPago);
+            return new Response('Pago no encontrado', { status: 200 });
+        }
+
         if (!respuesta.ok) {
             console.error('No se pudo consultar el pago', idPago, await respuesta.text());
             return new Response('Error consultando el pago', { status: 500 });
