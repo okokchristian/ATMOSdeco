@@ -230,8 +230,8 @@
 /* ================== CARD DE LAMPARAS ==================*/
 .producto-card {
     display: block;
-    text-decoration: none;   /* NUEVO — esto saca el subrayado */
-    background: rgba(255, 255, 255, 0.09);
+    text-decoration: none;   /*esto saca el subrayado */
+    background: rgba(20, 26, 21, 0.35);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -271,16 +271,14 @@
 .producto-info h3 {
     font-size: 1.3rem;
     font-weight: 700;
-    color: hsla(0, 7%, 97%, 0.721);
+    color: #f5f1ed;
     margin-bottom: 0.4rem;
 }
-
 
 .producto-precio {
     font-size: 1.15rem;
     font-weight: 600;
-    color: hsla(0, 7%, 97%, 0.721);
-
+    color: #f5f1ed;
 }
 
 /* ------------------METODO DE PAGO -------------------*/
