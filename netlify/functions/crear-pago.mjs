@@ -71,6 +71,7 @@ export default async (req) => {
                 failure: PAGINAS.rechazado,
             },
             auto_return: 'approved',
+            notification_url: `${SITIO}/.netlify/functions/webhook-mp`,
             statement_descriptor: 'ATMOS DECO',
             external_reference: `${datos.id} | ${color} | ${datos.entrega}`,
         }),
