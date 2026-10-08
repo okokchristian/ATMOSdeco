@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
+    background-color: #1e2a24;
 }
 
 .bg-fixed {
