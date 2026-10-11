@@ -37,7 +37,7 @@ body {
     pointer-events: none;
 
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0), /*arriba*/ rgba(0, 0, 0, 0.64)), /*abajo*/
+        linear-gradient(rgba(20, 19, 19, 0), /*arriba*/ rgba(0, 0, 0, 0.64)), /*abajo*/
         url('../img/hero2.jpg');
 
     background-size: cover, cover;
