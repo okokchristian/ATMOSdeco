@@ -59,57 +59,61 @@ if (!producto) {
             </button>
         </div>
 
-        <div class="producto-detalle-info">
-            <h1>${producto.nombre}</h1>
-            <div class="producto-linea"></div>
+    <div class="producto-detalle-info">
+    <div class="producto-titulo-row">
+        <h1>${producto.nombre}</h1>
+        <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
+    </div>
 
-            <p class="producto-detalle-precio" id="precio-final">${producto.precio}</p>
+    <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
 
-            <div class="color-selector">
-                <span class="color-selector-label">
-                    Color: <strong id="color-elegido">${textoColor(producto.colores[0].nombre)}</strong>
-                </span>
+    <div class="producto-divisor"></div>
 
-                <div class="color-opciones">
-                    ${producto.colores.map((color, i) => `
-                        <button class="color-dot ${i === 0 ? 'active' : ''}"
-                                style="background-color: ${color.hex};"
-                                data-index="${i}"
-                                aria-label="Color ${textoColor(color.nombre)}"
-                                title="${textoColor(color.nombre)}">
-                        </button>
-                    `).join('')}
-                </div>
+    <div class="color-selector">
+        <span class="color-selector-label">
+            Color seleccioando: <strong id="color-elegido">${textoColor(producto.colores[0].nombre)}</strong>
+        </span>
 
-                ${coloresAPedido.length ? `
-                    <button class="btn-colores-pedido" id="btn-colores-pedido">
-                        +${coloresAPedido.length} ${producto.pantalla ? 'colores de base' : 'colores'} a pedido
-                    </button>
-                ` : ''}
-            </div>
-
-            <div class="producto-descripcion-wrapper">
-                <p class="producto-detalle-descripcion" id="descripcion-texto"></p>
-
-                <button class="ver-mas-inline" id="toggle-caracteristicas">
-                    Ver características del diseño
+        <div class="color-opciones">
+            ${producto.colores.map((color, i) => `
+                <button class="color-dot ${i === 0 ? 'active' : ''}"
+                        style="background-color: ${color.hex};"
+                        data-index="${i}"
+                        aria-label="Color ${textoColor(color.nombre)}"
+                        title="${textoColor(color.nombre)}">
                 </button>
+            `).join('')}
+        </div>
 
-                <div class="producto-especificaciones" id="producto-especificaciones">
-                    <ul class="especificaciones-lista">
-                        ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
+        ${coloresAPedido.length ? `
+            <button class="btn-colores-pedido" id="btn-colores-pedido">
+                +${coloresAPedido.length} ${producto.pantalla ? 'colores de base' : 'colores'} a pedido
+            </button>
+        ` : ''}
+    </div>
+
+        <div class="producto-divisor"></div>
+
+    <details class="caracteristicas-diseno">
+    <summary>Ver características del diseño</summary>
+    <div class="producto-especificaciones">
+        <ul class="especificaciones-lista">
+            ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    </div>
+</details>
+
+        <div class="producto-divisor"></div>
+
+
+    <p class="entrega-info" id="entrega-info">
+                Elegí una opción de entrega para continuar con la compra.
+            </p>
 
             <div class="entrega-tabs">
                 <button class="entrega-tab" data-tipo="retiro">Retiro</button>
                 <button class="entrega-tab" data-tipo="envio">Envío</button>
             </div>
-
-            <p class="entrega-info" id="entrega-info">
-                Elegí una opción de entrega para continuar con la compra.
-            </p>
 
             <div class="producto-botones">
                 <button class="btn-comprar btn-transferencia btn-disabled"
@@ -354,16 +358,8 @@ if (!producto) {
         if (e.key === 'Escape') closeModalZona();
     });
 
-    // ================= DESCRIPCIÓN Y ESPECIFICACIONES =================
-    document.getElementById('descripcion-texto').textContent = producto.descripcion;
-
-    const especificaciones = document.getElementById('producto-especificaciones');
-    const toggleCaracteristicas = document.getElementById('toggle-caracteristicas');
-
-    toggleCaracteristicas.addEventListener('click', () => {
-        const abierto = especificaciones.classList.toggle('activo');
-        toggleCaracteristicas.textContent = abierto ? 'Ocultar características del diseño' : 'Ver características del diseño';
-    });
+    // ================= DESCRIPCIÓN =================
+document.getElementById('descripcion-texto').textContent = producto.descripcion;
 
     // ================= COMPARTIR PRODUCTO =================
     const btnCompartir = document.getElementById('btn-compartir');
