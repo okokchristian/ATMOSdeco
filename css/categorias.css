@@ -457,14 +457,14 @@
     padding: 2.2rem 2.5rem 2.5rem;
 }
 
-.producto-detalle-info::before {
+.producto-detalle-info::before { /*TEXTO COLECCIÓN*/
     content: "COLECCIÓN";
     display: block;
     margin-bottom: 1rem;
-    font-size: 0.58rem;
+    font-size: 0.70rem;
     font-weight: 500;
     letter-spacing: 0.3em;
-    color: #cf9a5c;
+    color: #cf995c83;
 }
 
 .producto-detalle-info h1 {
@@ -477,33 +477,38 @@
     color: rgba(255, 255, 255, 0.95);
 }
 
-.producto-detalle-info h1::after {
-    content: "";
-    display: block;
+.producto-linea {
     width: 30px;
     height: 1px;
-    margin-top: 0.9rem;
     background: #cf9a5c;
+    margin: 0.5rem 0 1.3rem;
     transition: width 0.4s ease;
 }
 
-.producto-detalle-grid:hover .producto-detalle-info h1::after {
+.producto-detalle-grid:hover .producto-linea {
     width: 65px;
 }
 
-.producto-detalle-precio {
+.producto-detalle-precio { /* PRECIO*/
     display: block;
-    margin-bottom: 1.3rem;
     font-size: 1.25rem;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
 }
 
-.producto-detalle-descripcion {
+.producto-titulo-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.producto-detalle-descripcion { /* TEXTO DESCRIPCIÓN */
     max-width: 480px;
     margin: 0 0 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 300;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.728);
 }
@@ -568,20 +573,6 @@
 
 .ver-mas-inline:hover {
     color: #ff8b4a;
-}
-
-.producto-especificaciones {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease, margin-bottom 0.4s ease;
-}
-
-.producto-especificaciones.activo {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 0.8rem;
-    margin-bottom: 1.5rem;
 }
 
 .especificaciones-lista {
@@ -1029,8 +1020,8 @@
 
 .color-selector-label {
     display: block;
-    font-size: 0.85rem;
-    color: hsla(0, 7%, 97%, 0.6);
+    font-size: 0.95rem;
+    color:rgba(255, 255, 255, 0.728);
     margin-bottom: 0.6rem;
 }
 
@@ -1046,8 +1037,8 @@
 }
 
 .color-dot {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
@@ -1199,7 +1190,7 @@
 /* Botón "+6 colores a pedido" */
 .btn-colores-pedido {
     margin-top: 0.9rem;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     font: inherit;
     font-size: 0.85rem;
     color: #cf9a5c;
@@ -1672,5 +1663,57 @@
     }
     .info-electrica dd {
         margin-bottom: 0.5rem;
+    }
+}
+
+.producto-divisor {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 1rem 0;
+}
+
+.caracteristicas-diseno {
+    margin: 1.3rem 0;
+}
+
+.caracteristicas-diseno summary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cf9a5c;
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.3s;
+}
+
+.caracteristicas-diseno summary::-webkit-details-marker {
+    display: none;
+}
+
+.caracteristicas-diseno summary::after {
+    content: "›";
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 0;
+    color: #cf9a5c;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+}
+
+.caracteristicas-diseno[open] summary::after {
+    transform: rotate(-90deg);
+}
+
+.caracteristicas-diseno summary:hover {
+    color: #e0b27a;
+}
+
+.caracteristicas-diseno .producto-especificaciones {
+    margin-top: 0.8rem;
+}
+@media (min-width: 992px) {
+    .producto-detalle-grid {
+        max-width: 1040px;
     }
 }

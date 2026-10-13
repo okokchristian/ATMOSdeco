@@ -30,9 +30,12 @@ const COLORES_FILAMENTO = [
     { nombre: "Rosa",     hex: "#f74b95", referencia: null },
     { nombre: "Lavanda",  hex: "#98889e", referencia: { imagen: null,                  modelo: "Lámpara Onda" } },
     { nombre: "Verde",    hex: "#67b77e", referencia: { imagen: "../img/onda/verde.jpg", modelo: "Lámpara Onda" } },
+    { nombre: "Naranja",  hex: "#de3c15", referencia: null },
+
 ];
 
 const PRODUCTOS = [
+    
     // ================= ONDA =================
 
     {
@@ -56,21 +59,11 @@ const PRODUCTOS = [
     descripcion: "Curvas suaves que suman calma al espacio.",
 
     colores: [
-        {
-            nombre: "Blanco",
-            hex: "#f5f0e8",
-            imagenes: ["../img/onda/onda.jpeg"], 
-        },
-        {
-            nombre: "Rojo",
-            hex: "#de2323",
-            imagenes: ["../img/onda/rojo.png"]
-        },
-        {
-            nombre: "Verde",
-            hex: "#67b77e",
-            imagenes: ["../img/onda/verde.jpg"]
-        },
+        {nombre: "Blanco", hex: "#f5f0e8",imagenes: ["../img/onda/onda.jpeg"]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo.png"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/verde.jpg"]},
     ],
 
     linkMercadoPago: {
@@ -103,21 +96,10 @@ especificaciones: [
     descripcion: "Estructura y calidez en un mismo diseño.",
 
         colores: [
-            {
-                nombre: "Lavanda",
-                hex: "#98889e",
-                imagenes: ["../img/duo/duo.jpeg"]
-            },
-        {
-            nombre: "Rojo",
-            hex: "#de2323",
-            imagenes: ["../img/onda/rojo.png"]
-        },
-        {
-            nombre: "Verde",
-            hex: "#67b77e",
-            imagenes: ["../img/onda/verde.jpg"]
-        },
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/duo.jpeg"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo.png"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/onda/verde.jpg"]},
             
         ],
         
@@ -151,23 +133,13 @@ especificaciones: [
         descripcion: "Estructura y calidez en un mismo diseño.",
        
         colores: [
-            {
-                nombre: "Lavanda",
-                hex: "#98889e",
-                imagenes: ["../img/duo/duo.jpeg"]
-            },
-        {
-            nombre: "Rojo",
-            hex: "#de2323",
-            imagenes: ["../img/onda/rojo.png"]
-        },
-        {
-            nombre: "Verde",
-            hex: "#67b77e",
-            imagenes: ["../img/onda/verde.jpg"]
-        },
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/duo.jpeg"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo.png"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/onda/verde.jpg"]},
             
         ],
+
          linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
         metropolitana: "https://mpago.la/2xXh4La",
@@ -195,11 +167,7 @@ especificaciones: [
 ],
         descripcion: "Luz suave con un aire natural y cálido.",
         colores: [
-            {
-                nombre: "Verde con base Marrón",
-                hex: "#67b77e",
-                imagenes: ["../img/bloom/bloom.jpeg"]
-            }
+            {nombre: "Verde con base Marrón", hex: "#67b77e", imagenes: ["../img/bloom/bloom.jpeg"]}
         ],
         linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
@@ -230,23 +198,13 @@ especificaciones: [
         descripcion: "La lámpara Duna Calidez es envolvente, la sensación de un atardecer dentro de casa.",
         
         colores: [
-            {
-                nombre: "Arena",
-                hex: "#ae9684",
-                imagenes: ["../img/duo/duo.jpeg"]
-            },
-        {
-            nombre: "Verde",
-            hex: "#67b77e",
-            imagenes: ["../img/onda/rojo.png"]
-        },
-        {
-            nombre: "Lavanda",
-            hex: "#98889e",
-            imagenes: ["../img/onda/verde.jpg"]
-        },
-            
-        ],
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/duo.jpeg"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/rojo.png"]},
+        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/core/core.jpeg"]},
+         ],
         
         linkMercadoPago: {
             retiro: "https://mpago.la/29pZf3t",
@@ -277,23 +235,13 @@ especificaciones: [
         descripcion: "Calidez envolvente, la sensación de un atardecer dentro de casa.",
         
          colores: [
-            {
-                nombre: "Arena",
-                hex: "#ae9684",
-                imagenes: ["../img/duo/duo.jpeg"]
-            },
-        {
-            nombre: "Verde",
-            hex: "#67b77e",
-            imagenes: ["../img/onda/rojo.png"]
-        },
-        {
-            nombre: "Lavanda",
-            hex: "#98889e",
-            imagenes: ["../img/onda/verde.jpg"]
-        },
-            
-        ],
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/duo.jpeg"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/rojo.png"]},
+        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/core/core.jpeg"]},
+         ],
 
         linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
@@ -326,10 +274,13 @@ especificaciones: [
         descripcion: "Simple, cálida y versátil.",
        
         colores: [
+            {nombre: "Naranja", hex: "#de3c15", imagenes: ["../img/core/core.jpeg"]},
             {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/core/core.jpeg"]},
             {nombre: "Lavanda", hex: "#98889e",imagenes: ["../img/core/core.jpeg"]},
-            {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/core/core.jpeg"]}
-               ],
+            {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/core/core.jpeg"]},
+            {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/core/core.jpeg"]},
+            {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/core/core.jpeg"]}
+     ],
 
         linkMercadoPago: {
         retiro: "https://mpago.la/2Xm82LA",
