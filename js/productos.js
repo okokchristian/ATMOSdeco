@@ -59,11 +59,13 @@ const PRODUCTOS = [
     descripcion: "Curvas suaves que suman calma al espacio.",
 
     colores: [
-        {nombre: "Blanco", hex: "#f5f0e8",imagenes: ["../img/onda/onda.jpeg"]},
-        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/onda/verde.jpg"]},
-        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo.png"]},
-        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde.jpg"]},
-        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/verde.jpg"]},
+        {nombre: "Blanco", hex: "#f5f0e8",imagenes: ["../img/onda/blanco/Lamparas-19.webp", "../img/onda/blanco/Lamparas-17.webp", "../img/onda/blanco/Lamparas-16.webp", "../img/onda/blanco/Lamparas-18.webp" ]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/onda/rosa/Lamparas-15.webp", "../img/onda/rosa/Lamparas-13.webp", "../img/onda/rosa/Lamparas-14.webp"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo/Lamparas-3.webp", "../img/onda/rojo/Lamparas-2.webp", "../img/onda/rojo/Lamparas-1.webp"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde/Lamparas-12.webp", "../img/onda/verde/Lamparas-10.webp", "../img/onda/verde/Lamparas-11.webp"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/lavanda/Lamparas-9.webp", "../img/onda/lavanda/Lamparas-8.webp", "../img/onda/lavanda/Lamparas-7.webp" ]},
+        {nombre: "Naranja", hex: "#de3c15", imagenes: ["../img/onda/naranja/Lamparas-6.webp", "../img/onda/naranja/Lamparas-5.webp", "../img/onda/naranja/Lamparas-4.webp" ]},
+
     ],
 
     linkMercadoPago: {
