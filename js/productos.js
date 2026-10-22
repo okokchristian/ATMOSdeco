@@ -23,15 +23,14 @@ const INFO_SEGURIDAD = [
 // imagen: null → todavía falta sacar la foto (el modelo indica cuál fotografiar).
 // referencia: null → todavía no hay ninguna lámpara impresa en ese color.
 const COLORES_FILAMENTO = [
-    { nombre: "Arena",    hex: "#ae9684", referencia: { imagen: null,                  modelo: "Lámpara Duna Grande" } },
-    { nombre: "Azul",     hex: "#1c2aad", referencia: { imagen: null,                  modelo: "Lámpara Mini Duna" } },
-    { nombre: "Blanco",   hex: "#f5f0e8", referencia: { imagen: "../img/onda/onda.jpeg", modelo: "Lámpara Onda" } },
-    { nombre: "Rojo",     hex: "#de2323", referencia: { imagen: "../img/onda/rojo.png",  modelo: "Lámpara Onda" } },
-    { nombre: "Rosa",     hex: "#f74b95", referencia: null },
-    { nombre: "Lavanda",  hex: "#98889e", referencia: { imagen: null,                  modelo: "Lámpara Onda" } },
-    { nombre: "Verde",    hex: "#67b77e", referencia: { imagen: "../img/onda/verde.jpg", modelo: "Lámpara Onda" } },
-    { nombre: "Naranja",  hex: "#de3c15", referencia: null },
-
+    { nombre: "Arena",    hex: "#ae9684", referencia: { imagen: "../img/duna/arena/Lamparas-38.webp",   modelo: "Lámpara Duna" } },
+    { nombre: "Azul",     hex: "#1c2aad", referencia: { imagen: "../img/duna/azul/Lamparas-51.webp",    modelo: "Lámpara Mini Duna" } },
+    { nombre: "Blanco",   hex: "#f5f0e8", referencia: { imagen: "../img/onda/blanco/Lamparas-19.webp",  modelo: "Lámpara Onda" } },
+    { nombre: "Rojo",     hex: "#de2323", referencia: { imagen: "../img/onda/rojo/Lamparas-3.webp",     modelo: "Lámpara Onda" } },
+    { nombre: "Rosa",     hex: "#f74b95", referencia: { imagen: "../img/onda/rosa/Lamparas-15.webp",    modelo: "Lámpara Onda" } },
+    { nombre: "Lavanda",  hex: "#98889e", referencia: { imagen: "../img/onda/lavanda/Lamparas-9.webp",  modelo: "Lámpara Onda" } },
+    { nombre: "Verde",    hex: "#67b77e", referencia: { imagen: "../img/onda/verde/Lamparas-12.webp",   modelo: "Lámpara Onda" } },
+    { nombre: "Naranja",  hex: "#de3c15", referencia: { imagen: "../img/onda/naranja/Lamparas-6.webp",  modelo: "Lámpara Onda" } },
 ];
 
 const PRODUCTOS = [

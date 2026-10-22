@@ -404,58 +404,66 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
     let colorPedido = null;  // color elegido en el modal (null = se eligió uno con foto propia)
     let indiceActual = 0;
 
-    // Devuelve las fotos que hay que mostrar según el color elegido
-    function imagenesActuales() {
+      // Cuántas "fotos" hay para mostrar en la galería, según el color actual
+    function totalSlidesActuales() {
         if (colorPedido) {
-            return colorPedido.referencia && colorPedido.referencia.imagen
-                ? [colorPedido.referencia.imagen]
-                : [];
+            return (colorPedido.referencia && colorPedido.referencia.imagen) ? 2 : 1;
         }
-        return producto.colores[colorActual].imagenes;
+        return producto.colores[colorActual].imagenes.length;
     }
 
-    function renderGaleria() {
-        const imagenes = imagenesActuales();
+    // Muestra u oculta el rótulo "Referencia del color..." según qué slide se esté viendo
+    function actualizarBadgeReferencia() {
+        const esSlideDeReferencia = colorPedido && colorPedido.referencia && colorPedido.referencia.imagen && indiceActual === 1;
 
-        if (imagenes.length) {
-            track.innerHTML = imagenes.map(img => `<img src="${img}" alt="${producto.nombre}">`).join('');
-        } else {
-            // Color sin foto todavía: mostramos un recuadro del color
-            track.innerHTML = `
-                <div class="galeria-placeholder" style="background-color: ${colorPedido.hex};">
-                    <span>Foto próximamente</span>
-                </div>
-            `;
-        }
-
-        track.style.transform = 'translateX(0%)';
-        indiceActual = 0;
-
-        const dotsContainer = document.getElementById('galeria-dots');
-        const mostrarControles = imagenes.length > 1;
-
-        if (flechaIzq) flechaIzq.style.display = mostrarControles ? 'flex' : 'none';
-        if (flechaDer) flechaDer.style.display = mostrarControles ? 'flex' : 'none';
-
-        if (dotsContainer) {
-            dotsContainer.innerHTML = mostrarControles
-                ? imagenes.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')
-                : '';
-        }
-
-        // Etiqueta sobre la foto cuando es un color a pedido
-        if (colorPedido) {
-            badgeReferencia.textContent = colorPedido.referencia
-                ? `Referencia del color · ${colorPedido.referencia.modelo}`
-                : 'Muestra del color';
+        if (esSlideDeReferencia) {
+            badgeReferencia.textContent = `Referencia del color · ${colorPedido.referencia.modelo}`;
             badgeReferencia.classList.add('visible');
         } else {
             badgeReferencia.classList.remove('visible');
         }
     }
 
-    // Actualiza el texto "Color: ..." y el color que viaja con la compra
-    function actualizarColorElegido() {
+    function renderGaleria() {
+        let html = '';
+        let totalSlides;
+
+        if (colorPedido) {
+            // Primera slide: siempre el bloque de color sólido (nunca la lámpara real, para no confundir)
+            html += `<div class="galeria-placeholder" style="background-color: ${colorPedido.hex};"></div>`;
+
+            // Segunda slide (si existe foto): la referencia real, deslizable
+            if (colorPedido.referencia && colorPedido.referencia.imagen) {
+                html += `<img src="${colorPedido.referencia.imagen}" alt="Referencia de color ${colorPedido.nombre}">`;
+            }
+
+            totalSlides = totalSlidesActuales();
+        } else {
+            const imagenes = producto.colores[colorActual].imagenes;
+            html = imagenes.map(img => `<img src="${img}" alt="${producto.nombre}">`).join('');
+            totalSlides = imagenes.length;
+        }
+
+        track.innerHTML = html;
+        track.style.transform = 'translateX(0%)';
+        indiceActual = 0;
+
+        const dotsContainer = document.getElementById('galeria-dots');
+        const mostrarControles = totalSlides > 1;
+
+        if (flechaIzq) flechaIzq.style.display = mostrarControles ? 'flex' : 'none';
+        if (flechaDer) flechaDer.style.display = mostrarControles ? 'flex' : 'none';
+
+        if (dotsContainer) {
+            dotsContainer.innerHTML = mostrarControles
+                ? Array.from({ length: totalSlides }, (_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')
+                : '';
+        }
+
+        actualizarBadgeReferencia();
+    }
+
+        function actualizarColorElegido() {
         const nombre = textoColor(colorPedido ? colorPedido.nombre : producto.colores[colorActual].nombre);
 
         colorElegidoTexto.innerHTML = colorPedido
@@ -468,11 +476,12 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
     }
 
     function irAFoto(index) {
-        const totalFotos = imagenesActuales().length;
+        const totalFotos = totalSlidesActuales();
         if (totalFotos < 2) return;
         indiceActual = (index + totalFotos) % totalFotos;
         track.style.transform = `translateX(-${indiceActual * 100}%)`;
         document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === indiceActual));
+        actualizarBadgeReferencia();
     }
 
     if (flechaIzq) flechaIzq.addEventListener('click', () => irAFoto(indiceActual - 1));
