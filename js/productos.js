@@ -65,8 +65,7 @@ const PRODUCTOS = [
         {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde/Lamparas-12.webp", "../img/onda/verde/Lamparas-10.webp", "../img/onda/verde/Lamparas-11.webp"]},
         {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/lavanda/Lamparas-9.webp", "../img/onda/lavanda/Lamparas-8.webp", "../img/onda/lavanda/Lamparas-7.webp" ]},
         {nombre: "Naranja", hex: "#de3c15", imagenes: ["../img/onda/naranja/Lamparas-6.webp", "../img/onda/naranja/Lamparas-5.webp", "../img/onda/naranja/Lamparas-4.webp" ]},
-
-    ],
+      ],
 
     linkMercadoPago: {
         retiro: "https://mpago.la/1q55z6i",
