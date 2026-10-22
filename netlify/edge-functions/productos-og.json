@@ -1,0 +1,10 @@
+[
+    { "id": "lampara-onda",     "nombre": "Lámpara Onda",     "imagen": "/img/og/onda.jpg",     "descripcion": "Curvas suaves que dibujan la luz en líneas onduladas." },
+    { "id": "lampara-duo",      "nombre": "Lámpara Duo",      "imagen": "/img/og/duo.jpg",      "descripcion": "Estructura y calidez en un mismo diseño." },
+    { "id": "lampara-mini-duo", "nombre": "Lámpara Mini Duo", "imagen": "/img/og/miniduo.jpg",  "descripcion": "Estructura y calidez en un mismo diseño." },
+    { "id": "lampara-bloom",    "nombre": "Lámpara Bloom",    "imagen": "/img/og/bloom.jpg",    "descripcion": "Luz suave con un aire natural y cálido." },
+    { "id": "lampara-duna",     "nombre": "Lámpara Duna",     "imagen": "/img/og/duna.jpg",     "descripcion": "Calidez envolvente, la sensación de un atardecer dentro de casa." },
+    { "id": "lampara-mini-duna","nombre": "Lámpara Mini Duna","imagen": "/img/og/miniduna.jpg", "descripcion": "Calidez envolvente, la sensación de un atardecer dentro de casa." },
+    { "id": "lampara-core",     "nombre": "Lámpara Core",     "imagen": "/img/og/core.jpg",     "descripcion": "Simple, cálida y versátil." }
+]
+
