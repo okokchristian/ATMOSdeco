@@ -19,6 +19,22 @@ if (!producto) {
 } else {
     document.title = `${producto.nombre} — ATMOS deco`;
 
+        // ================= SEO POR PRODUCTO =================
+    const urlCanonica = `https://atmosdeco.uy/productos.html?id=${producto.id}`;
+
+    const metaDescripcion = document.querySelector('meta[name="description"]');
+    if (metaDescripcion) {
+        metaDescripcion.setAttribute('content', `${producto.nombre}: ${producto.descripcion} Hecha a pedido en bioplástico, en Montevideo, Uruguay.`);
+    }
+
+    let linkCanonico = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonico) {
+        linkCanonico = document.createElement('link');
+        linkCanonico.setAttribute('rel', 'canonical');
+        document.head.appendChild(linkCanonico);
+    }
+    linkCanonico.setAttribute('href', urlCanonica);
+
     // ================= COLORES A PEDIDO =================
     // Colores de filamento que este modelo NO tiene con foto propia
     const nombresConFoto = producto.colores.map(c => c.nombre);
