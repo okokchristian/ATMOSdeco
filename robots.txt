@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /compartir/
+Disallow: /graciasaprobado.html
+Disallow: /pagopendiente.html
+Disallow: /pagorechazado.html
+
+Sitemap: https://atmosdeco.uy/sitemap.xml
