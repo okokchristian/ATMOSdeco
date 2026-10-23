@@ -365,7 +365,7 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
     const btnCompartir = document.getElementById('btn-compartir');
 
     btnCompartir.addEventListener('click', async () => {
-        const urlProducto = window.location.href;
+        const urlProducto = `https://atmosdeco.uy/compartir/producto?id=${producto.id}`;
         const textoCompartir = `${producto.nombre} — ATMOS deco`;
 
         if (navigator.share) {
