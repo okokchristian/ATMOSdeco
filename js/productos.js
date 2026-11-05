@@ -198,7 +198,7 @@ especificaciones: [
         descripcion: "La lámpara Duna Calidez es envolvente, la sensación de un atardecer dentro de casa.",
         
         colores: [
-        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-48.webp", "../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
         {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp"]},
         {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp" ]},
         {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas-30.webp"]},
@@ -235,7 +235,7 @@ especificaciones: [
         descripcion: "Calidez envolvente, la sensación de un atardecer dentro de casa.",
         
          colores: [
-        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-48.webp", "../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
         {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp"]},
         {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp" ]},
         {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas-30.webp"]},
