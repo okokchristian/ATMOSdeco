@@ -126,8 +126,8 @@ if (!producto) {
     <p class="paso-titulo"><i class="bi bi-box-seam"></i> ¿Cómo querés recibirlo?</p>
 
         <div class="entrega-tabs">
-            <button class="entrega-tab" data-tipo="retiro">Retiro</button>
-            <button class="entrega-tab" data-tipo="envio">Envío</button>
+            <button class="entrega-tab" data-tipo="retiro"><i class="bi bi-geo-alt"></i> Retiro en Palermo</button>
+            <button class="entrega-tab" data-tipo="envio"><i class="bi bi-truck"></i> Envío a domicilio</button>
         </div>
 
         <p class="entrega-info" id="entrega-info">

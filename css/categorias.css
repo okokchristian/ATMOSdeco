@@ -1017,6 +1017,10 @@
 }
 
 .entrega-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
     flex: 1;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.08);
@@ -1032,7 +1036,9 @@
 .entrega-tab.active {
     background: #cf9a5c;
     border-color: #cf9a5c;
-    color: #fff;
+    color: #1a1a1a;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(207, 154, 92, 0.35);
 }
 
 .entrega-info {
