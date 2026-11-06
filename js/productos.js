@@ -58,12 +58,12 @@ const PRODUCTOS = [
     descripcion: "Curvas suaves que suman calma al espacio.",
 
     colores: [
-        {nombre: "Blanco", hex: "#f5f0e8",imagenes: ["../img/onda/blanco/Lamparas-19.webp", "../img/onda/blanco/Lamparas-17.webp", "../img/onda/blanco/Lamparas-16.webp", "../img/onda/blanco/Lamparas-18.webp" ]},
-        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/onda/rosa/Lamparas-15.webp", "../img/onda/rosa/Lamparas-13.webp", "../img/onda/rosa/Lamparas-14.webp"]},
-        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo/Lamparas-3.webp", "../img/onda/rojo/Lamparas-2.webp", "../img/onda/rojo/Lamparas-1.webp"]},
-        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde/Lamparas-12.webp", "../img/onda/verde/Lamparas-10.webp", "../img/onda/verde/Lamparas-11.webp"]},
+        {nombre: "Blanco", hex: "#f5f0e8",imagenes: ["../img/onda/blanco/Lamparas-19.webp", "../img/onda/blanco/Lamparas-16.webp", "../img/onda/blanco/Lamparas2-18.webp" ]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/onda/rosa/Lamparas-15.webp", "../img/onda/rosa/Lamparas-13.webp", "../img/onda/rosa/Lamparas2-20.webp", "../img/onda/rosa/Lamparas2-19.webp"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/onda/rojo/Lamparas-3.webp", "../img/onda/rojo/Lamparas-2.webp", "../img/onda/rojo/Lamparas2-28.webp", "../img/onda/rojo/Lamparas2-27.webp"]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/onda/verde/Lamparas-12.webp", "../img/onda/verde/Lamparas-11.webp", "../img/onda/verde/Lamparas2-26.webp", "../img/onda/verde/Lamparas2-25.webp"]},
         {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/onda/lavanda/Lamparas-9.webp", "../img/onda/lavanda/Lamparas-8.webp", "../img/onda/lavanda/Lamparas-7.webp" ]},
-        {nombre: "Naranja", hex: "#de3c15", imagenes: ["../img/onda/naranja/Lamparas-6.webp", "../img/onda/naranja/Lamparas-5.webp", "../img/onda/naranja/Lamparas-4.webp" ]},
+        {nombre: "Naranja", hex: "#de3c15", imagenes: ["../img/onda/naranja/Lamparas-6.webp", "../img/onda/naranja/Lamparas-4.webp", "../img/onda/naranja/Lamparas2-24.webp", "../img/onda/naranja/Lamparas2-21.webp" ]},
       ],
 
     linkMercadoPago: {
@@ -96,10 +96,10 @@ especificaciones: [
     descripcion: "Estructura y calidez en un mismo diseño.",
 
         colores: [
-        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/lavanda/Lamparas-63.webp", "../img/duo/lavanda/Lamparas-61.webp", "../img/duo/lavanda/Lamparas-62.webp", "../img/duo/lavanda/Lamparas-55.webp", "../img/duo/lavanda/Lamparas-54.webp"]},
-        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/duo/rojo/Lamparas-65.webp", "../img/duo/rojo/Lamparas-25.webp", "../img/duo/rojo/Lamparas-69.webp", "../img/duo/rojo/Lamparas-29.webp", "../img/duo/rojo/Lamparas-27.webp"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/lavanda/Lamparas-63.webp", "../img/duo/lavanda/Lamparas-62.webp", "../img/duo/lavanda/Lamparas2-30.webp", "../img/duo/lavanda/Lamparas2-29.webp"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/duo/rojo/Lamparas-65.webp", "../img/duo/rojo/Lamparas-29.webp", "../img/duo/rojo/Lamparas-27.webp", "../img/duo/rojo/Lamparas2-1.webp", "../img/duo/rojo/Lamparas2-32.webp"]},
         {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duo/verde/Lamparas-60.webp", "../img/duo/verde/Lamparas-57.webp", "../img/duo/verde/Lamparas-56.webp", "../img/duo/verde/Lamparas-55.webp", "../img/duo/verde/Lamparas-54.webp"]},
-        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/arena/Lamparas-23.webp", "../img/duo/arena/Lamparas-74.webp", "../img/duo/arena/Lamparas-20.webp",]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/arena/Lamparas-23.webp", "../img/duo/arena/Lamparas-74.webp", "../img/duo/arena/Lamparas-20.webp", "../img/duo/arena/Lamparas2-2.webp"]},
             
         ],
         
@@ -133,10 +133,10 @@ especificaciones: [
         descripcion: "Estructura y calidez en un mismo diseño.",
        
         colores: [
-        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/lavanda/Lamparas-63.webp", "../img/duo/lavanda/Lamparas-61.webp", "../img/duo/lavanda/Lamparas-62.webp", "../img/duo/lavanda/Lamparas-55.webp", "../img/duo/lavanda/Lamparas-54.webp"]},
-        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/duo/rojo/Lamparas-65.webp", "../img/duo/rojo/Lamparas-25.webp", "../img/duo/rojo/Lamparas-69.webp", "../img/duo/rojo/Lamparas-29.webp", "../img/duo/rojo/Lamparas-27.webp"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duo/lavanda/Lamparas-63.webp", "../img/duo/lavanda/Lamparas-62.webp", "../img/duo/lavanda/Lamparas2-30.webp", "../img/duo/lavanda/Lamparas2-29.webp"]},
+        {nombre: "Rojo", hex: "#de2323", imagenes: ["../img/duo/rojo/Lamparas-65.webp", "../img/duo/rojo/Lamparas-29.webp", "../img/duo/rojo/Lamparas-27.webp", "../img/duo/rojo/Lamparas2-1.webp", "../img/duo/rojo/Lamparas2-32.webp"]},
         {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duo/verde/Lamparas-60.webp", "../img/duo/verde/Lamparas-57.webp", "../img/duo/verde/Lamparas-56.webp", "../img/duo/verde/Lamparas-55.webp", "../img/duo/verde/Lamparas-54.webp"]},
-        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/arena/Lamparas-23.webp", "../img/duo/arena/Lamparas-74.webp", "../img/duo/arena/Lamparas-20.webp",]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duo/arena/Lamparas-23.webp", "../img/duo/arena/Lamparas-74.webp", "../img/duo/arena/Lamparas-20.webp", "../img/duo/arena/Lamparas2-2.webp"]},
             
         ],
 
@@ -198,12 +198,12 @@ especificaciones: [
         descripcion: "La lámpara Duna Calidez es envolvente, la sensación de un atardecer dentro de casa.",
         
         colores: [
-        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
-        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp"]},
-        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp" ]},
-        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas-30.webp"]},
-        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/duna/azul/Lamparas-51.webp", "../img/duna/azul/Lamparas-50.webp" ]},
-        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/duna/rosa/Lamparas-34.webp", "../img/duna/rosa/Lamparas-33.webp"]},
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-49.webp", "../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas2-12.webp"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp", "../img/duna/lavanda/Lamparas2-11.webp"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp", "../img/duna/arena/Lamparas2-3.webp" ]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas2-4.webp", "../img/duna/verde/Lamparas2-14.webp"]},
+        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/duna/azul/Lamparas-51.webp", "../img/duna/azul/Lamparas-50.webp", "../img/duna/azul/Lamparas2-13.webp"]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/duna/rosa/Lamparas-34.webp", "../img/duna/rosa/Lamparas-33.webp", "../img/duna/rosa/Lamparas2-9.webp", "../img/duna/rosa/Lamparas2-10.webp"]},
          ],
         
         linkMercadoPago: {
@@ -235,12 +235,12 @@ especificaciones: [
         descripcion: "Calidez envolvente, la sensación de un atardecer dentro de casa.",
         
          colores: [
-        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas-49.webp"]},
-        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp"]},
-        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp" ]},
-        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas-30.webp"]},
-        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/duna/azul/Lamparas-51.webp", "../img/duna/azul/Lamparas-50.webp" ]},
-        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/duna/rosa/Lamparas-34.webp", "../img/duna/rosa/Lamparas-33.webp"]},
+        {nombre: "Blanco", hex: "#f5f0e8", imagenes: ["../img/duna/blanco/Lamparas-49.webp", "../img/duna/blanco/Lamparas-47.webp", "../img/duna/blanco/Lamparas2-12.webp"]},
+        {nombre: "Lavanda", hex: "#98889e", imagenes: ["../img/duna/lavanda/Lamparas-53.webp", "../img/duna/lavanda/Lamparas-52.webp", "../img/duna/lavanda/Lamparas2-11.webp"]},
+        {nombre: "Arena", hex: "#ae9684", imagenes: ["../img/duna/arena/Lamparas-38.webp", "../img/duna/arena/Lamparas-76.webp", "../img/duna/arena/Lamparas-35.webp", "../img/duna/arena/Lamparas2-3.webp" ]},
+        {nombre: "Verde", hex: "#67b77e", imagenes: ["../img/duna/verde/Lamparas-32.webp", "../img/duna/verde/Lamparas-31.webp", "../img/duna/verde/Lamparas2-4.webp", "../img/duna/verde/Lamparas2-14.webp"]},
+        {nombre: "Azul", hex: "#1c2aad", imagenes: ["../img/duna/azul/Lamparas-51.webp", "../img/duna/azul/Lamparas-50.webp", "../img/duna/azul/Lamparas2-13.webp"]},
+        {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/duna/rosa/Lamparas-34.webp", "../img/duna/rosa/Lamparas-33.webp", "../img/duna/rosa/Lamparas2-9.webp", "../img/duna/rosa/Lamparas2-10.webp"]},
          ],
 
         linkMercadoPago: {
@@ -274,8 +274,8 @@ especificaciones: [
         descripcion: "Simple, cálida y versátil.",
        
         colores: [
-            {nombre: "Lavanda", hex: "#98889e",imagenes: ["../img/core/lavanda/Lamparas-39.webp", "../img/core/lavanda/Lamparas-40.webp", "../img/core/lavanda/Lamparas-41.webp"]},
-            {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/core/rosa/Lamparas-45.webp", "../img/core/rosa/Lamparas-42.webp", "../img/core/rosa/Lamparas-44.webp"]},
+            {nombre: "Lavanda", hex: "#98889e",imagenes: ["../img/core/lavanda/Lamparas-39.webp", "../img/core/lavanda/Lamparas-40.webp", "../img/core/lavanda/Lamparas2-8.webp", "../img/core/lavanda/Lamparas2-36.webp"]},
+            {nombre: "Rosa", hex: "#f74b95", imagenes: ["../img/core/rosa/Lamparas-45.webp", "../img/core/rosa/Lamparas-42.webp", "../img/core/rosa/Lamparas2-7.webp", "../img/core/rosa/Lamparas2-34.webp", "../img/core/rosa/Lamparas2-35.webp"]},
      ],
 
         linkMercadoPago: {
