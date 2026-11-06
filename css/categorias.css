@@ -923,6 +923,20 @@
     white-space: nowrap;
 }
 
+.paso-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.paso-titulo i {
+    font-size: 1.05rem;
+    color: #cf9a5c;
+}
+
 /*====================== SCROLL ENTRE FOTOS=========================*/
 
 .producto-detalle-img {
@@ -1022,9 +1036,9 @@
 }
 
 .entrega-info {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 300;
-    color: hsla(0, 7%, 97%, 0.55);
+    color: hsla(0, 7%, 97%, 0.75);
     line-height: 1.5;
     margin-bottom: 1.3rem;
 }
@@ -1747,4 +1761,24 @@
         padding: 0.15rem 0.8rem;
         font-size: 0.78rem;
     }
+}
+.galeria-contador {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50px;
+    padding: 0.5rem 0.75rem;
+    backdrop-filter: blur(8px);
+}
+
+/* Ocultamos el "01" fijo viejo */
+.producto-detalle-img::before {
+    display: none;
 }

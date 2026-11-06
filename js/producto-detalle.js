@@ -55,6 +55,7 @@ if (!producto) {
             </div>
 
             <div class="galeria-referencia" id="galeria-referencia"></div>
+            <div class="galeria-contador" id="galeria-contador"></div>
 
             ${producto.colores[0].imagenes.length > 1 ? `
                 <button class="galeria-flecha galeria-flecha-izq" id="flecha-izq" aria-label="Anterior">
@@ -122,14 +123,18 @@ if (!producto) {
         <div class="producto-divisor"></div>
 
 
-    <p class="entrega-info" id="entrega-info">
-                Elegí una opción de entrega para continuar con la compra.
-            </p>
+    <p class="paso-titulo"><i class="bi bi-box-seam"></i> ¿Cómo querés recibirlo?</p>
 
-            <div class="entrega-tabs">
-                <button class="entrega-tab" data-tipo="retiro">Retiro</button>
-                <button class="entrega-tab" data-tipo="envio">Envío</button>
-            </div>
+        <div class="entrega-tabs">
+            <button class="entrega-tab" data-tipo="retiro">Retiro</button>
+            <button class="entrega-tab" data-tipo="envio">Envío</button>
+        </div>
+
+        <p class="entrega-info" id="entrega-info">
+            Elegí una opción de entrega para continuar con la compra.
+        </p>
+
+            <p class="paso-titulo"><i class="bi bi-credit-card"></i> ¿Cómo preferís pagar?</p>
 
             <div class="producto-botones">
                 <button class="btn-comprar btn-transferencia btn-disabled"
@@ -414,6 +419,7 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
     const colorDots = document.querySelectorAll('.color-dot');
     const colorElegidoTexto = document.getElementById('color-elegido');
     const badgeReferencia = document.getElementById('galeria-referencia');
+    const contador = document.getElementById('galeria-contador');
     const btnColoresPedido = document.getElementById('btn-colores-pedido');
 
     let colorActual = 0;     // índice del color con foto propia
@@ -438,6 +444,16 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
         } else {
             badgeReferencia.classList.remove('visible');
         }
+    }
+
+        function actualizarContador() {
+        const total = totalSlidesActuales();
+        if (total < 2) {
+            contador.style.display = 'none';
+            return;
+        }
+        contador.style.display = 'block';
+        contador.textContent = `${String(indiceActual + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
     }
 
     function renderGaleria() {
@@ -477,6 +493,7 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
         }
 
         actualizarBadgeReferencia();
+        actualizarContador();
     }
 
         function actualizarColorElegido() {
@@ -533,6 +550,8 @@ document.getElementById('descripcion-texto').textContent = producto.descripcion;
             renderGaleria();
         });
     });
+
+    actualizarContador();
 
     // ================= MODAL COLORES A PEDIDO (funcionamiento) =================
     const modalColores = document.getElementById('modal-colores');
