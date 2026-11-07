@@ -130,9 +130,9 @@ if (!producto) {
             <button class="entrega-tab" data-tipo="envio"><i class="bi bi-truck"></i> Envío a domicilio</button>
         </div>
 
-        <p class="entrega-info" id="entrega-info">
-            Elegí una opción de entrega para continuar con la compra.
-        </p>
+        <p class="entrega-info" id="entrega-info"></p>
+
+        <div class="producto-divisor"></div>
 
             <p class="paso-titulo"><i class="bi bi-credit-card"></i> ¿Cómo preferís pagar?</p>
 
@@ -143,9 +143,7 @@ if (!producto) {
                         data-precio-numero="${producto.precioNumero}"
                         data-color="${textoColor(producto.colores[0].nombre)}"
                         data-costo-envio="0">
-                    Transferencia bancaria
-                    <img src="../img/itau.svg.png" alt="" class="banco-logo-btn">
-                    <img src="../img/prex.png" alt="" class="banco-logo-btn">
+<i class="bi bi-bank"></i> Transferencia bancaria
                 </button>
 
                                 <a href="#" class="btn-comprar btn-mp btn-disabled" id="btn-mp" target="_blank" rel="noopener" aria-label="Pagar con Mercado Pago">
@@ -154,7 +152,7 @@ if (!producto) {
             </div>
 
             <details class="info-seguridad">
-                <summary>Información y seguridad</summary>
+                <summary><span><i class="bi bi-shield-check"></i> Información y seguridad</span></summary>
                 <div class="info-seguridad-contenido">
                     <h4>Especificaciones eléctricas</h4>
                     <dl class="info-electrica">

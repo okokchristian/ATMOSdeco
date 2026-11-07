@@ -9,7 +9,7 @@
 
     background-image:
         linear-gradient(rgba(20, 19, 19, 0.611), /*arriba*/ rgba(0, 0, 0, 0.186)), /*abajo*/
-        url('../img/Lamparas-66.jpg');
+        url('../img/Lamparas-71.jpg');
 
     background-size: cover, cover;
     background-position: center, center;
@@ -362,9 +362,9 @@
 
 .producto-botones {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.7rem;
-    margin-top: 1.2rem;
+    margin-top: 0.9rem;
 }
 
 .btn-comprar {
@@ -372,7 +372,8 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 10px 20px;
+    padding: 0 20px;
+    min-height: 46px;
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -380,6 +381,7 @@
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    
 }
 
 .btn-mp {
@@ -399,17 +401,18 @@
 }
 
 .btn-transferencia {
-    background: #d44e00;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: hsla(0, 7%, 97%, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .btn-transferencia:hover {
-    background: #8a3400;
-    border-color: #8a3400;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
-
 /*------------------- DETALLE DE PRODUCTO DENTRO DE CARD DE PRODUCTO ---------------------*/
 
 .producto-detalle {
@@ -423,13 +426,13 @@
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background: rgba(255, 255, 255, 0.039);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #ad7a581a;
+    border: 1px solid rgba(162, 151, 151, 0.441);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 20px 60px s(0, 0, 0, 0.25);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
 }
 
 .producto-detalle-img {
@@ -470,13 +473,13 @@
 }
 
 .producto-detalle-info {
-    padding: 2.2rem 2.5rem 2.5rem;
+    padding: 2rem 2.4rem 2rem;
 }
 
 .producto-detalle-info::before { /*TEXTO COLECCIÓN*/
     content: "COLECCIÓN";
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
     font-size: 0.70rem;
     font-weight: 500;
     letter-spacing: 0.3em;
@@ -485,8 +488,8 @@
 
 .producto-detalle-info h1 {
     position: relative;
-    margin-bottom: 1rem;
-    font-size: 2.3rem;
+    margin-bottom: 0.7rem;
+    font-size: 2rem;
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: -0.04em;
@@ -568,7 +571,7 @@
 }
 
 .producto-detalle-descripcion {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.1rem;
 }
 
 .ver-mas-inline {
@@ -927,7 +930,7 @@
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.85);
 }
@@ -1013,7 +1016,7 @@
 .entrega-tabs {
     display: flex;
     gap: 0.6rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
 }
 
 .entrega-tab {
@@ -1022,12 +1025,13 @@
     justify-content: center;
     gap: 0.45rem;
     flex: 1;
-    padding: 8px 16px;
+    padding: 0 16px;
+    min-height: 46px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 30px;
+    border-radius: 8px;
     color: hsla(0, 7%, 97%, 0.7);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
     transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
@@ -1046,12 +1050,15 @@
     font-weight: 300;
     color: hsla(0, 7%, 97%, 0.75);
     line-height: 1.5;
-    margin-bottom: 1.3rem;
+    margin-bottom: 0.9rem;
 }
 
+.entrega-info:empty {
+    display: none;
+}
 .color-selector {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .color-selector-label {
@@ -1073,8 +1080,8 @@
 }
 
 .color-dot {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
@@ -1088,7 +1095,7 @@
 
 .color-dot.active {
     border-color: #cf9a5c;
-    box-shadow: 0 0 0 2px rgba(255, 89, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(207, 154, 92, 0.35);
 }
 /*======================= 404 =======================*/
 
@@ -1588,7 +1595,7 @@
 /* ================== INFORMACIÓN Y SEGURIDAD (acordeón) ================== */
 
 .info-seguridad {
-    margin-top: 1.4rem;
+    margin-top: 1.2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -1605,6 +1612,11 @@
     cursor: pointer;
     list-style: none;          /* saca el triangulito del navegador */
     transition: color 0.3s;
+}
+
+.info-seguridad summary i {
+    margin-right: 0.5rem;
+    color: #cf9a5c;
 }
 
 .info-seguridad summary::-webkit-details-marker {
@@ -1704,11 +1716,11 @@
 
 .producto-divisor {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    margin: 1rem 0;
+    margin: 1.1rem 0;
 }
 
 .caracteristicas-diseno {
-    margin: 1.3rem 0;
+    margin: 1rem 0;
 }
 
 .caracteristicas-diseno summary {
@@ -1755,8 +1767,8 @@
 }
 @media (max-width: 600px) {
     .color-dot {
-        width: 22px;
-        height: 22px;
+        width: 26px;
+        height: 26px;
     }
 
     .color-opciones {
@@ -1787,4 +1799,33 @@
 /* Ocultamos el "01" fijo viejo */
 .producto-detalle-img::before {
     display: none;
+}
+.producto-botones .btn-comprar {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 400px) {
+    .producto-botones {
+        flex-direction: column;
+    }
+}
+
+.seccion-rotulo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.4rem 0 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #cf9a5c;
+}
+
+.seccion-rotulo::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
 }
