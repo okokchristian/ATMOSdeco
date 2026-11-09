@@ -426,7 +426,7 @@
     padding: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background: #cc9b7a1d;
+    background: #b78c701d;
     border: 1px solid rgba(162, 151, 151, 0.441);
     border-radius: 24px;
     overflow: hidden;
@@ -1729,10 +1729,11 @@
     gap: 0.6rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #cf9a5c;
+    color: hsla(0, 7%, 97%, 0.721);
     cursor: pointer;
     list-style: none;
     transition: color 0.3s;
+    justify-content: space-between;
 }
 
 .caracteristicas-diseno summary::-webkit-details-marker {
@@ -1760,6 +1761,12 @@
 .caracteristicas-diseno .producto-especificaciones {
     margin-top: 0.8rem;
 }
+
+.caracteristicas-diseno summary i {
+    margin-right: 0.5rem;
+    color: #cf9a5c;
+}
+
 @media (min-width: 992px) {
     .producto-detalle-grid {
         max-width: 1040px;

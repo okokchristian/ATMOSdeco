@@ -111,18 +111,6 @@ if (!producto) {
 
         <div class="producto-divisor"></div>
 
-    <details class="caracteristicas-diseno">
-    <summary>Ver características del diseño</summary>
-    <div class="producto-especificaciones">
-        <ul class="especificaciones-lista">
-            ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
-        </ul>
-    </div>
-</details>
-
-        <div class="producto-divisor"></div>
-
-
     <p class="paso-titulo"><i class="bi bi-box-seam"></i> ¿Cómo querés recibirlo?</p>
 
         <div class="entrega-tabs">
@@ -150,6 +138,17 @@ if (!producto) {
                     <img src="../img/mercadopago.png" alt="Mercado Pago" class="banco-logo-btn">
                 </a>
             </div>
+            
+        <div class="producto-divisor"></div>
+
+
+             <details class="caracteristicas-diseno">
+        <summary><span><i class="bi bi-lightbulb"></i> Ver características del diseño</span></summary>    <div class="producto-especificaciones">
+        <ul class="especificaciones-lista">
+            ${producto.especificaciones.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    </div>
+</details>
 
             <details class="info-seguridad">
                 <summary><span><i class="bi bi-shield-check"></i> Información y seguridad</span></summary>
