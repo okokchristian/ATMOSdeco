@@ -9,7 +9,7 @@
 
     background-image:
         linear-gradient(rgba(20, 19, 19, 0.611), /*arriba*/ rgba(0, 0, 0, 0.186)), /*abajo*/
-        url('../img/Lamparas-71.jpg');
+        url('../img/Lamparas-71.webp');
 
     background-size: cover, cover;
     background-position: center, center;
