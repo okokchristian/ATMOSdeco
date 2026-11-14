@@ -58,9 +58,11 @@ export default async (req) => {
             Authorization: `Bearer ${process.env.MP_ACCESS_TOKEN}`,
         },
         body: JSON.stringify({
-            items: [{
-                title: `${producto.nombre} - ${color}`,
-                description: envio.texto,
+                items: [{
+                id: datos.id,
+                title: `${producto.nombre} - ${color} (${envio.texto})`,
+                description: `${producto.nombre}: lámpara de diseño impresa en 3D en bioplástico PLA, color ${color}`,
+                category_id: 'home',
                 quantity: 1,
                 unit_price: producto.precio + envio.costo,
                 currency_id: 'UYU',
