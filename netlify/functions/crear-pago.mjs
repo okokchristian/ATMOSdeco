@@ -45,6 +45,11 @@ export default async (req) => {
     const producto = PRODUCTOS[datos.id];
     const envio = ENVIOS[datos.entrega];
     const color = String(datos.color || '').slice(0, 60);
+    const colorRef = color
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    .slice(0, 20) || 'sin-color';
+    
 
     if (!producto || !envio) {
         return Response.json({ error: 'Producto o entrega no válidos' }, { status: 400 });
@@ -75,8 +80,7 @@ export default async (req) => {
             auto_return: 'approved',
             notification_url: `${SITIO}/.netlify/functions/webhook-mp`,
             statement_descriptor: 'ATMOS DECO',
-            external_reference: `${datos.id} | ${color} | ${datos.entrega}`,
-        }),
+            external_reference: `${datos.id}_${colorRef}_${datos.entrega}`,        }),
     });
 
     const pago = await respuesta.json();
