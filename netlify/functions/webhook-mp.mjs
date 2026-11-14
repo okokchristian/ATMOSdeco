@@ -69,11 +69,14 @@ export default async (req) => {
 
         const pago = await respuesta.json();
 
+               // 3. Ordenar los datos para la planilla.
         //    external_reference lo armamos en crear-pago: "id_color_entrega"
         //    (los pagos viejos usaban "id | color | entrega", también los entendemos)
         const ref = pago.external_reference || '';
         const partes = ref.includes(' | ') ? ref.split(' | ') : ref.split('_');
         const entregaClave = partes[2];
+        const titulo = pago.additional_info?.items?.[0]?.title || pago.description || '';
+        const tipoPago = TIPOS_DE_PAGO[pago.payment_type_id] || pago.payment_type_id || '';
 
         const datos = {
             clave:    process.env.SHEETS_CLAVE,
