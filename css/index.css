@@ -38,7 +38,7 @@ body {
 
     background-image:
         linear-gradient(rgba(20, 19, 19, 0.611), /*arriba*/ rgba(0, 0, 0, 0.186)), /*abajo*/
-        url('../img/Lamparas-75.webp');
+        url('../img/Copia-Lamparas-75\ copia.png');
 
     background-size: cover, cover;
     background-position: center, center;
@@ -256,19 +256,27 @@ body.nav-hidden .nav-links {
 
 .hero-content {  /*todo el texto*/
     position: absolute;
-    top: 55%;
-    left: 50%;
+    top: 50%;
+    left: calc(4.75% + 300px);
     transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 900px;
+    text-align: left;
+    width: 600px;           
+    max-width: 90vw;      
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* antes: last baseline */
     gap: 1.5rem;
     opacity: 0;
     animation: fadeSlide 1.6s ease-out 0.3s forwards;
 }
 
+@media (max-width: 768px) {
+    .hero-content {
+        left: 50%;         /* centrado en la pantalla */
+        width: 88vw;       /* deja un margen de 6vw a cada lado */
+        max-width: 420px;
+    }
+}
 
 .hero h1 {
     font-size: clamp(2.3rem, 8vw, 4rem);
@@ -298,15 +306,15 @@ body.nav-hidden .nav-links {
 .btn-verproductos {
     background-color: #cf9a5c;
     color: #fff;
-    padding: 12px 28px;
-    margin-top: 100px;
+    padding: 12px 28px; /*tamaño*/
+    margin-top: 50px;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 500;
     text-decoration: none;
     display: inline-block;
     transition: background-color .3s ease, transform .2s ease;
-} 
+}
 
 /* boton hver suave (efecto) */
 .btn-verproductos:hover {
